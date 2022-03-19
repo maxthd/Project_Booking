@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-5.1.49-bin">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/swingx-all-1.6.4.jar/swingx-all-1.6.4.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/mysql-connector-java-5.1.49-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
