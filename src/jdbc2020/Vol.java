@@ -1,7 +1,6 @@
 package jdbc2020;
 
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 
 
 public class Vol {

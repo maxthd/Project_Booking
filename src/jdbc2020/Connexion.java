@@ -16,7 +16,7 @@ public class Connexion {
 
     private final Connection conn;
     private final Statement stmt;
-    private PreparedStatement prepared_stmt;
+    private PreparedStatement param_stmt;
     private ResultSet rset;
 
     /**CES ATTRIBUTS SONT USELESS*/
@@ -56,11 +56,11 @@ public class Connexion {
     //Retourne un entier unique correspondant à la requete(avec paramètre)
     public int fill_int_param(String requete, int index) throws SQLException {
 
-        prepared_stmt =conn.prepareStatement(requete);
-        prepared_stmt.setInt(1, index);
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, index);
 
         // récupération de l'ordre de la requete
-        rset = prepared_stmt.executeQuery();
+        rset = param_stmt.executeQuery();
 
         // tant qu'il reste une ligne
         while (rset.next()) {
@@ -74,11 +74,11 @@ public class Connexion {
     //Retourne un String unique correspondant à la requete(avec paramètre)
     public String fill_string_param(String requete, int index) throws SQLException {
 
-        prepared_stmt =conn.prepareStatement(requete);
-        prepared_stmt.setString(1, String.valueOf(index));
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setString(1, String.valueOf(index));
 
         // récupération de l'ordre de la requete
-        rset = prepared_stmt.executeQuery();
+        rset = param_stmt.executeQuery();
 
         // tant qu'il reste une ligne
         while (rset.next()) {
@@ -92,11 +92,11 @@ public class Connexion {
     //Retourne un double unique correspondant à la requete(avec paramètre)
     public double fill_double_param(String requete, int index) throws SQLException {
 
-        prepared_stmt =conn.prepareStatement(requete);
-        prepared_stmt.setDouble(1, index);
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setDouble(1, index);
 
         // récupération de l'ordre de la requete
-        rset = prepared_stmt.executeQuery();
+        rset = param_stmt.executeQuery();
 
         // tant qu'il reste une ligne
         while (rset.next()) {
