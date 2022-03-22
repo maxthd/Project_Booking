@@ -5,6 +5,6 @@ public class Billet {
     private int fk_id_vol;
     private double cout;
     private double reduction;
-    private boolean billet_dispo;
+    private int billet_dispo;
 
 }

@@ -1,9 +1,7 @@
 package jdbc2020;
 
-import org.jdesktop.swingx.JXDatePicker;
-
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.SQLOutput;
 
 
 public class Vol {
@@ -15,16 +13,40 @@ public class Vol {
     private String date_arrive;
     private String heure_depart; //On écrit les heures sous la forme de string "HH:MM"
     private String heure_arrive;
-    private boolean vol_dispo;
+    private int vol_dispo;
 
 
 
-    public Vol(int index, Connexion maconnexion) throws SQLException, ClassNotFoundException {
+    public Vol(int index, Connexion maconnexion) throws SQLException {
 
-        //id_vol=maconnexion.remplir_int("SELECT id_vol FROM Vol WHERE id_vol=1");
-        nombre_place=maconnexion.remplir_id("SELECT nombre_place FROM Vol WHERE id_vol= ?", index);
-        System.out.println("Vol numero "+index +" a "+nombre_place +" place");
+        id_vol=index;
+        nombre_place= maconnexion.fill_int_param("SELECT nombre_place FROM Vol WHERE id_vol= ?", id_vol);
+        ville_depart=maconnexion.fill_string_param("SELECT ville_depart FROM Vol WHERE id_vol= ?", id_vol);
+        ville_arrive=maconnexion.fill_string_param("SELECT ville_arrive FROM Vol WHERE id_vol= ?", id_vol);
+        date_depart=maconnexion.fill_string_param("SELECT date_depart FROM Vol WHERE id_vol= ?", id_vol);
+        date_arrive=maconnexion.fill_string_param("SELECT date_arrive FROM Vol WHERE id_vol= ?", id_vol);
+        heure_depart=maconnexion.fill_string_param("SELECT heure_depart FROM Vol WHERE id_vol= ?", id_vol);
+        heure_arrive=maconnexion.fill_string_param("SELECT heure_arrive FROM Vol WHERE id_vol= ?", id_vol);
+        vol_dispo=maconnexion.fill_int_param("SELECT vol_dispo FROM Vol WHERE id_vol= ?", id_vol);
 
+        Afficher_Vol();
+
+    }
+
+    public void Afficher_Vol(){
+        System.out.println("-------------------------");
+        System.out.println(" Numéro de vol : "+ id_vol);
+        System.out.println(" nombre place : "+ nombre_place);
+        System.out.println(" ville départ : "+ ville_depart);
+        System.out.println(" ville arrivé : "+ ville_arrive);
+        System.out.println(" date départ : "+ date_depart);
+        System.out.println(" date arrivé : "+ date_arrive);
+        System.out.println(" heure départ : "+ heure_depart);
+        System.out.println(" heure arrivé : "+ heure_arrive);
+        if (vol_dispo==0)
+        System.out.println("Non Disponible :");
+        else System.out.println("Disponible");
+        System.out.println("-------------------------");
 
     }
 

@@ -5,6 +5,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
 
+/**SI ON FAIT UNE UPDATE (NOTAMMENT EFFACER), ON RECREE JUSTE DERRIERE UN OBJET "LISTE" QUI REMPLACERA LA LISTE ACTUELLE
+ * CA NOUS PERMET DE NOUS ASSURER D'AVOIR TOUJOURS UNE LISTE ACTUELLE."
+ */
+
 /**statement =con.prepareStatement("SELECT * from employee WHERE  userID = ?");
  statement.setString(1, userID);*/
 
@@ -14,20 +18,18 @@ public class Connexion {
     private final Statement stmt;
     private PreparedStatement prepared_stmt;
     private ResultSet rset;
+
+    /**CES ATTRIBUTS SONT USELESS*/
     private ResultSetMetaData rsetMeta;
-
     public ArrayList<String> tables = new ArrayList<>();
-
     public ArrayList<String> requetes = new ArrayList<>();
 
-
-    /**Constructeur */
+    //Constructeur
     public Connexion(String nameDatabase, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException{
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
 
         String urlDatabase = "jdbc:mysql://localhost:3306/" + nameDatabase;
-
 
         //création d'une connexion JDBC à la base
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
@@ -37,84 +39,97 @@ public class Connexion {
     }
 
 
+    //Retourne un entier unique correspondant à la requete (sans paramètre)
+    public int fill_int(String requete) throws SQLException {
 
-    public void ajouterTable(String table) {
-        tables.add(table);
-    }
-
-
-    /**Ajout d'une ligne dans Requete (3ème colonne)*/
-    public void ajouterRequete(String requete) {
-        requetes.add(requete);
-    }
-
-
-
-    public ArrayList remplirChampsTable(String table) throws SQLException {
         // récupération de l'ordre de la requete
-        rset = stmt.executeQuery("SELECT * FROM " + table);
+        rset = stmt.executeQuery(requete);
 
-        // récupération du résultat de l'ordre
-        rsetMeta = rset.getMetaData();
-
-        // calcul du nombre de colonnes du resultat
-        int nbColonne = rsetMeta.getColumnCount();
-
-        // creation d'une ArrayList de String
-        ArrayList<String> liste;
-        liste = new ArrayList<>();
-        String champs = "";
-        // Ajouter tous les champs du resultat dans l'ArrayList
-        for (int i = 0; i < nbColonne; i++) {
-            champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            return rset.getInt(1);
         }
-
-        // ajouter un "\n" à la ligne des champs
-        champs = champs + "\n";
-
-        // ajouter les champs de la ligne dans l'ArrayList
-        liste.add(champs);
-
-        // Retourner l'ArrayList
-        return liste;
+        return 0;
     }
 
-    public int remplir_id(String requete, int index) throws SQLException {
 
-        int temp_int=0;
+    //Retourne un entier unique correspondant à la requete(avec paramètre)
+    public int fill_int_param(String requete, int index) throws SQLException {
+
         prepared_stmt =conn.prepareStatement(requete);
         prepared_stmt.setInt(1, index);
 
         // récupération de l'ordre de la requete
         rset = prepared_stmt.executeQuery();
 
-        // récupération du résultat de l'ordre
-        rsetMeta = rset.getMetaData();
-
         // tant qu'il reste une ligne
         while (rset.next()) {
-            temp_int = rset.getInt(1);
+            return rset.getInt(1);
         }
-        return temp_int;
+        return 0;
+
     }
 
-    public int remplir_int(String requete) throws SQLException {
 
-        int temp_int=0;
+    //Retourne un String unique correspondant à la requete(avec paramètre)
+    public String fill_string_param(String requete, int index) throws SQLException {
+
+        prepared_stmt =conn.prepareStatement(requete);
+        prepared_stmt.setString(1, String.valueOf(index));
 
         // récupération de l'ordre de la requete
-        rset = stmt.executeQuery(requete);
-
-        // récupération du résultat de l'ordre
-        rsetMeta = rset.getMetaData();
+        rset = prepared_stmt.executeQuery();
 
         // tant qu'il reste une ligne
         while (rset.next()) {
-            temp_int = rset.getInt(1);
+            return rset.getString(1);
         }
-        return temp_int;
+        return "";
+
     }
 
+
+    //Retourne un double unique correspondant à la requete(avec paramètre)
+    public double fill_double_param(String requete, int index) throws SQLException {
+
+        prepared_stmt =conn.prepareStatement(requete);
+        prepared_stmt.setDouble(1, index);
+
+        // récupération de l'ordre de la requete
+        rset = prepared_stmt.executeQuery();
+
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            return rset.getDouble(1);
+        }
+        return 0;
+
+    }
+
+
+    public void executeUpdate(String requeteMaj) throws SQLException {
+        stmt.executeUpdate(requeteMaj);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /** LES METHODES EN DESSOUS SONT USELESSS*/
+
+
+    public void ajouterTable(String table) {
+        tables.add(table);
+    }
 
     public ArrayList remplirChampsRequete(String requete) throws SQLException {
         // récupération de l'ordre de la requete
@@ -151,10 +166,41 @@ public class Connexion {
         return liste;
     }
 
+    //Ajout d'une ligne dans Requete (3ème colonne)
+    public void ajouterRequete(String requete) {
 
-    public void executeUpdate(String requeteMaj) throws SQLException {
-        stmt.executeUpdate(requeteMaj);
+        requetes.add(requete);
     }
 
+
+    public ArrayList remplirChampsTable(String table) throws SQLException {
+
+        // récupération de l'ordre de la requete
+        rset = stmt.executeQuery("SELECT * FROM " + table);
+
+        // récupération du résultat de l'ordre
+        rsetMeta = rset.getMetaData();
+
+        // calcul du nombre de colonnes du resultat
+        int nbColonne = rsetMeta.getColumnCount();
+
+        // creation d'une ArrayList de String
+        ArrayList<String> liste;
+        liste = new ArrayList<>();
+        String champs = "";
+        // Ajouter tous les champs du resultat dans l'ArrayList
+        for (int i = 0; i < nbColonne; i++) {
+            champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
+        }
+
+        // ajouter un "\n" à la ligne des champs
+        champs = champs + "\n";
+
+        // ajouter les champs de la ligne dans l'ArrayList
+        liste.add(champs);
+
+        // Retourner l'ArrayList
+        return liste;
+    }
 
 }
