@@ -1,14 +1,18 @@
-
+//https://stackoverflow.com/questions/12745186/passing-parameters-to-a-jdbc-preparedstatement
 package jdbc2020;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.sql.PreparedStatement;
 
+/**statement =con.prepareStatement("SELECT * from employee WHERE  userID = ?");
+ statement.setString(1, userID);*/
 
 public class Connexion {
 
     private final Connection conn;
     private final Statement stmt;
+    private PreparedStatement prepared_stmt;
     private ResultSet rset;
     private ResultSetMetaData rsetMeta;
 
@@ -21,8 +25,8 @@ public class Connexion {
     public Connexion(String nameDatabase, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException{
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
-        String urlDatabase = "jdbc:mysql://localhost:3306/" + nameDatabase;
 
+        String urlDatabase = "jdbc:mysql://localhost:3306/" + nameDatabase;
 
 
         //création d'une connexion JDBC à la base
@@ -43,6 +47,7 @@ public class Connexion {
     public void ajouterRequete(String requete) {
         requetes.add(requete);
     }
+
 
 
     public ArrayList remplirChampsTable(String table) throws SQLException {
@@ -72,6 +77,42 @@ public class Connexion {
 
         // Retourner l'ArrayList
         return liste;
+    }
+
+    public int remplir_id(String requete, int index) throws SQLException {
+
+        int temp_int=0;
+        prepared_stmt =conn.prepareStatement(requete);
+        prepared_stmt.setInt(1, index);
+
+        // récupération de l'ordre de la requete
+        rset = prepared_stmt.executeQuery();
+
+        // récupération du résultat de l'ordre
+        rsetMeta = rset.getMetaData();
+
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            temp_int = rset.getInt(1);
+        }
+        return temp_int;
+    }
+
+    public int remplir_int(String requete) throws SQLException {
+
+        int temp_int=0;
+
+        // récupération de l'ordre de la requete
+        rset = stmt.executeQuery(requete);
+
+        // récupération du résultat de l'ordre
+        rsetMeta = rset.getMetaData();
+
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            temp_int = rset.getInt(1);
+        }
+        return temp_int;
     }
 
 

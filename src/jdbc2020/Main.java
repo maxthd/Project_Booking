@@ -7,11 +7,19 @@
 //https://stackoverflow.com/questions/27053276/date-and-time-picker-in-java
 package jdbc2020;
 
+import java.sql.SQLException;
+
+/**SELECT COUNT(*) FROM client
+ * Permet d'avoir le nombre de ligne de la table qui nous interesse(ici client)*/
+import java.util.ArrayList;
 
 public class Main {
+    public static void main(String[] s) throws SQLException, ClassNotFoundException {
 
-    public static void main(String[] s) {
+        Listes L=new Listes();
 
-        Fenetre f = new Fenetre();
+
+        //Fenetre f1 = new Fenetre();
     }
+
 }
