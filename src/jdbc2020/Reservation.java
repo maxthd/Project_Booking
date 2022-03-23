@@ -12,7 +12,7 @@ public class Reservation {
         fk_vol= maconnexion.fill_int_param("SELECT fk_vol FROM Reservation WHERE id_reservation = ?", id_reservation);
         fk_client= maconnexion.fill_int_param("SELECT fk_client FROM Reservation WHERE id_reservation = ?", id_reservation);
 
-        Afficher_Reservation();
+        //Afficher_Reservation();
     }
 
 

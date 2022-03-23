@@ -17,7 +17,7 @@ public class Employe {
         username=maconnexion.fill_string_param("SELECT username FROM Employe WHERE id_employe = ?", id_employe);
         password=maconnexion.fill_string_param("SELECT password FROM Employe WHERE id_employe = ?", id_employe);
 
-        Afficher_Employe();
+        //Afficher_Employe();
     }
 
     public void Afficher_Employe(){

@@ -15,7 +15,7 @@ public class Relation_client_employe {
         fk_employe= maconnexion.fill_int_param("SELECT fk_employe FROM Relation_client_employe " +
                 "WHERE id_client_employe = ?", id_client_employe);
 
-        Afficher_client_employe();
+        //Afficher_client_employe();
     }
 
 

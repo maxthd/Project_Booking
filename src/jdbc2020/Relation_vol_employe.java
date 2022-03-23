@@ -15,7 +15,7 @@ public class Relation_vol_employe {
         fk_employe=maconnexion.fill_int_param("SELECT fk_employe FROM Relation_vol_employe " +
                 "WHERE id_vol_employe = ?", id_vol_employe);
 
-        Afficher_vol_employe();
+        //Afficher_vol_employe();
     }
 
 

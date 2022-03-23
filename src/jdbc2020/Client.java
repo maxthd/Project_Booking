@@ -24,7 +24,7 @@ public class Client {
         reduction= maconnexion.fill_double_param("SELECT reduction FROM Client WHERE id_client= ?", id_client);
         membre= maconnexion.fill_int_param("SELECT membre FROM Client WHERE id_client= ?", id_client);
 
-        Afficher_Client();
+        //Afficher_Client();
 
     }
 

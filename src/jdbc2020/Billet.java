@@ -16,7 +16,7 @@ public class Billet {
         reduction= maconnexion.fill_double_param("SELECT reduction FROM Billet WHERE id_billet = ?", id_billet);
         billet_dispo= maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet = ?", id_billet);
 
-        Afficher_billet();
+        //Afficher_billet();
     }
 
 

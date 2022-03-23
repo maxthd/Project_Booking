@@ -92,4 +92,67 @@ public class Listes {
     }
 
 
+
+    public void Afficher_listes(){
+        for (int i=0; i<vols.size(); i++)
+            vols.get(i).Afficher_Vol();
+
+        for (int i=0; i<employes.size(); i++)
+            employes.get(i).Afficher_Employe();
+
+        for (int i=0; i<clients.size(); i++)
+            clients.get(i).Afficher_Client();
+
+        for (int i=0; i<billets.size(); i++)
+            billets.get(i).Afficher_billet();
+
+        for (int i=0; i<reservations.size(); i++)
+            reservations.get(i).Afficher_Reservation();
+
+        for (int i=0; i< vols_employes.size(); i++)
+            vols_employes.get(i).Afficher_vol_employe();
+
+        for (int i=0; i< clients_employes.size(); i++)
+            clients_employes.get(i).Afficher_client_employe();
+    }
+
+
+    //
+    public Listes MAJ_listes() throws SQLException, ClassNotFoundException {
+        Listes newlist= new Listes();
+        return newlist;
+    }
+
+
+    //LES GETTERS
+    public ArrayList<Vol> getVols(){
+        return vols;
+    }
+
+    public ArrayList<Employe> getEmployes(){
+        return employes;
+    }
+
+    public ArrayList<Client> getClients(){
+        return clients;
+    }
+
+    public ArrayList<Billet> getBillets(){
+        return billets;
+    }
+
+    public ArrayList<Reservation> getReservations(){
+        return reservations;
+    }
+
+    public ArrayList<Relation_vol_employe> getVols_employes(){
+        return vols_employes;
+    }
+
+    public ArrayList<Relation_client_employe> getClients_employes(){
+        return clients_employes;
+    }
+
+
+
 }

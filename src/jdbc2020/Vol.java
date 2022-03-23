@@ -28,7 +28,7 @@ public class Vol {
         heure_arrive=maconnexion.fill_string_param("SELECT heure_arrive FROM Vol WHERE id_vol= ?", id_vol);
         vol_dispo=maconnexion.fill_int_param("SELECT vol_dispo FROM Vol WHERE id_vol= ?", id_vol);
 
-        Afficher_Vol();
+        //Afficher_Vol();
 
     }
 
