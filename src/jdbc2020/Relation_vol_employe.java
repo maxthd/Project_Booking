@@ -27,4 +27,40 @@ public class Relation_vol_employe {
         System.out.println("-------------------------");
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+
+    public int getId_vol_employe() {
+        return id_vol_employe;
+    }
+
+    public void setId_vol_employe(int id_vol_employe) {
+        this.id_vol_employe = id_vol_employe;
+    }
+
+    public int getFk_vol() {
+        return fk_vol;
+    }
+
+    public void setFk_vol(int fk_vol) {
+        this.fk_vol = fk_vol;
+    }
+
+    public int getFk_employe() {
+        return fk_employe;
+    }
+
+    public void setFk_employe(int fk_employe) {
+        this.fk_employe = fk_employe;
+    }
 }

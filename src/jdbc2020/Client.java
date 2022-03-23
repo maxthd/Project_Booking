@@ -31,11 +31,11 @@ public class Client {
     public void Afficher_Client(){
 
         System.out.println("-------------------------");
-        System.out.println("Numéro d'employé : "+id_client);
-        System.out.println("Nom d'employé : "+nom);
-        System.out.println("Prenom d'employé : "+prenom);
-        System.out.println("Username d'employé : "+username);
-        System.out.println("Password d'employé : "+password);
+        System.out.println("Numéro de client : "+id_client);
+        System.out.println("Nom de client : "+nom);
+        System.out.println("Prenom du client: "+prenom);
+        System.out.println("Username du client : "+username);
+        System.out.println("Password du client : "+password);
         System.out.println("Age : "+age);
         System.out.println("Solde: "+solde);
         System.out.println("Reduction : "+reduction);
@@ -45,4 +45,92 @@ public class Client {
         System.out.println("-------------------------");
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    public int getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
+    public double getReduction() {
+        return reduction;
+    }
+
+    public void setReduction(double reduction) {
+        this.reduction = reduction;
+    }
+
+    public int getMembre() {
+        return membre;
+    }
+
+    public void setMembre(int membre) {
+        this.membre = membre;
+    }
 }

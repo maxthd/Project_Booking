@@ -32,4 +32,55 @@ public class Billet {
         System.out.println("-------------------------");
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    public int getId_billet() {
+        return id_billet;
+    }
+
+    public void setId_billet(int id_billet) {
+        this.id_billet = id_billet;
+    }
+
+    public int getFk_vol() {
+        return fk_vol;
+    }
+
+    public void setFk_vol(int fk_vol) {
+        this.fk_vol = fk_vol;
+    }
+
+    public double getCout() {
+        return cout;
+    }
+
+    public void setCout(double cout) {
+        this.cout = cout;
+    }
+
+    public double getReduction() {
+        return reduction;
+    }
+
+    public void setReduction(double reduction) {
+        this.reduction = reduction;
+    }
+
+    public int getBillet_dispo() {
+        return billet_dispo;
+    }
+
+    public void setBillet_dispo(int billet_dispo) {
+        this.billet_dispo = billet_dispo;
+    }
 }

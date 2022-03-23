@@ -17,7 +17,10 @@ public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException {
 
         Listes L=new Listes();
+        /*
         L.Afficher_listes();
+        L=L.MAJ_listes("DELETE FROM Billet WHERE id_billet=1");
+        L.Afficher_listes();*/
 
         //Fenetre f1 = new Fenetre();
     }

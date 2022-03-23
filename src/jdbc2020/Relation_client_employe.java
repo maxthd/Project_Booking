@@ -26,4 +26,46 @@ public class Relation_client_employe {
         System.out.println("fk_employe: "+fk_employe);
         System.out.println("-------------------------");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+
+    public int getId_client_employe() {
+        return id_client_employe;
+    }
+
+    public void setId_client_employe(int id_client_employe) {
+        this.id_client_employe = id_client_employe;
+    }
+
+    public int getFk_client() {
+        return fk_client;
+    }
+
+    public void setFk_client(int fk_client) {
+        this.fk_client = fk_client;
+    }
+
+    public int getFk_employe() {
+        return fk_employe;
+    }
+
+    public void setFk_employe(int fk_employe) {
+        this.fk_employe = fk_employe;
+    }
 }

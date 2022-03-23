@@ -23,4 +23,35 @@ public class Reservation {
         System.out.println("fk_client : "+fk_client);
         System.out.println("-------------------------");
     }
+
+
+
+
+
+
+
+    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    public int getId_reservation() {
+        return id_reservation;
+    }
+
+    public void setId_reservation(int id_reservation) {
+        this.id_reservation = id_reservation;
+    }
+
+    public int getFk_vol() {
+        return fk_vol;
+    }
+
+    public void setFk_vol(int fk_vol) {
+        this.fk_vol = fk_vol;
+    }
+
+    public int getFk_client() {
+        return fk_client;
+    }
+
+    public void setFk_client(int fk_client) {
+        this.fk_client = fk_client;
+    }
 }

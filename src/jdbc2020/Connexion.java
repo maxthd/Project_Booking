@@ -52,6 +52,28 @@ public class Connexion {
         return 0;
     }
 
+    public ArrayList fill_array(String requete) throws SQLException {
+
+        // creation d'une ArrayList de String
+        ArrayList<Integer> liste=new ArrayList<Integer>();
+
+        // récupération de l'ordre de la requete
+        rset = stmt.executeQuery(requete);
+
+        // récupération du résultat de l'ordre
+        rsetMeta = rset.getMetaData();
+
+
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            liste.add(rset.getInt(1)); // ajouter premier champ
+
+        }
+
+        // Retourner l'ArrayList
+        return liste;
+    }
+
 
     //Retourne un entier unique correspondant à la requete(avec paramètre)
     public int fill_int_param(String requete, int index) throws SQLException {

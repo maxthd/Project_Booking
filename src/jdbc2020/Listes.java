@@ -29,12 +29,16 @@ public class Listes {
 
 
     public void init_listes_vols() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Vol");
+        ArrayList<Integer> taille= new ArrayList<>();
+        taille=maconnexion.fill_array("SELECT id_vol FROM Vol");
 
-        for (int i=1; i<=taille; i++) {
+        for (int i=0; i< taille.size(); i++)
+            System.out.println("dans taille ca a la  valeur "+ taille.get(i));
+
+        /*for (int i=1; i<=taille; i++) {
             Vol vol=new Vol(i, maconnexion);
             vols.add(vol);
-        }
+        }*/
     }
 
     public void init_listes_employes() throws SQLException {
@@ -94,37 +98,50 @@ public class Listes {
 
 
     public void Afficher_listes(){
-        for (int i=0; i<vols.size(); i++)
+        /*for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
 
         for (int i=0; i<employes.size(); i++)
             employes.get(i).Afficher_Employe();
 
         for (int i=0; i<clients.size(); i++)
-            clients.get(i).Afficher_Client();
+            clients.get(i).Afficher_Client();*/
 
         for (int i=0; i<billets.size(); i++)
             billets.get(i).Afficher_billet();
 
-        for (int i=0; i<reservations.size(); i++)
+        /*for (int i=0; i<reservations.size(); i++)
             reservations.get(i).Afficher_Reservation();
 
         for (int i=0; i< vols_employes.size(); i++)
             vols_employes.get(i).Afficher_vol_employe();
 
         for (int i=0; i< clients_employes.size(); i++)
-            clients_employes.get(i).Afficher_client_employe();
+            clients_employes.get(i).Afficher_client_employe();*/
     }
 
 
     //
-    public Listes MAJ_listes() throws SQLException, ClassNotFoundException {
+    public Listes MAJ_listes(String requete) throws SQLException, ClassNotFoundException {
+
+        maconnexion.executeUpdate(requete);
         Listes newlist= new Listes();
         return newlist;
     }
 
 
-    //LES GETTERS
+
+
+
+
+
+
+
+
+
+
+
+    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
     public ArrayList<Vol> getVols(){
         return vols;
     }
@@ -152,6 +169,8 @@ public class Listes {
     public ArrayList<Relation_client_employe> getClients_employes(){
         return clients_employes;
     }
+
+
 
 
 
