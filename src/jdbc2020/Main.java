@@ -14,8 +14,10 @@ public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException {
 
         //test_classe_Listes();
+        System.out.println("Main:");
         Listes L=new Listes();
         L.Afficher_listes();
+
 
 
         //Fenetre f1 = new Fenetre();
