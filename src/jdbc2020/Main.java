@@ -16,9 +16,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException {
 
-        System.out.println("Coucou AZIZ");
-        System.out.println("Coucou JC");
-        System.out.println("telephone max");
         Listes L=new Listes();
 //
 
