@@ -20,11 +20,8 @@ public class Relation_client_employe {
 
 
     public void Afficher_client_employe(){
-        System.out.println("-------------------------");
-        System.out.println("id_client_employe: "+id_client_employe);
-        System.out.println("fk_client : "+fk_client);
-        System.out.println("fk_employe: "+fk_employe);
-        System.out.println("-------------------------");
+        System.out.println("id_client_employe: "+id_client_employe + "\t\tfk_client: "+fk_client +"\t\tfk_employe: "+fk_employe);
+        System.out.println("--------------------------------");
     }
 
 

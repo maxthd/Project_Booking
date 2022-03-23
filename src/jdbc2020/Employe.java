@@ -22,13 +22,9 @@ public class Employe {
 
     public void Afficher_Employe(){
 
-        System.out.println("-------------------------");
-        System.out.println("Numéro d'employé : "+id_employe);
-        System.out.println("Nom d'employé : "+nom);
-        System.out.println("Prenom d'employé : "+prenom);
-        System.out.println("Username d'employé : "+username);
-        System.out.println("Password d'employé : "+password);
-        System.out.println("-------------------------");
+        System.out.println("Numéro_employé: "+id_employe + "\t\tNom: "+nom + "\t\tPrenom: "+prenom +
+                "\t\tUsername: "+username + "\t\tPassword: "+password);
+        System.out.println("----------------------------------------------------------");
     }
 
 

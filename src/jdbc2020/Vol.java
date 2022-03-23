@@ -32,19 +32,12 @@ public class Vol {
     }
 
     public void Afficher_Vol() {
-        System.out.println("-------------------------");
-        System.out.println(" Numéro de vol : " + id_vol);
-        System.out.println(" nombre place : " + nombre_place);
-        System.out.println(" ville départ : " + ville_depart);
-        System.out.println(" ville arrivé : " + ville_arrive);
-        System.out.println(" date départ : " + date_depart);
-        System.out.println(" date arrivé : " + date_arrive);
-        System.out.println(" heure départ : " + heure_depart);
-        System.out.println(" heure arrivé : " + heure_arrive);
-        if (vol_dispo == 0)
-            System.out.println("Non Disponible :");
-        else System.out.println("Disponible");
-        System.out.println("-------------------------");
+        System.out.println("Numéro_vol: " + id_vol+ "\t\tnbr_place: " + nombre_place+
+                "\t\tville_départ: " + ville_depart+ "\t\tville arrivé: " + ville_arrive);
+        System.out.println("date départ: " + date_depart + "\t\tdate arrivé: " + date_arrive+
+                "\t\theure départ: " + heure_depart + "\t\theure arrivé: " + heure_arrive+ "\t\tvol_dispo: "+vol_dispo);
+
+        System.out.println("---------------------------------------------------------------------------");
 
     }
 

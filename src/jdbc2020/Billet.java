@@ -21,15 +21,12 @@ public class Billet {
 
 
     public void Afficher_billet(){
-        System.out.println("-------------------------");
-        System.out.println("id_billet: "+id_billet);
-        System.out.println("fk_vol : "+fk_vol);
-        System.out.println("reduction : "+reduction);
-        System.out.println("cout : "+cout);
-        if (billet_dispo==0)
-            System.out.println("Non Disponible");
-        else System.out.println("Disponible");
-        System.out.println("-------------------------");
+
+        System.out.println("id_billet: "+id_billet + "\t\t fk_vol : "+fk_vol+
+                "\t\treduction : "+reduction + "\t\tcout : "+cout+ "\t\tbillet_dispo :" + billet_dispo);
+
+        System.out.println("---------------------------------------------------------------"
+        +"---------------------------------------------------------------");
     }
 
 

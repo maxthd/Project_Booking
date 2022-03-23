@@ -29,68 +29,79 @@ public class Listes {
 
 
     public void init_listes_vols() throws SQLException {
-        ArrayList<Integer> taille= new ArrayList<>();
-        taille=maconnexion.fill_array("SELECT id_vol FROM Vol");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_vol FROM Vol");
 
-        for (int i=0; i< taille.size(); i++)
-            System.out.println("dans taille ca a la  valeur "+ taille.get(i));
-
-        /*for (int i=1; i<=taille; i++) {
-            Vol vol=new Vol(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Vol vol=new Vol(list_id.get(i), maconnexion);
             vols.add(vol);
-        }*/
+        }
+
     }
 
     public void init_listes_employes() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Employe");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_employe FROM Employe");
 
-        for (int i=1; i<=taille; i++) {
-            Employe employe= new Employe(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Employe employe=new Employe(list_id.get(i), maconnexion);
             employes.add(employe);
         }
     }
 
     public void init_listes_clients() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Client");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_client FROM Client");
 
-        for (int i=1; i<=taille; i++) {
-            Client client=new Client(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Client client=new Client(list_id.get(i), maconnexion);
             clients.add(client);
         }
     }
 
     public void init_listes_billets() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Billet");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_billet FROM Billet");
 
-        for (int i=1; i<=taille; i++) {
-            Billet billet=new Billet(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Billet billet=new Billet(list_id.get(i), maconnexion);
             billets.add(billet);
         }
     }
 
     public void init_listes_reservation() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Reservation");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_reservation FROM Reservation");
 
-        for (int i=1; i<=taille; i++) {
-            Reservation reservation=new Reservation(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Reservation reservation=new Reservation(list_id.get(i), maconnexion);
             reservations.add(reservation);
         }
     }
 
     public void init_listes_vols_employes() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Relation_vol_employe");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_vol_employe FROM Relation_vol_employe");
 
-        for (int i=1; i<=taille; i++) {
-            Relation_vol_employe vol_employe= new Relation_vol_employe(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Relation_vol_employe vol_employe=new Relation_vol_employe(list_id.get(i), maconnexion);
             vols_employes.add(vol_employe);
         }
     }
 
     public void init_listes_clients_employes() throws SQLException {
-        int taille=maconnexion.fill_int("SELECT COUNT(*) FROM Relation_client_employe");
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_client_employe FROM Relation_client_employe");
 
-        for (int i=1; i<=taille; i++) {
-            Relation_client_employe client_employe=new Relation_client_employe(i, maconnexion);
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Relation_client_employe client_employe=new Relation_client_employe(list_id.get(i), maconnexion);
             clients_employes.add(client_employe);
         }
     }
@@ -98,33 +109,41 @@ public class Listes {
 
 
     public void Afficher_listes(){
-        /*for (int i=0; i<vols.size(); i++)
+        for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
 
         for (int i=0; i<employes.size(); i++)
             employes.get(i).Afficher_Employe();
 
         for (int i=0; i<clients.size(); i++)
-            clients.get(i).Afficher_Client();*/
+            clients.get(i).Afficher_Client();
 
         for (int i=0; i<billets.size(); i++)
             billets.get(i).Afficher_billet();
 
-        /*for (int i=0; i<reservations.size(); i++)
+        for (int i=0; i<reservations.size(); i++)
             reservations.get(i).Afficher_Reservation();
+
 
         for (int i=0; i< vols_employes.size(); i++)
             vols_employes.get(i).Afficher_vol_employe();
 
         for (int i=0; i< clients_employes.size(); i++)
-            clients_employes.get(i).Afficher_client_employe();*/
+            clients_employes.get(i).Afficher_client_employe();
     }
 
 
     //
-    public Listes MAJ_listes(String requete) throws SQLException, ClassNotFoundException {
+    public Listes Update_listes(String requete) throws SQLException, ClassNotFoundException {
 
         maconnexion.executeUpdate(requete);
+        Listes newlist= new Listes();
+        return newlist;
+    }
+
+    public Listes param_update_listes(String requete, int index) throws SQLException, ClassNotFoundException {
+
+        maconnexion.param_executeUpdate(requete, index);
         Listes newlist= new Listes();
         return newlist;
     }

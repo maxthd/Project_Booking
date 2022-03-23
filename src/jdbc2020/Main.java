@@ -9,20 +9,31 @@ package jdbc2020;
 
 import java.sql.SQLException;
 
-/**SELECT COUNT(*) FROM client
- * Permet d'avoir le nombre de ligne de la table qui nous interesse(ici client)*/
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException {
 
+        //test_classe_Listes();
         Listes L=new Listes();
-        /*
         L.Afficher_listes();
-        L=L.MAJ_listes("DELETE FROM Billet WHERE id_billet=1");
-        L.Afficher_listes();*/
+
 
         //Fenetre f1 = new Fenetre();
+    }
+
+    public static void test_classe_Listes() throws SQLException, ClassNotFoundException {
+        Listes L=new Listes();
+        System.out.println("LA LISTE AU DEBUT");
+        L.Afficher_listes();
+        L=L.Update_listes("INSERT INTO Billet (fk_vol, cout, reduction, billet_dispo) VALUES (2, 30, 50, TRUE);");
+        System.out.println("ON  AJOUTE UN BILLET");
+        L.Afficher_listes();
+        L=L.param_update_listes("DELETE FROM Billet WHERE id_billet= ?", 3);
+        System.out.println("ON DELETE LE BILLET 3 (EN UTILISANT Param) ");
+        L.Afficher_listes();
+        L=L.Update_listes("UPDATE Billet SET billet_dispo=0  WHERE id_billet=2");
+        System.out.println("ON UPDATE LE BILLET");
+        L.Afficher_listes();
     }
 
 }

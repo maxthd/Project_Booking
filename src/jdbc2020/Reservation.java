@@ -17,11 +17,8 @@ public class Reservation {
 
 
     public void Afficher_Reservation(){
-        System.out.println("-------------------------");
-        System.out.println("id_reservation : "+id_reservation);
-        System.out.println("fk_vol : "+fk_vol);
-        System.out.println("fk_client : "+fk_client);
-        System.out.println("-------------------------");
+        System.out.println("id_reservation: "+id_reservation + "\t\tfk_vol: "+fk_vol +"\t\tfk_client: "+fk_client);
+        System.out.println("---------------------------------------------------------------------------");
     }
 
 

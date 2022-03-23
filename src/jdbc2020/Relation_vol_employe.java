@@ -20,11 +20,8 @@ public class Relation_vol_employe {
 
 
     public void Afficher_vol_employe(){
-        System.out.println("-------------------------");
-        System.out.println("id_vol_employe: "+id_vol_employe);
-        System.out.println("fk_vol : "+fk_vol);
-        System.out.println("fk_employe: "+fk_employe);
-        System.out.println("-------------------------");
+        System.out.println("id_vol_employe: "+id_vol_employe + "\t\tfk_vol: "+fk_vol +"\t\tfk_employe: "+fk_employe);
+        System.out.println("-----------------------------------------------------------------------------------------");
     }
 
 

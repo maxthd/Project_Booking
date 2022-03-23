@@ -30,19 +30,11 @@ public class Client {
 
     public void Afficher_Client(){
 
-        System.out.println("-------------------------");
-        System.out.println("Numéro de client : "+id_client);
-        System.out.println("Nom de client : "+nom);
-        System.out.println("Prenom du client: "+prenom);
-        System.out.println("Username du client : "+username);
-        System.out.println("Password du client : "+password);
-        System.out.println("Age : "+age);
-        System.out.println("Solde: "+solde);
-        System.out.println("Reduction : "+reduction);
-        if (membre==0)
-        System.out.println("Non membre ");
-        else System.out.println("membre ");
-        System.out.println("-------------------------");
+        System.out.println("Numéro_client: "+id_client+ "\t\tNom: "+nom + "\t\tPrenom: "+prenom
+                +"\t\tUsername: "+username + "\t\tPassword : "+password + "\t\tAge: "+age +
+                "\t\tSolde: "+solde + "\t\tReduction: "+reduction + "\t\t membre: "+membre);
+        System.out.println("---------------------------------------------------------------------------" +
+                "------------------------------------------");
     }
 
 
