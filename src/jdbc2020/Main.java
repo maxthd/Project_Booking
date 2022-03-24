@@ -13,14 +13,13 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException {
 
-        //test_classe_Listes();
-        System.out.println("Main:");
+        test_classe_Listes();
+
+        /*
         Listes L=new Listes();
-        L.Afficher_listes();
+        L.Afficher_listes();*/
 
 
-
-        //Fenetre f1 = new Fenetre();
     }
 
     public static void test_classe_Listes() throws SQLException, ClassNotFoundException {
@@ -35,6 +34,10 @@ public class Main {
         L.Afficher_listes();
         L=L.Update_listes("UPDATE Billet SET billet_dispo=0  WHERE id_billet=2");
         System.out.println("ON UPDATE LE BILLET");
+        L.Afficher_listes();
+
+        L=L.param_two_update_listes("UPDATE Billet SET billet_dispo=0  WHERE fk_vol=? AND reduction= ?", 2, 50);
+        System.out.println("ON UPDATE LE BILLET(EN UTILISANT DEUX Param)");
         L.Afficher_listes();
     }
 

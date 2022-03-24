@@ -122,8 +122,14 @@ public class Connexion {
     }
 
 
+    public void param_two_executeUpdate(String requete, int index1, int index2) throws SQLException {
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, index1);
+        param_stmt.setInt(2, index2);
 
+        param_stmt.executeUpdate();
 
+    }
 
 
 
