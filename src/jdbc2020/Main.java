@@ -6,12 +6,18 @@
 //Code JDBC de Mr. SEGADO
 //https://stackoverflow.com/questions/27053276/date-and-time-picker-in-java
 package jdbc2020;
+import affichage.*;
 
 import java.sql.SQLException;
 
 
 public class Main {
-    public static void main(String[] s) throws SQLException, ClassNotFoundException {
+    public static void main(String[] s) throws SQLException, ClassNotFoundException
+    {
+
+
+        Listes L = new Listes();
+        Page_client p = new Page_client();
 
         test_classe_Listes();
 
