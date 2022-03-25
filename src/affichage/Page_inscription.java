@@ -1,6 +1,8 @@
 package affichage;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Page_inscription extends JFrame {
     private JPanel Menu_inscription;
@@ -26,7 +28,29 @@ public class Page_inscription extends JFrame {
         setContentPane(Menu_inscription);
         setTitle("Page d'acceuil");
         setSize(800,600);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
+        Button_valider.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Tf_id.getText()=="admin")
+                {
+                    dispose();
+                    Page_administrateur p= new Page_administrateur();
+                }
+                else
+                {
+                    dispose();
+                    Page_client p= new Page_client();
+                }
+            }
+        });
+        Button_retour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Page_acceuil p= new Page_acceuil();
+            }
+        });
     }
 }

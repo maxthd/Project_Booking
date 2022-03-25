@@ -1,6 +1,8 @@
 package affichage;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Page_administrateur extends JFrame {
     private JPanel Menu_admin;
@@ -13,7 +15,14 @@ public class Page_administrateur extends JFrame {
         setContentPane(Menu_admin);
         setTitle("Page d'acceuil");
         setSize(800,600);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
+        Button_quitter.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Page_acceuil p= new Page_acceuil();
+            }
+        });
     }
 }

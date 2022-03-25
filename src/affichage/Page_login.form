@@ -13,7 +13,8 @@
           <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="IDENTIFIANT"/>
+          <foreground color="-16777216"/>
+          <text value="identifiant"/>
         </properties>
       </component>
       <component id="d327c" class="javax.swing.JTextField" binding="Tf_identifiant">
