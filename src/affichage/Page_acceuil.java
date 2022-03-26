@@ -3,6 +3,7 @@ package affichage;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 
 public class Page_acceuil extends JFrame
@@ -29,14 +30,26 @@ public class Page_acceuil extends JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Page_login p= new Page_login();
+                try {
+                    Page_login p= new Page_login();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         InscriptionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Page_inscription p= new Page_inscription();
+                try {
+                    Page_inscription p= new Page_inscription();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         QuitterButton.addActionListener(new ActionListener() {

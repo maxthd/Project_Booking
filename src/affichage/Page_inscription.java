@@ -1,8 +1,9 @@
 package affichage;
-
+import jdbc2020.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Page_inscription extends JFrame {
     private JPanel Menu_inscription;
@@ -22,9 +23,9 @@ public class Page_inscription extends JFrame {
     private JLabel Label_Inscription;
     private JButton Button_valider;
     private JButton Button_retour;
+    private Listes l;
 
-    public Page_inscription ()
-    {
+    public Page_inscription () throws SQLException, ClassNotFoundException {
         setContentPane(Menu_inscription);
         setTitle("Page d'acceuil");
         setSize(800,600);
@@ -33,6 +34,7 @@ public class Page_inscription extends JFrame {
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if (Tf_id.getText()=="admin")
                 {
                     dispose();
