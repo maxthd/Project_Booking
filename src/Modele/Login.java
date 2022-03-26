@@ -10,7 +10,7 @@ public class Login {
     private ArrayList<Employe> employes;
 
 
-    public Login (Listes l) throws SQLException, ClassNotFoundException {
+    public Login (Listes l) {
         clients=l.getClients();
         employes=l.getEmployes();
 

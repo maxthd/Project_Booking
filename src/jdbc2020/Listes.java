@@ -112,7 +112,7 @@ public class Listes {
         for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
 
-        /*for (int i=0; i<employes.size(); i++)
+        for (int i=0; i<employes.size(); i++)
             employes.get(i).Afficher_Employe();
 
         for (int i=0; i<clients.size(); i++)
@@ -129,7 +129,7 @@ public class Listes {
             vols_employes.get(i).Afficher_vol_employe();
 
         for (int i=0; i< clients_employes.size(); i++)
-            clients_employes.get(i).Afficher_client_employe();*/
+            clients_employes.get(i).Afficher_client_employe();
     }
 
 

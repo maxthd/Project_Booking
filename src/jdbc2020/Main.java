@@ -16,7 +16,6 @@ public class Main {
     {
         Page_acceuil c = new Page_acceuil();
 
-
         //test_classe_Listes();
 
         /*Listes L=new Listes();
