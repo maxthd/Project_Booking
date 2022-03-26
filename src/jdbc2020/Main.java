@@ -17,7 +17,7 @@ public class Main {
 
 
         Listes L = new Listes();
-        Page_acceuil p = new Page_acceuil();
+        Page_acceuil c = new Page_acceuil();
 
         test_classe_Listes();
 
