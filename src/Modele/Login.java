@@ -6,27 +6,32 @@ import java.util.ArrayList;
 
 public class Login {
 
+    private ArrayList<Client> clients;
+    private ArrayList<Employe> employes;
 
-    public Login () throws SQLException, ClassNotFoundException {
+
+    public Login (Listes l) throws SQLException, ClassNotFoundException {
+        clients=l.getClients();
+        employes=l.getEmployes();
+
     }
 
-    public boolean Est_un_client (String username, String mdp,Listes la)
+    public boolean Est_un_client (String username, String mdp)
     {
-
-        for (int i=0; i<la.getClients().size();i++)
+        for (int i=0; i<clients.size();i++)
         {
-            if ((username.equals(la.getClients().get(i).getUsername()))&&(mdp.equals(la.getClients().get(i).getPassword())))
+            if ((username.equals(clients.get(i).getUsername()))&&(mdp.equals(clients.get(i).getPassword())))
             {
                 return true;
             }
         }
         return false;
     }
-    public boolean Est_un_Employe (String username, String mdp,Listes la)
+    public boolean Est_un_Employe (String username, String mdp)
     {
-        for (int i=0; i<la.getClients().size();i++)
+        for (int i=0; i<employes.size();i++)
         {
-            if ((username.equals(la.getEmployes().get(i).getUsername()))&&(mdp.equals(la.getEmployes().get(i).getPassword())))
+            if ((username.equals(employes.get(i).getUsername()))&&(mdp.equals(employes.get(i).getPassword())))
             {
                 return true;
             }

@@ -21,23 +21,23 @@ public class Page_login extends JFrame {
 
     public Page_login () throws SQLException, ClassNotFoundException {
         lis=new Listes();
-        log=new Login();
+        log=new Login(lis);
 
         setContentPane(Menu_login);
-        setTitle("Page d'acceuil");
+        setTitle("Page d'accueil");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (log.Est_un_Employe(Tf_identifiant.getText(),Tf_mdp.getText(),lis))
+                if (log.Est_un_Employe(Tf_identifiant.getText(),Tf_mdp.getText()))
                 {
                     System.out.println("employe trouvé");
                     dispose();
                     Page_administrateur p= new Page_administrateur();
                 }
-                if (log.Est_un_client(Tf_identifiant.getText(),Tf_mdp.getText(),lis))
+                if (log.Est_un_client(Tf_identifiant.getText(),Tf_mdp.getText()))
                 {
                     System.out.println("client trouvé");
                     dispose();

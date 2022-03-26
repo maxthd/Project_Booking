@@ -17,7 +17,7 @@ public class Page_client extends JFrame {
     public Page_client ()
     {
         setContentPane(Menu_client);
-        setTitle("Page d'acceuil");
+        setTitle("Page d'accueil");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

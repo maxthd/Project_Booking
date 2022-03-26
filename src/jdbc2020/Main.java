@@ -14,15 +14,12 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException
     {
-
-
-        Listes L = new Listes();
         Page_acceuil c = new Page_acceuil();
 
-        test_classe_Listes();
 
-        /*
-        Listes L=new Listes();
+        //test_classe_Listes();
+
+        /*Listes L=new Listes();
         L.Afficher_listes();*/
 
 

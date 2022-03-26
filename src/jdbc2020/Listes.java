@@ -109,19 +109,19 @@ public class Listes {
 
 
     public void Afficher_listes(){
-        /*for (int i=0; i<vols.size(); i++)
+        for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
 
-        for (int i=0; i<employes.size(); i++)
+        /*for (int i=0; i<employes.size(); i++)
             employes.get(i).Afficher_Employe();
 
         for (int i=0; i<clients.size(); i++)
-            clients.get(i).Afficher_Client();*/
+            clients.get(i).Afficher_Client();
 
         for (int i=0; i<billets.size(); i++)
             billets.get(i).Afficher_billet();
 
-        /*for (int i=0; i<reservations.size(); i++)
+        for (int i=0; i<reservations.size(); i++)
             reservations.get(i).Afficher_Reservation();
 
 
