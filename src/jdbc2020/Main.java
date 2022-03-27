@@ -17,9 +17,18 @@ public class Main {
     {
         Page_acceuil c = new Page_acceuil();
 
+        /*Inscription I=new Inscription();
+        I.Ajout_client("Abdelkefi", "Shems", "Shmisa", "password", 20, 14, 1);*/
 
-        /*Test FONCTIONNEL historique_client
-        Historique_client h=new Historique_client(1);
+        /*TEST FONCTIONNEL AJOUT_VOL
+        Ajout_vol v=new Ajout_vol();
+        v.Insert_Vol(100, "Kin-chasa", "Dublin", 2016,9, 20,
+                2016, 9, 20, "13:00", "17:00" );*/
+
+
+        /*
+        Historique_client h=new Historique_client();
+        h.Remplir_historique(2);
         h.Affichage_historique();*/
 
         //test_classe_Listes();

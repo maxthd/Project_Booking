@@ -96,6 +96,21 @@ public class Connexion {
     }
 
 
+    public int fill_int_param_String(String requete, String word) throws SQLException {
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setString(1, word);
+
+        // récupération de l'ordre de la requete
+        rset = param_stmt.executeQuery();
+
+        while (rset.next()) {
+            return rset.getInt(1);
+        }
+        return 0;
+
+    }
+
+
     //Retourne un String unique correspondant à la requete(avec paramètre)
     public String fill_string_param(String requete, int index) throws SQLException {
 
@@ -153,6 +168,56 @@ public class Connexion {
         param_stmt.executeUpdate();
 
     }
+
+
+
+    public void executeinsert_vol(String requete, int nombre_place, String ville_depart, String ville_arrive,
+                                  int annee_depart, int mois_depart, int jour_depart,
+                                  int annee_arrive, int mois_arrive, int jour_arrive,
+                                  String heure_depart, String heure_arrive) throws SQLException {
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, nombre_place);
+        param_stmt.setString(2, ville_depart);
+        param_stmt.setString(3, ville_arrive);
+        param_stmt.setInt(4, annee_depart);
+        param_stmt.setInt(5, mois_depart);
+        param_stmt.setInt(6, jour_depart);
+        param_stmt.setInt(7, annee_arrive);
+        param_stmt.setInt(8, mois_arrive);
+        param_stmt.setInt(9, jour_arrive);
+        param_stmt.setString(10, heure_depart);
+        param_stmt.setString(11, heure_arrive);
+
+
+        param_stmt.executeUpdate();
+
+    }
+
+
+
+    public void executeinsert_client(String requete,  String nom, String prenom,
+                                     String username, String password,
+                                     int age, double solde, int membre) throws SQLException {
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setString(1, nom);
+        param_stmt.setString(2, prenom);
+        param_stmt.setString(3, username);
+        param_stmt.setString(4,password);
+        param_stmt.setInt(5, age);
+        param_stmt.setDouble(6, solde);
+        param_stmt.setInt(7, membre);
+
+
+        param_stmt.executeUpdate();
+
+    }
+
+
+
+
+
+
+
 
 
 
