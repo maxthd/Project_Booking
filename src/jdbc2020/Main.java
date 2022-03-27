@@ -7,6 +7,7 @@
 //https://stackoverflow.com/questions/27053276/date-and-time-picker-in-java
 package jdbc2020;
 import affichage.*;
+import Modele.*;
 
 import java.sql.SQLException;
 
@@ -15,6 +16,11 @@ public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException
     {
         Page_acceuil c = new Page_acceuil();
+
+
+        /*Test FONCTIONNEL historique_client
+        Historique_client h=new Historique_client(1);
+        h.Affichage_historique();*/
 
         //test_classe_Listes();
 
