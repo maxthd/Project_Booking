@@ -8,15 +8,15 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="f77df" class="javax.swing.JLabel" binding="Label_id">
+      <component id="f77df" class="javax.swing.JLabel" binding="Label_username">
         <constraints>
           <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Identifiant"/>
+          <text value="Username"/>
         </properties>
       </component>
-      <component id="f12d7" class="javax.swing.JTextField" binding="Tf_id">
+      <component id="f12d7" class="javax.swing.JTextField" binding="Tf_username">
         <constraints>
           <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

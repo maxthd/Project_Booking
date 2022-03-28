@@ -1,6 +1,6 @@
 package Modele;
 
-import jdbc2020.Connexion;
+import jdbc2020.*;
 
 import java.sql.SQLException;
 
@@ -31,5 +31,31 @@ public class Inscription {
             return true;
         else
             return false;
+    }
+
+    public boolean Is_empty (String a,String b,String c,String d,String e,String f)
+    {
+        if (a.isEmpty() || b.isEmpty() || c.isEmpty() || d.isEmpty() || e.isEmpty() || f.isEmpty())
+        {
+            System.out.println("erreur car un champs est nul");
+            return false;
+        }
+        else
+        {
+            System.out.println("Ca se passe bien");
+            return true;
+        }
+    }
+
+    public int Valeur_checkbox (boolean bool)
+    {
+        if (bool)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

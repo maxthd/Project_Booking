@@ -1,5 +1,5 @@
 package affichage;
-import jdbc2020.*;
+import Modele.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 
 public class Page_inscription extends JFrame {
     private JPanel Menu_inscription;
-    private JLabel Label_id;
-    private JTextField Tf_id;
+    private JLabel Label_username;
+    private JTextField Tf_username;
     private JLabel Label_mdp;
     private JLabel Label_nom;
     private JTextField Tf_nom;
@@ -23,9 +23,10 @@ public class Page_inscription extends JFrame {
     private JLabel Label_Inscription;
     private JButton Button_valider;
     private JButton Button_retour;
-    private Listes l;
+    private Inscription inscription;
 
     public Page_inscription () throws SQLException, ClassNotFoundException {
+        inscription = new Inscription();
         setContentPane(Menu_inscription);
         setTitle("Page d'acceuil");
         setSize(800,600);
@@ -33,17 +34,18 @@ public class Page_inscription extends JFrame {
         setVisible(true);
         Button_valider.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if (Tf_id.getText()=="admin")
+            public void actionPerformed(ActionEvent e)
+            {
+                if (inscription.Is_empty(Tf_nom.getText(),Tf_prenom.getText(),Tf_username.getText(),
+                        Tf_mdp.getText(), Tf_age.getText(),Tf_solde.getText()))
                 {
-                    dispose();
-                    Page_administrateur p= new Page_administrateur();
-                }
-                else
-                {
-                    dispose();
-                    Page_client p= new Page_client();
+                    try {
+                        inscription.Ajout_client(Tf_nom.getText(), Tf_prenom.getText(), Tf_username.getText(),
+                                Tf_mdp.getText(),Integer.parseInt(Tf_age.getText()), Double.parseDouble(Tf_solde.getText()),
+                                inscription.Valeur_checkbox(CheckBox_membre.isSelected()));
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         });

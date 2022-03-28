@@ -22,9 +22,11 @@ public class Login {
         {
             if ((username.equals(clients.get(i).getUsername()))&&(mdp.equals(clients.get(i).getPassword())))
             {
+                System.out.println(username);
                 return true;
             }
         }
+        System.out.println(username);
         return false;
     }
     public boolean Est_un_Employe (String username, String mdp)
