@@ -13,9 +13,9 @@ public class Page_login extends JFrame {
     private JTextField Tf_identifiant;
     private JLabel Label_mdp;
     private JLabel Label_id;
-    private JTextField Tf_mdp;
     private JButton Button_valider;
     private JButton Button_quitter;
+    private JPasswordField passwordField_mdp;
     private Listes lis;
     private Login log;
 
@@ -31,13 +31,13 @@ public class Page_login extends JFrame {
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (log.Est_un_Employe(Tf_identifiant.getText(),Tf_mdp.getText()))
+                if (log.Est_un_Employe(Tf_identifiant.getText(),passwordField_mdp.getText()))
                 {
                     System.out.println("employe trouvé");
                     dispose();
                     Page_administrateur p= new Page_administrateur();
                 }
-                if (log.Est_un_client(Tf_identifiant.getText(),Tf_mdp.getText()))
+                if (log.Est_un_client(Tf_identifiant.getText(),passwordField_mdp.getText()))
                 {
                     System.out.println("client trouvé");
                     dispose();
