@@ -1,10 +1,13 @@
 //https://stackoverflow.com/questions/12745186/passing-parameters-to-a-jdbc-preparedstatement
 package jdbc2020;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
+import java.io.*;
 
 
 
@@ -14,7 +17,6 @@ public class Connexion {
     private final Statement stmt;
     private PreparedStatement param_stmt;
     private ResultSet rset;
-    private FileInputStream inputStream=null;
 
     /**CES ATTRIBUTS SONT USELESS*/
     private ResultSetMetaData rsetMeta;
@@ -33,6 +35,35 @@ public class Connexion {
 
         // création d'un ordre SQL (statement)
         stmt = conn.createStatement();
+    }
+
+    public void execute_insertimage(String requete) throws SQLException, FileNotFoundException {
+        File file = new File("C:/Users/Abdelaziz/OneDrive/Bureau/chat.png");
+        FileInputStream input = new FileInputStream(file);
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, 99);
+        param_stmt.setBinaryStream(2, (InputStream)input,(int)file.length());
+
+        param_stmt.executeUpdate();
+        System.out.println("Image successfully inserted!");
+
+    }
+
+    public ImageIcon fill_imageicon(String requete) throws SQLException {
+
+        param_stmt =conn.prepareStatement(requete);
+
+        // récupération de l'ordre de la requete
+        rset = param_stmt.executeQuery();
+        byte[] image = null;
+        while (rset.next()) {
+            image = rset.getBytes("picture");
+        }
+        //create the image
+        Image img =Toolkit.getDefaultToolkit().createImage(image);
+        ImageIcon icone = new ImageIcon(img);
+        return icone;
     }
 
 

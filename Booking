@@ -93,6 +93,15 @@ FOREIGN KEY(fk_client) REFERENCES Client (id_client) ON UPDATE CASCADE ON DELETE
 FOREIGN KEY(fk_employe) REFERENCES Employe (id_employe) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+ -- Créer table Image
+
+ CREATE TABLE Image(
+ id_image SMALLINT NOT NULL AUTO_INCREMENT,
+ size SMALLINT NOT NULL,
+ picture LONGBLOB
+ );
+
+
 
 -- Remplir table Vol
 
