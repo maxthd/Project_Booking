@@ -1,6 +1,7 @@
 //https://stackoverflow.com/questions/12745186/passing-parameters-to-a-jdbc-preparedstatement
 package jdbc2020;
 
+import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -13,6 +14,7 @@ public class Connexion {
     private final Statement stmt;
     private PreparedStatement param_stmt;
     private ResultSet rset;
+    private FileInputStream inputStream=null;
 
     /**CES ATTRIBUTS SONT USELESS*/
     private ResultSetMetaData rsetMeta;
@@ -79,6 +81,54 @@ public class Connexion {
     }
 
 
+    public ArrayList<Integer> fill_array_param_String(String requete,
+                                                          String word) throws SQLException {
+
+        // creation d'une ArrayList de String
+        ArrayList<Integer> liste=new ArrayList<>();
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setString(1, word);
+
+
+        // récupération de l'ordre de la requete
+        rset = param_stmt.executeQuery();
+
+
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            liste.add(rset.getInt(1)); // ajouter premier champ
+        }
+
+        // Retourner l'ArrayList
+        return liste;
+    }
+
+    public ArrayList<Integer> fill_array_two_param_String(String requete,
+                                                          String word1, String word2) throws SQLException {
+
+        // creation d'une ArrayList de String
+        ArrayList<Integer> liste=new ArrayList<>();
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setString(1, word1);
+        param_stmt.setString(2, word2);
+
+
+        // récupération de l'ordre de la requete
+        rset = param_stmt.executeQuery();
+
+
+        // tant qu'il reste une ligne
+        while (rset.next()) {
+            liste.add(rset.getInt(1)); // ajouter premier champ
+        }
+
+        // Retourner l'ArrayList
+        return liste;
+    }
+
+
     //Retourne un entier unique correspondant à la requete(avec paramètre)
     public int fill_int_param(String requete, int index) throws SQLException {
 
@@ -109,6 +159,10 @@ public class Connexion {
         return 0;
 
     }
+
+
+
+
 
 
     //Retourne un String unique correspondant à la requete(avec paramètre)
