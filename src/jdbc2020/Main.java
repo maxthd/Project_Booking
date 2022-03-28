@@ -20,33 +20,6 @@ public class Main {
         Page_acceuil c = new Page_acceuil();
 
 
-        /*Choix_vol vols= new Choix_vol();
-        vols.Remplir_Choix_vol("", "");
-        vols.Remplir_Choix_vol("", "Paris");
-        vols.Remplir_Choix_vol("Paris", "");
-        vols.Remplir_Choix_vol("Paris", "New York");
-        vols.Affichage_vols();*/
-
-        /*Inscription I=new Inscription();
-        I.Ajout_client("Abdelkefi", "Shems", "Shmisa", "password", 20, 14, 1);*/
-
-        /*TEST FONCTIONNEL AJOUT_VOL
-        Ajout_vol v=new Ajout_vol();
-        v.Insert_Vol(100, "Kin-chasa", "Dublin", 2016,9, 20,
-                2016, 9, 20, "13:00", "17:00" );*/
-
-
-        /*
-        Historique_client h=new Historique_client();
-        h.Remplir_historique(2);
-        h.Affichage_historique();*/
-
-        //test_classe_Listes();
-
-        /*Listes L=new Listes();
-        L.Afficher_listes();*/
-
-
     }
 
     public static void test_classe_Listes() throws SQLException, ClassNotFoundException {

@@ -10,7 +10,6 @@ public class Client {
     private String password;
     private int age;
     private double solde;
-    private double reduction; //La valeur de reduction du client sera attribué à la valeur de réduction de "Billet"
     private int membre;
 
     public Client(int index, Connexion maconnexion) throws SQLException {
@@ -21,7 +20,6 @@ public class Client {
         password= maconnexion.fill_string_param("SELECT password FROM Client WHERE id_client= ?", id_client);
         age= maconnexion.fill_int_param("SELECT age FROM Client WHERE id_client= ?", id_client);
         solde= maconnexion.fill_double_param("SELECT solde FROM Client WHERE id_client= ?", id_client);
-        reduction= maconnexion.fill_double_param("SELECT reduction FROM Client WHERE id_client= ?", id_client);
         membre= maconnexion.fill_int_param("SELECT membre FROM Client WHERE id_client= ?", id_client);
 
         //Afficher_Client();
@@ -32,7 +30,7 @@ public class Client {
 
         System.out.println("Numéro_client: "+id_client+ "\t\tNom: "+nom + "\t\tPrenom: "+prenom
                 +"\t\tUsername: "+username + "\t\tPassword : "+password + "\t\tAge: "+age +
-                "\t\tSolde: "+solde + "\t\tReduction: "+reduction + "\t\t membre: "+membre);
+                "\t\tSolde: "+solde + "\t\t membre: "+membre);
         System.out.println("---------------------------------------------------------------------------" +
                 "------------------------------------------");
     }
@@ -110,13 +108,6 @@ public class Client {
         this.solde = solde;
     }
 
-    public double getReduction() {
-        return reduction;
-    }
-
-    public void setReduction(double reduction) {
-        this.reduction = reduction;
-    }
 
     public int getMembre() {
         return membre;

@@ -14,14 +14,17 @@ public class Modifier_vol {
 
 
     public void Update_Vol(int id_vol, int nombre_place, String ville_depart, String ville_arrive,
-                           int annee_depart, int mois_depart, int jour_depart,
-                           int annee_arrive,  int mois_arrive, int jour_arrive,
+                           String date_depart,
+                           String date_arrive,
                            String heure_depart, String heure_arrive, int vol_dispo) throws SQLException {
 
-        System.out.println("here");
         maconnexion.executeupdate_vol("UPDATE Vol SET nombre_place=?, ville_depart=?, ville_arrive=?," +
-                "annee_depart=?, mois_depart=?, jour_depart=?, annee_arrive=?, mois_arrive=?, jour_arrive=?," +
-                "heure_depart=?, heure_arrive=?, vol_dispo=? WHERE id_vol=?", nombre_place, ville_depart, ville_arrive, annee_depart,
-                mois_depart, jour_depart, annee_arrive, mois_arrive, jour_arrive, heure_depart, heure_arrive, vol_dispo, id_vol);
+                "date_depart=?, date_arrive=?," +
+                "heure_depart=?, heure_arrive=?, vol_dispo=? WHERE id_vol=?", nombre_place, ville_depart, ville_arrive,
+                date_depart, date_arrive, heure_depart, heure_arrive, vol_dispo, id_vol);
+    }
+
+    public void Delete_Vol(int id_vol) throws SQLException {
+        maconnexion.executedelete("DELETE FROM Vol WHERE id_vol=?;", id_vol);
     }
 }

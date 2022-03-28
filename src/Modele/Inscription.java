@@ -17,8 +17,8 @@ public class Inscription {
         if ((Valid_word("SELECT id_client FROM Client WHERE username= ?", username)==true)
             && (Valid_word("SELECT id_client FROM Client WHERE password= ?", password)==true)) {
             maconnexion.executeinsert_client("INSERT INTO Client (nom, prenom, username, password," +
-                    " age, solde, reduction, membre) VALUES" +
-                    "(?, ?, ?, ?, ?, ?, 0 , ? )", nom, prenom, username, password, age, solde, membre);
+                    " age, solde, membre) VALUES" +
+                    "(?, ?, ?, ?, ?, ?, ? )", nom, prenom, username, password, age, solde, membre);
         }
         else
             System.out.println("Un client avec ce username ou ce mot de passe existe déja. Choisis un autre");

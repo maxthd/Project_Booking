@@ -8,12 +8,8 @@ public class Vol {
     private int nombre_place;
     private String ville_depart;
     private String ville_arrive;
-    private int annee_depart;
-    private int mois_depart;
-    private int jour_depart;
-    private int annee_arrive;
-    private int mois_arrive;
-    private int jour_arrive;
+    private String date_depart; //On écrit les dates sous la forme de string "DD/MM/YYYY"
+    private String date_arrive;
     private String heure_depart; //On écrit les heures sous la forme de string "HH:MM"
     private String heure_arrive;
     private int vol_dispo;
@@ -25,12 +21,8 @@ public class Vol {
         nombre_place = maconnexion.fill_int_param("SELECT nombre_place FROM Vol WHERE id_vol= ?", id_vol);
         ville_depart = maconnexion.fill_string_param("SELECT ville_depart FROM Vol WHERE id_vol= ?", id_vol);
         ville_arrive = maconnexion.fill_string_param("SELECT ville_arrive FROM Vol WHERE id_vol= ?", id_vol);
-        annee_depart=maconnexion.fill_int_param("SELECT annee_depart FROM Vol WHERE id_vol= ?", id_vol);
-        mois_depart=maconnexion.fill_int_param("SELECT mois_depart FROM Vol WHERE id_vol= ?", id_vol);
-        jour_depart=maconnexion.fill_int_param("SELECT jour_depart FROM Vol WHERE id_vol= ?", id_vol);
-        annee_arrive=maconnexion.fill_int_param("SELECT annee_arrive FROM Vol WHERE id_vol= ?", id_vol);
-        mois_arrive=maconnexion.fill_int_param("SELECT mois_arrive FROM Vol WHERE id_vol= ?", id_vol);
-        jour_arrive=maconnexion.fill_int_param("SELECT jour_arrive FROM Vol WHERE id_vol= ?", id_vol);
+        date_depart=maconnexion.fill_string_param("SELECT date_depart FROM Vol WHERE id_vol= ?", id_vol);
+        date_arrive=maconnexion.fill_string_param("SELECT date_arrive FROM Vol WHERE id_vol= ?", id_vol);
         heure_depart = maconnexion.fill_string_param("SELECT heure_depart FROM Vol WHERE id_vol= ?", id_vol);
         heure_arrive = maconnexion.fill_string_param("SELECT heure_arrive FROM Vol WHERE id_vol= ?", id_vol);
         vol_dispo = maconnexion.fill_int_param("SELECT vol_dispo FROM Vol WHERE id_vol= ?", id_vol);
@@ -42,8 +34,7 @@ public class Vol {
     public void Afficher_Vol() {
         System.out.println("Numéro_vol: " + id_vol+ "\t\tnbr_place: " + nombre_place+
                 "\t\tville_départ: " + ville_depart+ "\t\tville arrivé: " + ville_arrive);
-        System.out.println("annee départ: " + annee_depart + "\t\tmois départ: " + mois_depart +"\t\tjour départ: " + jour_depart +
-                "\t\tannee arrivé: " + annee_arrive+"\t\tmois arrivé: " + mois_arrive+ "\t\tjour arrivé: " + jour_arrive+
+        System.out.println("date_départ: " + date_depart + "\t\tdate_arrivé: " + date_arrive +
                 "\t\theure départ: " + heure_depart + "\t\theure arrivé: " + heure_arrive+ "\t\tvol_dispo: "+vol_dispo);
 
         System.out.println("---------------------------------------------------------------------------");
@@ -96,52 +87,20 @@ public class Vol {
         this.ville_arrive = ville_arrive;
     }
 
-    public int getAnnee_depart() {
-        return annee_depart;
+    public String getDate_depart() {
+        return date_depart;
     }
 
-    public void setAnnee_depart(int annee_depart) {
-        this.annee_depart = annee_depart;
+    public void setDate_depart(String date_depart) {
+        this.date_depart = date_depart;
     }
 
-    public int getMois_depart() {
-        return mois_depart;
+    public String getDate_arrive() {
+        return date_arrive;
     }
 
-    public void setMois_depart(int mois_depart) {
-        this.mois_depart = mois_depart;
-    }
-
-    public int getJour_depart() {
-        return jour_depart;
-    }
-
-    public void setJour_depart(int jour_depart) {
-        this.jour_depart = jour_depart;
-    }
-
-    public int getAnnee_arrive() {
-        return annee_arrive;
-    }
-
-    public void setAnnee_arrive(int annee_arrive) {
-        this.annee_arrive = annee_arrive;
-    }
-
-    public int getMois_arrive() {
-        return mois_arrive;
-    }
-
-    public void setMois_arrive(int mois_arrive) {
-        this.mois_arrive = mois_arrive;
-    }
-
-    public int getJour_arrive() {
-        return jour_arrive;
-    }
-
-    public void setJour_arrive(int jour_arrive) {
-        this.jour_arrive = jour_arrive;
+    public void setDate_arrive(String date_arrive) {
+        this.date_arrive = date_arrive;
     }
 
     public String getHeure_depart() {

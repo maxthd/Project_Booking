@@ -6,12 +6,8 @@ id_vol SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 nombre_place SMALLINT NOT NULL ,
 ville_depart TINYTEXT NOT NULL ,
 ville_arrive TINYTEXT NOT NULL ,
-annee_depart SMALLINT NOT NULL ,
-mois_depart SMALLINT NOT NULL,
-jour_depart SMALLINT NOT NULL,
-annee_arrive SMALLINT NOT NULL ,
-mois_arrive SMALLINT NOT NULL ,
-jour_arrive SMALLINT NOT NULL ,
+date_depart TINYTEXT NOT NULL,
+date_arrive TINYTEXT NOT NULL,
 heure_depart TINYTEXT NOT NULL ,
 heure_arrive TINYTEXT NOT NULL ,
 vol_dispo SMALLINT
@@ -39,7 +35,6 @@ username TINYTEXT,
 password TINYTEXT,
 age SMALLINT NOT NULL ,
 solde DOUBLE,
-reduction DOUBLE,
 membre SMALLINT
 );
 
@@ -101,10 +96,10 @@ FOREIGN KEY(fk_employe) REFERENCES Employe (id_employe) ON UPDATE CASCADE ON DEL
 
 -- Remplir table Vol
 
-INSERT INTO Vol (nombre_place, ville_depart, ville_arrive, annee_depart, mois_depart, jour_depart,
-annee_arrive, mois_arrive, jour_arrive, heure_depart , heure_arrive , vol_dispo) VALUES
-(80, "Paris", "New York", 2001, 09, 27, 2001, 09, 28, "22:00", "05:00", TRUE),
-(50, "Paris", "Tunis", 2001, 06, 10, 2001, 06, 10, "15:00", "17:00", TRUE);
+INSERT INTO Vol (nombre_place, ville_depart, ville_arrive, date_depart, date_arrive,
+heure_depart , heure_arrive , vol_dispo) VALUES
+(80, "Paris", "New York", "20/04/2020", "21/04/2020", "22:00", "05:00", TRUE),
+(50, "Paris", "Tunis", "24/12/2020", "24/12/2020", "15:00", "17:00", TRUE);
 
 
 
@@ -119,10 +114,10 @@ INSERT INTO Employe (nom, prenom, username, password) VALUES
 
 -- Remplir table Client
 
-INSERT INTO Client (nom, prenom, username, password, age, solde, reduction, membre) VALUES
-("Lasram", "Amel", "Ammoula", "maman", 51, 20, 0.5 , TRUE ),
-("Abdelkefi", "Ahmed", "Hamidou", "Ipad", 20, 0, 0 , FALSE ),
-("Carissan", "Jean come", "client@gmail.com", "client", 20, 0, 0 , FALSE );
+INSERT INTO Client (nom, prenom, username, password, age, solde, membre) VALUES
+("Lasram", "Amel", "Ammoula", "maman", 51, 20,  TRUE ),
+("Abdelkefi", "Ahmed", "Hamidou", "Ipad", 20, 0, FALSE ),
+("Carissan", "Jean come", "client@gmail.com", "client", 20, 0, FALSE );
 
 
 
