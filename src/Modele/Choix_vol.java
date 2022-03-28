@@ -9,6 +9,7 @@ public class Choix_vol {
     private Connexion maconnexion;
 
     public Choix_vol() throws SQLException, ClassNotFoundException {
+        vols.clear();
         maconnexion=new Connexion("booking", "root", "");
     }
 
@@ -51,10 +52,6 @@ public class Choix_vol {
             vols.get(i).Afficher_Vol();
     }
 
-    public void clear_vol(){
-        vols.clear();
-        vols.removeAll(vols);
-    }
 
     public ArrayList<Vol> get_vols() {
         return vols;

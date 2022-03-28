@@ -18,6 +18,13 @@ public class Listes {
     public Listes() throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
 
+        vols.clear();
+        employes.clear();
+        clients.clear();
+        billets.clear();
+        reservations.clear();
+        vols_employes.clear();
+        clients_employes.clear();
         init_listes_vols();
         init_listes_employes();
         init_listes_clients();

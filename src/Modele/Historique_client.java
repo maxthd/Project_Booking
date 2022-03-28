@@ -10,6 +10,7 @@ public class Historique_client {
 
 
     public Historique_client() throws SQLException, ClassNotFoundException {
+        vols.clear();
         maconnexion=new Connexion("booking", "root", "");
     }
 

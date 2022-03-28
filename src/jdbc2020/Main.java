@@ -19,12 +19,13 @@ public class Main {
     {
         Page_acceuil c = new Page_acceuil();
 
-        Choix_vol vols= new Choix_vol();
+
+        /*Choix_vol vols= new Choix_vol();
         vols.Remplir_Choix_vol("", "");
         vols.Remplir_Choix_vol("", "Paris");
         vols.Remplir_Choix_vol("Paris", "");
         vols.Remplir_Choix_vol("Paris", "New York");
-        vols.Affichage_vols();
+        vols.Affichage_vols();*/
 
         /*Inscription I=new Inscription();
         I.Ajout_client("Abdelkefi", "Shems", "Shmisa", "password", 20, 14, 1);*/

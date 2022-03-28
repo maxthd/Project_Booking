@@ -247,6 +247,32 @@ public class Connexion {
 
     }
 
+    public void executeupdate_vol(String requete, int nombre_place, String ville_depart, String ville_arrive,
+                                  int annee_depart, int mois_depart, int jour_depart,
+                                  int annee_arrive, int mois_arrive, int jour_arrive,
+                                  String heure_depart, String heure_arrive, int vol_dispo, int id_vol) throws SQLException {
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, nombre_place);
+        param_stmt.setString(2, ville_depart);
+        param_stmt.setString(3, ville_arrive);
+        param_stmt.setInt(4, annee_depart);
+        param_stmt.setInt(5, mois_depart);
+        param_stmt.setInt(6, jour_depart);
+        param_stmt.setInt(7, annee_arrive);
+        param_stmt.setInt(8, mois_arrive);
+        param_stmt.setInt(9, jour_arrive);
+        param_stmt.setString(10, heure_depart);
+        param_stmt.setString(11, heure_arrive);
+        param_stmt.setInt(12, vol_dispo);
+        param_stmt.setInt(13, id_vol);
+
+
+        param_stmt.executeUpdate();
+
+    }
+
+
+
 
 
     public void executeinsert_client(String requete,  String nom, String prenom,
@@ -268,6 +294,12 @@ public class Connexion {
 
 
 
+    public void clear_connexion() throws SQLException {
+       conn.close();
+       stmt.close();
+       param_stmt.close();
+       rset.close();
+    }
 
 
 
