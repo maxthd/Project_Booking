@@ -3,6 +3,7 @@ package jdbc2020;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Image;
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,13 +38,13 @@ public class Connexion {
         stmt = conn.createStatement();
     }
 
-    public void execute_insertimage(String requete) throws SQLException, FileNotFoundException {
-        File file = new File("C:/Users/Abdelaziz/OneDrive/Bureau/chat.png");
+
+    public void execute_insertimage(String requete, String path) throws SQLException, FileNotFoundException {
+        File file = new File(path);
         FileInputStream input = new FileInputStream(file);
 
         param_stmt =conn.prepareStatement(requete);
-        param_stmt.setInt(1, 99);
-        param_stmt.setBinaryStream(2, (InputStream)input,(int)file.length());
+        param_stmt.setBinaryStream(1, (InputStream)input,(int)file.length());
 
         param_stmt.executeUpdate();
         System.out.println("Image successfully inserted!");
@@ -174,6 +175,20 @@ public class Connexion {
         }
         return 0;
 
+    }
+
+    public Blob fill_blob_param(String requete, int index) throws SQLException {
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, index);
+
+        // récupération de l'ordre de la requete
+        rset = param_stmt.executeQuery();
+
+        while (rset.next()) {
+            return rset.getBlob(1);
+        }
+        return null;
     }
 
 

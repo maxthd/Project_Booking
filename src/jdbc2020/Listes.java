@@ -14,6 +14,7 @@ public class Listes {
     private ArrayList<Reservation> reservations=new ArrayList<>();
     private ArrayList<Relation_vol_employe> vols_employes= new ArrayList<>();
     private ArrayList<Relation_client_employe> clients_employes=new ArrayList<>();
+    private ArrayList<Image> images=new ArrayList<>();
 
     public Listes() throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
@@ -25,6 +26,7 @@ public class Listes {
         reservations.clear();
         vols_employes.clear();
         clients_employes.clear();
+        images.clear();
         init_listes_vols();
         init_listes_employes();
         init_listes_clients();
@@ -32,6 +34,7 @@ public class Listes {
         init_listes_reservation();
         init_listes_vols_employes();
         init_listes_clients_employes();
+        init_listes_images();
     }
 
 
@@ -113,7 +116,16 @@ public class Listes {
         }
     }
 
+    public void init_listes_images() throws SQLException {
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_image FROM Image");
 
+        for (int i=0; i< list_id.size(); i++)
+        {
+            Image image=new Image(list_id.get(i), maconnexion);
+            images.add(image);
+        }
+    }
 
     public void Afficher_listes(){
         for (int i=0; i<vols.size(); i++)
@@ -124,6 +136,7 @@ public class Listes {
 
         for (int i=0; i<clients.size(); i++)
             clients.get(i).Afficher_Client();
+
 
         for (int i=0; i<billets.size(); i++)
             billets.get(i).Afficher_billet();
@@ -137,6 +150,9 @@ public class Listes {
 
         for (int i=0; i< clients_employes.size(); i++)
             clients_employes.get(i).Afficher_client_employe();
+
+        for (int i=0; i<images.size(); i++)
+            images.get(i).Afficher_Image();
     }
 
 

@@ -11,6 +11,7 @@ public class Client {
     private int age;
     private double solde;
     private int membre;
+    private int fk_image;
 
     public Client(int index, Connexion maconnexion) throws SQLException {
         id_client=index;
@@ -21,8 +22,9 @@ public class Client {
         age= maconnexion.fill_int_param("SELECT age FROM Client WHERE id_client= ?", id_client);
         solde= maconnexion.fill_double_param("SELECT solde FROM Client WHERE id_client= ?", id_client);
         membre= maconnexion.fill_int_param("SELECT membre FROM Client WHERE id_client= ?", id_client);
+        fk_image=maconnexion.fill_int_param("SELECT fk_image FROM Client WHERE id_client= ?", id_client);
 
-        //Afficher_Client();
+        Afficher_Client();
 
     }
 
@@ -30,7 +32,7 @@ public class Client {
 
         System.out.println("Numéro_client: "+id_client+ "\t\tNom: "+nom + "\t\tPrenom: "+prenom
                 +"\t\tUsername: "+username + "\t\tPassword : "+password + "\t\tAge: "+age +
-                "\t\tSolde: "+solde + "\t\t membre: "+membre);
+                "\t\tSolde: "+solde + "\t\t membre: "+membre + "\t\t fk_image: "+fk_image);
         System.out.println("---------------------------------------------------------------------------" +
                 "------------------------------------------");
     }
