@@ -24,7 +24,7 @@ public class Client {
         membre= maconnexion.fill_int_param("SELECT membre FROM Client WHERE id_client= ?", id_client);
         fk_image=maconnexion.fill_int_param("SELECT fk_image FROM Client WHERE id_client= ?", id_client);
 
-        Afficher_Client();
+        //Afficher_Client();
 
     }
 

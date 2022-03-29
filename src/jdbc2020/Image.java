@@ -10,6 +10,8 @@ public class Image {
     public Image(int index, Connexion maconnexion) throws SQLException {
         id_image=index;
         picture=maconnexion.fill_blob_param("SELECT picture FROM Image WHERE id_image=?", id_image);
+
+        //Afficher_Image();
     }
 
     public void Afficher_Image(){

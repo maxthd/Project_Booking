@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
-        //Page_vol_admin c = new Page_vol_admin();
+        Page_vol_admin c = new Page_vol_admin();
 
 
         /**CECI EST A APPELE POUR INSERER LES VALEURS DE IMAGES DANS TABLEAU
@@ -35,7 +35,7 @@ public class Main {
 
 
         //CECI EST POUR AFFICHER L IMAGE
-        new ShowMyImage();
+        //new ShowMyImage();
 
 
     }
