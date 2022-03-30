@@ -42,7 +42,8 @@ public class Choix_vol {
         for (int i=0; i< list_id.size(); i++)
         {
             Vol vol=new Vol(list_id.get(i), maconnexion);
-            vols.add(vol);
+            if (vol.getVol_dispo()==1)
+                vols.add(vol);
         }
     }
 

@@ -14,7 +14,9 @@ public class Inscription {
     public void Ajout_client(String nom, String prenom, String username, String password,
                              int age, double solde, int membre) throws SQLException {
 
-        if ((Valid_word("SELECT id_client FROM Client WHERE username= ?", username)==true)
+
+        if (username_with_atsign(username)==true
+            && (Valid_word("SELECT id_client FROM Client WHERE username= ?", username)==true)
             && (Valid_word("SELECT id_client FROM Client WHERE password= ?", password)==true)) {
             maconnexion.executeinsert_client("INSERT INTO Client (nom, prenom, username, password," +
                     " age, solde, membre, fk_image) VALUES" +
@@ -31,6 +33,15 @@ public class Inscription {
             return true;
         else
             return false;
+    }
+
+    public boolean username_with_atsign (String username){
+        for (int i=0; i<username.length(); i++)
+        {
+            if (username.charAt(i)=='@')
+                return true;
+        }
+        return false;
     }
 
     public boolean Is_empty (String a,String b,String c,String d,String e,String f)
