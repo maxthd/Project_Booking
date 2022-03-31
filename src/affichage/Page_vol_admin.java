@@ -31,8 +31,7 @@ public class Page_vol_admin extends JFrame  {
         {
             String o="Vol "+Integer.toString(l.getVols().get(i).getId_vol())+" "+l.getVols().get(i).getVille_depart()+ " "+
                     l.getVols().get(i).getVille_arrive()+" départ "+l.getVols().get(i).getDate_depart()+" "+l.getVols().get(i).getHeure_depart()
-                    +" arrivée "+ l.getVols().get(i).getDate_arrive()+" "+l.getVols().get(i).getHeure_arrive()+
-                    " nombre de place "+Integer.toString(l.getVols().get(i).getNombre_place());
+                    +" arrivée "+ l.getVols().get(i).getDate_arrive()+" "+l.getVols().get(i).getHeure_arrive();
             DLM.addElement(o);
         }
         List_vols_id.setModel(DLM);

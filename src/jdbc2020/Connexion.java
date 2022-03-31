@@ -271,17 +271,16 @@ public class Connexion {
 
 
 
-    public void executeinsert_vol(String requete, int nombre_place, String ville_depart, String ville_arrive,
+    public void executeinsert_vol(String requete, String ville_depart, String ville_arrive,
                                   String date_depart, String date_arrive,
                                   String heure_depart, String heure_arrive) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
-        param_stmt.setInt(1, nombre_place);
-        param_stmt.setString(2, ville_depart);
-        param_stmt.setString(3, ville_arrive);
-        param_stmt.setString(4, date_depart);
-        param_stmt.setString(5, date_arrive);
-        param_stmt.setString(6, heure_depart);
-        param_stmt.setString(7, heure_arrive);
+        param_stmt.setString(1, ville_depart);
+        param_stmt.setString(2, ville_arrive);
+        param_stmt.setString(3, date_depart);
+        param_stmt.setString(4, date_arrive);
+        param_stmt.setString(5, heure_depart);
+        param_stmt.setString(6, heure_arrive);
 
 
         param_stmt.executeUpdate();
@@ -298,19 +297,18 @@ public class Connexion {
         param_stmt.executeUpdate();
     }
 
-    public void executeupdate_vol(String requete, int nombre_place, String ville_depart, String ville_arrive,
+    public void executeupdate_vol(String requete, String ville_depart, String ville_arrive,
                                   String date_depart, String date_arrive,
                                   String heure_depart, String heure_arrive, int vol_dispo, int id_vol) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
-        param_stmt.setInt(1, nombre_place);
-        param_stmt.setString(2, ville_depart);
-        param_stmt.setString(3, ville_arrive);
-        param_stmt.setString(4, date_depart);
-        param_stmt.setString(5, date_arrive);
-        param_stmt.setString(6, heure_depart);
-        param_stmt.setString(7, heure_arrive);
-        param_stmt.setInt(8, vol_dispo);
-        param_stmt.setInt(9, id_vol);
+        param_stmt.setString(1, ville_depart);
+        param_stmt.setString(2, ville_arrive);
+        param_stmt.setString(3, date_depart);
+        param_stmt.setString(4, date_arrive);
+        param_stmt.setString(5, heure_depart);
+        param_stmt.setString(6, heure_arrive);
+        param_stmt.setInt(7, vol_dispo);
+        param_stmt.setInt(8, id_vol);
 
 
         param_stmt.executeUpdate();

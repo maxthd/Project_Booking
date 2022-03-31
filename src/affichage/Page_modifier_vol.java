@@ -20,8 +20,6 @@ public class Page_modifier_vol extends JFrame
     private JTextField Tf_date_a;
     private JLabel Label_horaire_a;
     private JTextField Tf_horraire_a;
-    private JLabel Label_nb_places;
-    private JTextField Tf_nb_places;
     private JButton Button_Quitter;
     private JButton Button_valider;
     private JLabel Label_vol_dispo;
@@ -47,7 +45,6 @@ public class Page_modifier_vol extends JFrame
                 Label_ville_a.setText(l.getVols().get(i).getVille_arrive());
                 Label_date_a.setText(l.getVols().get(i).getDate_arrive());
                 Label_horaire_a.setText(l.getVols().get(i).getHeure_arrive());
-                Label_nb_places.setText(Integer.toString(l.getVols().get(i).getNombre_place()));
                 Label_vol_dispo.setText(Integer.toString(l.getVols().get(i).getVol_dispo()));
             }
         }
@@ -69,7 +66,7 @@ public class Page_modifier_vol extends JFrame
             public void actionPerformed(ActionEvent e)
             {
                 try {
-                    modif.Update_Vol(id_du_vol, Integer.parseInt(Tf_nb_places.getText()), Tf_ville_d.getText(),
+                    modif.Update_Vol(id_du_vol, Tf_ville_d.getText(),
                             Tf_ville_a.getText(), Tf_date_d.getText(), Tf_date_a.getText(), Tf_horaire_d.getText(), Tf_horraire_a.getText(),
                             Integer.parseInt(Tf_vol_dispo.getText()));
                 } catch (SQLException ex) {

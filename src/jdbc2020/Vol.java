@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 public class Vol {
     private int id_vol;
-    private int nombre_place;
     private String ville_depart;
     private String ville_arrive;
     private String date_depart; //On écrit les dates sous la forme de string "DD/MM/YYYY"
@@ -18,7 +17,6 @@ public class Vol {
     public Vol(int index, Connexion maconnexion) throws SQLException {
 
         id_vol = index;
-        nombre_place = maconnexion.fill_int_param("SELECT nombre_place FROM Vol WHERE id_vol= ?", id_vol);
         ville_depart = maconnexion.fill_string_param("SELECT ville_depart FROM Vol WHERE id_vol= ?", id_vol);
         ville_arrive = maconnexion.fill_string_param("SELECT ville_arrive FROM Vol WHERE id_vol= ?", id_vol);
         date_depart=maconnexion.fill_string_param("SELECT date_depart FROM Vol WHERE id_vol= ?", id_vol);
@@ -32,7 +30,7 @@ public class Vol {
     }
 
     public void Afficher_Vol() {
-        System.out.println("Numéro_vol: " + id_vol+ "\t\tnbr_place: " + nombre_place+
+        System.out.println("Numéro_vol: " + id_vol+
                 "\t\tville_départ: " + ville_depart+ "\t\tville arrivé: " + ville_arrive);
         System.out.println("date_départ: " + date_depart + "\t\tdate_arrivé: " + date_arrive +
                 "\t\theure départ: " + heure_depart + "\t\theure arrivé: " + heure_arrive+ "\t\tvol_dispo: "+vol_dispo);
@@ -63,13 +61,6 @@ public class Vol {
         this.id_vol = id_vol;
     }
 
-    public int getNombre_place() {
-        return nombre_place;
-    }
-
-    public void setNombre_place(int nombre_place) {
-        this.nombre_place = nombre_place;
-    }
 
     public String getVille_depart() {
         return ville_depart;
