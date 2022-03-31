@@ -76,6 +76,10 @@ public class Achat_billet {
                 SendEmail.send("projetbooking55@gmail.com", "Projetbooking55.",
                         client.getUsername(), "Confirmation billet", message);*/
 
+                //METTRE LE VOL EN INDISPONIBLE SI C'ETAIT LE DERNIER BILLET
+                if (Vol_encoredispo()==false)
+                    maconnexion.executeupdate_param("UPDATE Vol SET vol_dispo=0 WHERE id_vol=?", temp_id_vol);
+
 
             } else
                 System.out.println("Solde insuffisant");
@@ -127,6 +131,19 @@ public class Achat_billet {
             message="Ce mail confirme votre billet en classe PREMIUM";
 
         return message;
+    }
+
+    public boolean Vol_encoredispo() throws SQLException {
+        ArrayList<Integer> list_id;
+        int temp;
+
+        list_id=maconnexion.fill_array_param("SELECT id_billet FROM Billet WHERE fk_vol= ?", temp_id_vol);
+        for (int i=0; i<list_id.size(); i++){
+            temp=maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet=?", list_id.get(i));
+            if (temp==1)
+                return true;
+        }
+        return false;
     }
 
 

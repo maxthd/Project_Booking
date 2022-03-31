@@ -7,7 +7,7 @@ public class Billet {
     private int fk_vol;
     private double cout;
     private double reduction;
-    private int type_billet;
+    private int type_billet; //1 pour éco, 2 pour affaire et 3 pour premium
     private int nombre_billet;
     private int billet_dispo;
 

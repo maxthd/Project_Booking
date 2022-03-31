@@ -25,6 +25,6 @@ public class Modifier_vol {
     }
 
     public void Delete_Vol(int id_vol) throws SQLException {
-        maconnexion.executedelete("DELETE FROM Vol WHERE id_vol=?;", id_vol);
+        maconnexion.executeupdate_param("DELETE FROM Vol WHERE id_vol=?;", id_vol);
     }
 }

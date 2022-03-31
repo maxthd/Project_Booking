@@ -23,6 +23,6 @@ public class Modifier_client {
     }
 
     public void Delete_client(int id_client) throws SQLException {
-        maconnexion.executedelete("DELETE FROM Client WHERE id_client=?;", id_client);
+        maconnexion.executeupdate_param("DELETE FROM Client WHERE id_client=?;", id_client);
     }
 }

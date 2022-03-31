@@ -23,6 +23,9 @@ public class Main {
         Page_vol_admin c = new Page_vol_admin();
 
 
+        /*
+        Achat_billet achat_billet=new Achat_billet(2);
+        achat_billet.Acheter_billet(6, 2);*/
 
 
 
