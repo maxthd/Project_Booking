@@ -29,8 +29,9 @@ password TINYTEXT NOT NULL
 
  CREATE TABLE Image(
  id_image SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- picture LONGBLOB NOT NULL
+ picture BLOB NOT NULL
  );
+
 
 
 -- Créer table Client
@@ -57,7 +58,9 @@ CREATE TABLE Billet (
 id_billet SMALLINT NOT NULL AUTO_INCREMENT,
 fk_vol SMALLINT NOT NULL ,
 cout DOUBLE NOT NULL,
-reduction SMALLINT ,
+reduction DOUBLE,
+type_billet SMALLINT,
+nombre_billet SMALLINT,
 billet_dispo SMALLINT,
 PRIMARY KEY(id_billet),
 INDEX (fk_vol),
@@ -157,17 +160,38 @@ INSERT INTO Client (nom, prenom, username, password, age, solde, membre, fk_imag
 
 -- Remplir table Billet
 
-INSERT INTO Billet (fk_vol, cout, reduction, billet_dispo) VALUES
-(1, 75, 0.5, TRUE),
-(2, 70, 0.5, TRUE),
-(3, 40, 0, TRUE),
-(4, 25, 0, TRUE),
-(5, 50, 0, TRUE),
-(6, 70, 0, TRUE),
-(7, 85, 0.5, TRUE),
-(8, 80, 0.5, TRUE),
-(9, 15, 0, TRUE),
-(10, 20, 0, TRUE);
+INSERT INTO Billet (fk_vol, cout, reduction, type_billet, nombre_billet, billet_dispo) VALUES
+(1, 75, 0.5, 1, 40, TRUE),
+(1, 100, 1, 2, 10, TRUE),
+(1, 150, 15, 3, 3, TRUE),
+(2, 40, 0.5, 1, 40, TRUE),
+(2, 50, 1, 2, 10, TRUE),
+(2, 60, 5, 3, 3, TRUE),
+(3, 25, 0.5, 1, 40, TRUE),
+(3, 30, 1, 2, 10, TRUE),
+(3, 40, 15, 3, 3, TRUE),
+(4, 44, 0.5, 1, 40, TRUE),
+(4, 49, 1, 2, 10, TRUE),
+(4, 55, 15, 3, 3, TRUE),
+(5, 70, 0.5, 1, 40, TRUE),
+(5, 80, 1, 2, 10, TRUE),
+(5, 90, 15, 3, 3, TRUE),
+(6, 75, 0.5, 1, 40, TRUE),
+(6, 80, 1, 2, 10, TRUE),
+(6, 86, 15, 3, 3, TRUE),
+(7, 55, 0.5, 1, 40, TRUE),
+(7, 60, 1, 2, 10, TRUE),
+(7, 65, 15, 3, 3, TRUE),
+(8, 130, 0.5, 1, 40, TRUE),
+(8, 150, 1, 2, 10, TRUE),
+(8, 170, 15, 3, 3, TRUE),
+(9, 100, 0.5, 1, 40, TRUE),
+(9, 105, 1, 2, 10, TRUE),
+(9, 120, 15, 3, 3, TRUE),
+(10, 90, 0.5, 1, 40, TRUE),
+(10, 95, 1, 2, 10, TRUE),
+(10, 130, 15, 3, 3, TRUE);
+
 
 
 -- Remplir table Reservation

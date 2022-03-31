@@ -8,6 +8,7 @@ public class Choix_vol {
     private ArrayList<Vol> vols=new ArrayList();
     private Connexion maconnexion;
 
+
     public Choix_vol() throws SQLException, ClassNotFoundException {
         vols.clear();
         maconnexion=new Connexion("booking", "root", "");

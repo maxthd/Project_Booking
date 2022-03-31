@@ -288,6 +288,16 @@ public class Connexion {
 
     }
 
+
+    public void executeinsert_reservation (String requete, int fk_vol, int fk_client) throws SQLException {
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, fk_vol);
+        param_stmt.setInt(2, fk_client);
+
+        param_stmt.executeUpdate();
+    }
+
     public void executeupdate_vol(String requete, int nombre_place, String ville_depart, String ville_arrive,
                                   String date_depart, String date_arrive,
                                   String heure_depart, String heure_arrive, int vol_dispo, int id_vol) throws SQLException {
@@ -326,6 +336,19 @@ public class Connexion {
 
         param_stmt.executeUpdate();
     }
+
+
+    public void executeupdate_billet(String requete,
+                                     int var,int id_billet) throws SQLException {
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, var);
+        param_stmt.setInt(2, id_billet);
+
+        param_stmt.executeUpdate();
+    }
+
+
 
 
 
