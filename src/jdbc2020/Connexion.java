@@ -350,7 +350,7 @@ public class Connexion {
 
 
 
-    public void executedelete(String requete, int index) throws SQLException {
+    public void executeupdate_param(String requete, int index) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
         param_stmt.setInt(1, index);
 
