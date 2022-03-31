@@ -5,6 +5,7 @@
       <root url="jar://$PROJECT_DIR$/../librairie/mysql-connector-java-5.1.49-bin.jar!/" />
       <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/mysql-connector-java-5.1.49-bin.jar!/" />
       <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/mail.jar/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../librairie/mail.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
