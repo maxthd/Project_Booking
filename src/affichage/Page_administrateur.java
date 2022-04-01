@@ -40,5 +40,19 @@ public class Page_administrateur extends JFrame {
                 }
             }
         });
+        Button_modif_clients.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose ();
+                try {
+                    Page_client_admin cli = new Page_client_admin();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
     }
 }

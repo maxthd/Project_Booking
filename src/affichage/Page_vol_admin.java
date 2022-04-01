@@ -1,11 +1,11 @@
 package affichage;
 import jdbc2020.*;
 
-import javax.accessibility.Accessible;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.SQLException;
 
 public class Page_vol_admin extends JFrame  {
@@ -17,6 +17,7 @@ public class Page_vol_admin extends JFrame  {
     private JButton Button_quitter;
     private JPanel Menu_vol_admin;
     private JScrollPane Scrollpane_liste_vols;
+    private JButton Button_modifier_billets;
     DefaultListModel DLM =new DefaultListModel();
 
 
@@ -40,7 +41,7 @@ public class Page_vol_admin extends JFrame  {
             public void actionPerformed(ActionEvent e)
             {
                 dispose();
-                Page_acceuil p= new Page_acceuil();
+                Page_administrateur p= new Page_administrateur();
             }
         });
         Button_modifier_vol.addActionListener(new ActionListener() {
@@ -60,6 +61,12 @@ public class Page_vol_admin extends JFrame  {
                         }
                     }
                 }
+            }
+        });
+        Scrollpane_liste_vols.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
             }
         });
     }
