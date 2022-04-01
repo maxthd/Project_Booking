@@ -20,8 +20,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
-        //Page_client liencli = new Page_client();
-        Page_client liencli = new Page_client(3);
+        Page_acceuil ac = new Page_acceuil();
+
 
 
 

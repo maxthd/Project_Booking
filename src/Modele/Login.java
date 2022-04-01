@@ -29,6 +29,19 @@ public class Login {
         System.out.println(username);
         return false;
     }
+    public int id_du_client (String username, String mdp)
+    {
+        for (int i=0; i<clients.size();i++)
+        {
+            if ((username.equals(clients.get(i).getUsername()))&&(mdp.equals(clients.get(i).getPassword())))
+            {
+                System.out.println(username);
+                return clients.get(i).getId_client();
+            }
+        }
+        System.out.println(username);
+        return 0;
+    }
     public boolean Est_un_Employe (String username, String mdp)
     {
         for (int i=0; i<employes.size();i++)
