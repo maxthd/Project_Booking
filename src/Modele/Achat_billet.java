@@ -31,8 +31,10 @@ public class Achat_billet {
 
 
     //IL FAUT BLINDER LA SAISIE DES ID POUR QU'ILS NE PUISSENT SAISIR QUE CE QUI EST AFFICHE
-    public void Acheter_billet(int id_billet, int id_client) throws SQLException {
+    public void Acheter_billet(int type_billet, int id_client) throws SQLException {
 
+        int id_billet=maconnexion.fill_int_param_double("SELECT id_billet FROM Billet WHERE " +
+                "type_billet=? AND fk_vol=?", type_billet, temp_id_vol);
 
         if (Valid_idbillet(id_billet)==true) {
             //VERIFIEE SI LE CLIENT EST MEMBRE. SI OUI, APPLIQUEZ LA REDUCTION ET VOIR SI IL A ASSEZ POUR ACHETER LE BILLET.

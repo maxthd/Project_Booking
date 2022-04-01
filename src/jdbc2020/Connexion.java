@@ -177,6 +177,27 @@ public class Connexion {
 
     }
 
+
+    //Retourne un entier unique correspondant à la requete(avec paramètre)
+    public int fill_int_param_double(String requete, int index1, int index2) throws SQLException {
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, index1);
+        param_stmt.setInt(2, index2);
+
+        // récupération de l'ordre de la requete
+        rset = param_stmt.executeQuery();
+
+        while (rset.next()) {
+            return rset.getInt(1);
+        }
+        return 0;
+
+    }
+
+
+
+
     public Blob fill_blob_param(String requete, int index) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);

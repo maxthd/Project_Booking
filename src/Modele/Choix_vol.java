@@ -36,7 +36,7 @@ public class Choix_vol {
 
         if (ville_depart.isEmpty()==false && ville_arrive.isEmpty()==false) {
             list_id = maconnexion.fill_array_two_param_String("SELECT id_vol FROM vol " +
-                    "WHERE ville_depart= ? AND ville_arrive= ?", ville_depart, ville_arrive);
+                    "WHERE ville_depart=? AND ville_arrive=?", ville_depart, ville_arrive);
             System.out.println("ville_depart et ville_arrive rempli");
         }
 
