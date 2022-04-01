@@ -41,7 +41,13 @@ public class Page_login extends JFrame {
                 {
                     System.out.println("client trouvé");
                     dispose();
-                    Page_client p= new Page_client();
+                    try {
+                        Page_client p= new Page_client(Integer.parseInt(Tf_identifiant.getText()));
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    } catch (ClassNotFoundException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         });

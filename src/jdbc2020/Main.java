@@ -21,10 +21,10 @@ public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
         //Page_client liencli = new Page_client();
+        Page_client liencli = new Page_client(3);
 
 
-        Achat_billet achat_billet=new Achat_billet(2);
-        achat_billet.Acheter_billet(3, 2);
+
 
 
 
