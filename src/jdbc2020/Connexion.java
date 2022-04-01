@@ -309,6 +309,19 @@ public class Connexion {
     }
 
 
+    public void executeinsert_billet(String requete, int fk_vol, double cout,
+                                     double reduction, int nombre_billet) throws SQLException {
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setInt(1, fk_vol);
+        param_stmt.setDouble(2, cout);
+        param_stmt.setDouble(3, reduction);
+        param_stmt.setInt(4, nombre_billet);
+
+        param_stmt.executeUpdate();
+
+    }
+
+
     public void executeinsert_reservation (String requete, int fk_vol, int fk_client) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
