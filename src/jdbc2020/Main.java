@@ -26,8 +26,6 @@ public class Main {
 
 
 
-
-
         /* LE CODE A APPELER POUR ENVOYER DES MAILS!! FAUT AJOUTER LA LIBRAIRIE mail.Jar
         SendEmail.send("projetbooking55@gmail.com","Projetbooking55.",
                 "galiazzogioiamariasoleeeeeeeeeeeeeeeeeeeeeeee@gmail.com","Bonjour","IJUSTE");

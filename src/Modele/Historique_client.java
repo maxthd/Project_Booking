@@ -9,12 +9,9 @@ public class Historique_client {
     private Connexion maconnexion;
 
 
-    public Historique_client() throws SQLException, ClassNotFoundException {
+    public Historique_client(int id_client) throws SQLException, ClassNotFoundException {
         vols.clear();
         maconnexion=new Connexion("booking", "root", "");
-    }
-
-    public void Remplir_historique(int id_client) throws SQLException {
         ArrayList<Integer> list_id;
 
         list_id=maconnexion.fill_array_param("SELECT v.id_vol FROM vol v, reservation r " +
@@ -25,6 +22,7 @@ public class Historique_client {
             vols.add(vol);
         }
     }
+
 
 
     public void Affichage_historique(){

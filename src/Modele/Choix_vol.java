@@ -9,12 +9,9 @@ public class Choix_vol {
     private Connexion maconnexion;
 
 
-    public Choix_vol() throws SQLException, ClassNotFoundException {
+    public Choix_vol(String ville_depart, String ville_arrive) throws SQLException, ClassNotFoundException {
         vols.clear();
         maconnexion=new Connexion("booking", "root", "");
-    }
-
-    public void Remplir_Choix_vol(String ville_depart, String ville_arrive) throws SQLException {
         ArrayList<Integer> list_id=new ArrayList<>();
 
         if (ville_depart.isEmpty()==true && ville_arrive.isEmpty()==true) {
@@ -47,6 +44,7 @@ public class Choix_vol {
                 vols.add(vol);
         }
     }
+
 
 
     public void Affichage_vols(){

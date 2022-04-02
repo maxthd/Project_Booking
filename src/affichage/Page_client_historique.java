@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import jdbc2020.Vol;
+import java.util.ArrayList;
 
 public class Page_client_historique extends JFrame {
     private JList List_histo;
@@ -15,17 +17,19 @@ public class Page_client_historique extends JFrame {
 
     public Page_client_historique(int id_client) throws SQLException, ClassNotFoundException
     {
-        Historique_client historique_client = new Historique_client();
+        Historique_client historique_client = new Historique_client(id_client);
+        ArrayList<Vol> vols=historique_client.get_historique();
+
         setContentPane(Menu_historique);
         setTitle("Page historique");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-        for (int i=0; i<historique_client.get_historique().size();i++)
+        for (int i=0; i<vols.size();i++)
         {
-            String o="Vol "+Integer.toString(historique_client.get_historique().get(i).getId_vol())+" "+historique_client.get_historique().get(i).getVille_depart()+ " "+
-                    historique_client.get_historique().get(i).getVille_arrive()+" départ "+historique_client.get_historique().get(i).getDate_depart()+" "+historique_client.get_historique().get(i).getHeure_depart()
-                    +" arrivée "+ historique_client.get_historique().get(i).getDate_arrive()+" "+historique_client.get_historique().get(i).getHeure_arrive();
+            String o="Vol "+Integer.toString(vols.get(i).getId_vol())+" "+vols.get(i).getVille_depart()+ " "+
+                    vols.get(i).getVille_arrive()+" départ "+vols.get(i).getDate_depart()+" "+vols.get(i).getHeure_depart()
+                    +" arrivée "+ vols.get(i).getDate_arrive()+" "+vols.get(i).getHeure_arrive();
             DLM.addElement(o);
         }
         List_histo.setModel(DLM);

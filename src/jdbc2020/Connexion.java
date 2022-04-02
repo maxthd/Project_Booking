@@ -381,6 +381,18 @@ public class Connexion {
     }
 
 
+    public void executeupdate_coutreduc_billet(String requete,
+                                     double cout,double reduction, int fk_vol) throws SQLException {
+
+        param_stmt =conn.prepareStatement(requete);
+        param_stmt.setDouble(1, cout);
+        param_stmt.setDouble(2, reduction);
+        param_stmt.setInt(3, fk_vol);
+
+        param_stmt.executeUpdate();
+    }
+
+
 
 
 
