@@ -6,6 +6,8 @@
       <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/mysql-connector-java-5.1.49-bin.jar!/" />
       <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/mail.jar/mail.jar!/" />
       <root url="jar://$PROJECT_DIR$/../librairie/mail.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/jfreechart-1.0.1/jfreechart-1.0.1/lib/jfreechart-1.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/jfreechart-1.0.1/jfreechart-1.0.1/lib/jcommon-1.0.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
