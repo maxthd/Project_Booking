@@ -29,10 +29,10 @@ public class Page_statistique extends JFrame {
         pieDataset.setValue("Billet affaire restant", statistique.getnombre_billet_affaire_restant());
         pieDataset.setValue("Billet premium restant", statistique.getnombre_billet_premium_restant());
 
-        JFreeChart chart= ChartFactory.createPieChart("Camembert", pieDataset, true, true, true);
+        JFreeChart chart= ChartFactory.createPieChart("repartition des billets du vol", pieDataset, true, true, true);
         PiePlot piePlot=(PiePlot) chart.getPlot();
 
-        ChartFrame frame=new ChartFrame("pie Chart", chart);
+        ChartFrame frame=new ChartFrame("Page statistique de vol", chart);
         frame.setVisible(true);
         frame.setSize(600, 600);
 

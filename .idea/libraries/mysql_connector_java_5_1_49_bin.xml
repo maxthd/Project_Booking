@@ -8,6 +8,8 @@
       <root url="jar://$PROJECT_DIR$/../librairie/mail.jar!/" />
       <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/jfreechart-1.0.1/jfreechart-1.0.1/lib/jfreechart-1.0.1.jar!/" />
       <root url="jar://$USER_HOME$/OneDrive/Bureau/Stock_lib_projet_java/jfreechart-1.0.1/jfreechart-1.0.1/lib/jcommon-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../librairie/jcommon-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../librairie/jfreechart-1.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -20,9 +20,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
-        //Page_acceuil ac = new Page_acceuil();
+        Page_acceuil ac = new Page_acceuil();
 
-        Page_statistique page_statistique=new Page_statistique(4);
 
 
 

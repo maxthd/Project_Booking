@@ -18,6 +18,7 @@ public class Page_vol_admin extends JFrame  {
     private JPanel Menu_vol_admin;
     private JScrollPane Scrollpane_liste_vols;
     private JButton Button_modifier_billets;
+    private JButton Button_stat;
     DefaultListModel DLM =new DefaultListModel();
 
 
@@ -98,6 +99,23 @@ public class Page_vol_admin extends JFrame  {
                     ex.printStackTrace();
                 }
 
+            }
+        });
+        Button_stat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol.getText())) {
+                        dispose();
+                        try {
+                            Page_statistique stat = new Page_statistique(l.getVols().get(i).getId_vol());
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        } catch (ClassNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }
             }
         });
     }
