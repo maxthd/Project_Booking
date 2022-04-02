@@ -9,7 +9,6 @@ public class Page_administrateur extends JFrame {
     private JPanel Menu_admin;
     private JLabel Label_menu_admin;
     private JButton Button_quitter;
-    private JButton Button_stat_site;
     private JButton Button_modif_vols;
     private JButton Button_modif_clients;
 
