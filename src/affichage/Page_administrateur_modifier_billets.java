@@ -30,7 +30,12 @@ public class Page_administrateur_modifier_billets extends JFrame {
         setVisible(true);
         for (int i = 0; i < l.getVols().size(); i++) {
             if (l.getVols().get(i).getId_vol() == id_du_vol) {
-                ///On remplit les TF avec les anciennes données.
+                Tf_cout_eco.setText(Double.toString(modif.get_cout_eco()));
+                Tf_reduc_eco.setText(Double.toString(modif.get_reduc_eco()));
+                Tf_cout_affaire.setText(Double.toString(modif.get_cout_affaire()));
+                Tf_reduc_affaire.setText(Double.toString(modif.get_reduc_affaire()));
+                Tf_cout_royal.setText(Double.toString(modif.get_cout_premium()));
+                Tf_reduc_royal.setText(Double.toString(modif.get_reduc_premium()));
             }
         }
 

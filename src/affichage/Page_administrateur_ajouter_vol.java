@@ -37,7 +37,13 @@ public class Page_administrateur_ajouter_vol extends JFrame {
                     ex.printStackTrace();
                 }
                 dispose();
-                //Page_administrateur_ajouter_billets ajout = new Page_administrateur_ajouter_billets();
+                try {
+                    Page_administrateur_ajouter_billets p = new Page_administrateur_ajouter_billets(ajout.get_id_lastvol());
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         Button_quitter.addActionListener(new ActionListener() {

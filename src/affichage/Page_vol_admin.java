@@ -72,12 +72,17 @@ public class Page_vol_admin extends JFrame  {
         Button_modifier_billets.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Page_administrateur_modifier_billets p= new Page_administrateur_modifier_billets(Integer.parseInt(Tf_id_vol.getText()));
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol.getText())) {
+                        dispose();
+                        try {
+                            Page_administrateur_modifier_billets p = new Page_administrateur_modifier_billets(Integer.parseInt(Tf_id_vol.getText()));
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        } catch (ClassNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
                 }
             }
         });

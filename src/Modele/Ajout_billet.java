@@ -21,15 +21,15 @@ public class Ajout_billet {
 
         maconnexion.executeinsert_billet("INSERT INTO Billet " +
                 "(fk_vol, cout, reduction, type_billet, nombre_billet, billet_dispo) VALUES " +
-                "(?, ?, ?, 1, ?, TRUE),", temp_id_vol, cout_economique, reduction_economique, nombre_economique );
+                "(?, ?, ?, 1, ?, TRUE)", temp_id_vol, cout_economique, reduction_economique, nombre_economique );
 
         maconnexion.executeinsert_billet("INSERT INTO Billet " +
                 "(fk_vol, cout, reduction, type_billet, nombre_billet, billet_dispo) VALUES " +
-                "(?, ?, ?, 2, ?, TRUE),", temp_id_vol, cout_affaire, reduction_affaire, nombre_affaire);
+                "(?, ?, ?, 2, ?, TRUE)", temp_id_vol, cout_affaire, reduction_affaire, nombre_affaire);
 
         maconnexion.executeinsert_billet("INSERT INTO Billet " +
                 "(fk_vol, cout, reduction, type_billet, nombre_billet, billet_dispo) VALUES " +
-                "(?, ?, ?, 3, ?, TRUE),", temp_id_vol, cout_premium, reduction_premium, nombre_premium );
+                "(?, ?, ?, 3, ?, TRUE)", temp_id_vol, cout_premium, reduction_premium, nombre_premium );
 
         maconnexion.param_two_executeUpdate("UPDATE Vol SET nombre_place=? " +
                 "WHERE id_vol=?", nombre_economique + nombre_affaire + nombre_premium, temp_id_vol);

@@ -26,6 +26,8 @@ public class Page_client_vol_retour extends JFrame{
 
     public Page_client_vol_retour (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+        Listes l = new Listes();
+        Listes lis = new Listes();
         Choix_vol choix_vol1=new Choix_vol(départ, arrivée);
         Choix_vol choix_vol2=new Choix_vol(arrivée, départ);
 
@@ -33,7 +35,7 @@ public class Page_client_vol_retour extends JFrame{
         ArrayList<Vol> vols_retour=choix_vol2.get_vols();
         setContentPane(Menu_vol_retour);
         setTitle("Page selection des vols allé-retours");
-        setSize(800,600);
+        setSize(1200,800);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Combobox_classe_allé.addItem("Economique");
@@ -78,17 +80,25 @@ public class Page_client_vol_retour extends JFrame{
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Achat_billet achat_allé= new Achat_billet(Integer.parseInt(Tf_id_vol_allé.getText()));
-                    achat_allé.Acheter_billet(Combobox_classe_allé.getSelectedIndex()+1,id_client);
-                    Achat_billet achat_retour= new Achat_billet(Integer.parseInt(Tf_vol_retour.getText()));
-                    achat_retour.Acheter_billet(Combobox_classe_retour.getSelectedIndex()+1,id_client);
-                    dispose();
-                    Page_client page_client = new Page_client(id_client);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol_allé.getText())) {
+                        for(int j=0;j<l.getVols().size();j++) {
+                            if (lis.getVols().get(j).getId_vol() == Integer.parseInt(Tf_vol_retour.getText())) {
+                                try {
+                                    Achat_billet achat_allé = new Achat_billet(Integer.parseInt(Tf_id_vol_allé.getText()));
+                                    achat_allé.Acheter_billet(Combobox_classe_allé.getSelectedIndex() + 1, id_client);
+                                    Achat_billet achat_retour = new Achat_billet(Integer.parseInt(Tf_vol_retour.getText()));
+                                    achat_retour.Acheter_billet(Combobox_classe_retour.getSelectedIndex() + 1, id_client);
+                                    dispose();
+                                    Page_client page_client = new Page_client(id_client);
+                                } catch (SQLException ex) {
+                                    ex.printStackTrace();
+                                } catch (ClassNotFoundException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        }
+                    }
                 }
             }
         });

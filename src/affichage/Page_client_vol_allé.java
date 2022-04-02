@@ -2,6 +2,7 @@ package affichage;
 
 import Modele.Achat_billet;
 import Modele.Choix_vol;
+import jdbc2020.Listes;
 import jdbc2020.Vol;
 
 import javax.swing.*;
@@ -22,6 +23,7 @@ public class Page_client_vol_allé extends JFrame {
 
     public Page_client_vol_allé (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+        Listes l = new Listes();
         Choix_vol choix_vol=new Choix_vol(départ, arrivée);
 
         ArrayList<Vol> vols=choix_vol.get_vols();
@@ -60,15 +62,19 @@ public class Page_client_vol_allé extends JFrame {
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Achat_billet achat= new Achat_billet(Integer.parseInt(Tf_id_vol.getText()));
-                    achat.Acheter_billet(Combobox_classe.getSelectedIndex()+1,id_client);
-                    dispose();
-                    Page_client page_client = new Page_client(id_client);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol.getText())) {
+                        try {
+                            Achat_billet achat = new Achat_billet(Integer.parseInt(Tf_id_vol.getText()));
+                            achat.Acheter_billet(Combobox_classe.getSelectedIndex() + 1, id_client);
+                            dispose();
+                            Page_client page_client = new Page_client(id_client);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        } catch (ClassNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
                 }
             }
         });

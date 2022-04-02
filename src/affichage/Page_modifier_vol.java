@@ -25,6 +25,7 @@ public class Page_modifier_vol extends JFrame
     private JLabel Label_vol_dispo;
     private JTextField Tf_vol_dispo;
     private JPanel Menu_modification_vol;
+    private JButton Button_delete;
 
     public Page_modifier_vol(int id_du_vol) throws SQLException, ClassNotFoundException
     {
@@ -81,6 +82,18 @@ public class Page_modifier_vol extends JFrame
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
+            }
+        });
+        Button_delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    modif.Delete_Vol(id_du_vol);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                dispose();
+                Page_administrateur p = new Page_administrateur();
             }
         });
     }

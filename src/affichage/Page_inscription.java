@@ -43,6 +43,8 @@ public class Page_inscription extends JFrame {
                         inscription.Ajout_client(Tf_nom.getText(), Tf_prenom.getText(), Tf_username.getText(),
                                 Tf_mdp.getText(),Integer.parseInt(Tf_age.getText()), Double.parseDouble(Tf_solde.getText()),
                                 inscription.Valeur_checkbox(CheckBox_membre.isSelected()));
+                        dispose();
+                        Page_acceuil ac = new Page_acceuil();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }

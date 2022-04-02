@@ -35,9 +35,9 @@ public class Page_administrateur_ajouter_billets extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ajout.Ajouter_billets(Integer.parseInt(Tf_nb_eco.getText()),Integer.parseInt(Tf_cout_eco.getText()), Integer.parseInt(Tf_reduc_eco.getText()),
-                            Double.parseDouble(Tf_nb_affaire.getText()),Double.parseDouble(Tf_cout_affaire.getText()),Double.parseDouble(Tf_reduc_affaire.getText()),
-                            Double.parseDouble(Tf_nb_royal.getText()),Double.parseDouble(Tf_cout_royal.getText()), Double.parseDouble(Tf_reduc_royal.getText()));
+                    ajout.Ajouter_billets(Integer.parseInt(Tf_nb_eco.getText()),Integer.parseInt(Tf_nb_affaire.getText()),Integer.parseInt(Tf_nb_royal.getText()),
+                            Double.parseDouble(Tf_cout_eco.getText()), Double.parseDouble(Tf_cout_affaire.getText()),Double.parseDouble(Tf_cout_royal.getText()),
+                            Double.parseDouble(Tf_reduc_eco.getText()),Double.parseDouble(Tf_reduc_affaire.getText()), Double.parseDouble(Tf_reduc_royal.getText()));
                     dispose();
                     Page_administrateur p = new Page_administrateur();
                 } catch (SQLException ex) {

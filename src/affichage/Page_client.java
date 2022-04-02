@@ -81,8 +81,9 @@ public class Page_client extends JFrame {
         Button_paramètre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 try {
-                    Page_modifier_client p = new Page_modifier_client(id_client);
+                    Page_client_paramètres p = new Page_client_paramètres(id_client);
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 } catch (ClassNotFoundException ex) {
