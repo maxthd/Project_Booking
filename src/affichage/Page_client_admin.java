@@ -24,7 +24,7 @@ public class Page_client_admin extends JFrame {
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-        for (int i=0;i<l.getVols().size();i++)
+        for (int i=0;i<l.getClients().size();i++)
         {
             String o= "id: "+ Integer.toString(l.getClients().get(i).getId_client())+" prénom : " + l.getClients().get(i).getPrenom() +
                     " nom : " + l.getClients().get(i).getNom();
