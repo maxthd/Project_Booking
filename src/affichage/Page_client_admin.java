@@ -34,7 +34,7 @@ public class Page_client_admin extends JFrame {
         Button_recherche.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int i=0;i<l.getVols().size();i++)
+                for(int i=0;i<l.getClients().size();i++)
                 {
                     if (l.getClients().get(i).getId_client()==Integer.parseInt(Tf_id_clients.getText()))
                     {

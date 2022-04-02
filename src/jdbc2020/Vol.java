@@ -11,6 +11,7 @@ public class Vol {
     private String date_arrive;
     private String heure_depart; //On écrit les heures sous la forme de string "HH:MM"
     private String heure_arrive;
+    private int nombre_place;
     private int vol_dispo;
 
 
@@ -23,6 +24,7 @@ public class Vol {
         date_arrive=maconnexion.fill_string_param("SELECT date_arrive FROM Vol WHERE id_vol= ?", id_vol);
         heure_depart = maconnexion.fill_string_param("SELECT heure_depart FROM Vol WHERE id_vol= ?", id_vol);
         heure_arrive = maconnexion.fill_string_param("SELECT heure_arrive FROM Vol WHERE id_vol= ?", id_vol);
+        nombre_place= maconnexion.fill_int_param("SELECT nombre_place FROM Vol WHERE id_vol= ?", id_vol);
         vol_dispo = maconnexion.fill_int_param("SELECT vol_dispo FROM Vol WHERE id_vol= ?", id_vol);
 
         //Afficher_Vol();
@@ -33,7 +35,8 @@ public class Vol {
         System.out.println("Numéro_vol: " + id_vol+
                 "\t\tville_départ: " + ville_depart+ "\t\tville arrivé: " + ville_arrive);
         System.out.println("date_départ: " + date_depart + "\t\tdate_arrivé: " + date_arrive +
-                "\t\theure départ: " + heure_depart + "\t\theure arrivé: " + heure_arrive+ "\t\tvol_dispo: "+vol_dispo);
+                "\t\theure départ: " + heure_depart + "\t\theure arrivé: " + heure_arrive+
+                "\t\tnombre_place: "+nombre_place + "\t\tvol_dispo: "+vol_dispo);
 
         System.out.println("---------------------------------------------------------------------------");
 

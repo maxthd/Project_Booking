@@ -39,7 +39,7 @@ public class Page_modifier_client extends JFrame {
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-        for (int i=0;i<l.getVols().size();i++)
+        for (int i=0;i<l.getClients().size();i++)
         {
             if (l.getClients().get(i).getId_client()==id_du_client)
             {

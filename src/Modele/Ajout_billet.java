@@ -31,5 +31,8 @@ public class Ajout_billet {
                 "(fk_vol, cout, reduction, type_billet, nombre_billet, billet_dispo) VALUES " +
                 "(?, ?, ?, 3, ?, TRUE),", temp_id_vol, cout_premium, reduction_premium, nombre_premium );
 
+        maconnexion.param_two_executeUpdate("UPDATE Vol SET nombre_place=? " +
+                "WHERE id_vol=?", nombre_economique + nombre_affaire + nombre_premium, temp_id_vol);
+
     }
 }

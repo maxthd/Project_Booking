@@ -9,6 +9,7 @@ date_depart TINYTEXT NOT NULL ,
 date_arrive TINYTEXT NOT NULL ,
 heure_depart TINYTEXT NOT NULL ,
 heure_arrive TINYTEXT NOT NULL ,
+nombre_place SMALLINT,
 vol_dispo SMALLINT
 );
 
@@ -112,17 +113,17 @@ FOREIGN KEY(fk_employe) REFERENCES Employe (id_employe) ON UPDATE CASCADE ON DEL
 -- Remplir table Vol
 
 INSERT INTO Vol (ville_depart, ville_arrive, date_depart, date_arrive,
-heure_depart , heure_arrive , vol_dispo) VALUES
-("Paris", "New York", "27/09/2022", "28/09/2022", "22:00", "05:00", TRUE),
-("Singapour", "Paris", "12/31/2022", "01/01/2022", "12:00", "22:00", TRUE),
-("Paris", "Tunis", "10/06/2022","10/06/2022", "15:30", "17:15", TRUE),
-("Londres", "Paris", "05/05/2022", "05/05/2022", "09:00", "10:30", TRUE),
-("New York", "Los Angeles", "01/11/2022", "01/11/2022", "12:00", "22:45", TRUE),
-("Paris", "Rio", "10/08/2022", "11/08/2022", "22:00", "07:45", TRUE),
-("Bankok", "Paris", "24/02/2022", "25/02/2022", "05:50", "10:00", TRUE),
-("Paris", "Sydney", "17/10/2022", "18/10/2022", "14:45", "23:30", TRUE),
-("Paris", "Dublin", "04/04/2022", "04/04/2022", "11:30", "13:00", TRUE),
-("Rome", "Paris", "30/07/2022", "30/07/2022", "14:45", "16:15", TRUE);
+heure_depart , heure_arrive ,nombre_place, vol_dispo) VALUES
+("Paris", "New York", "27/09/2022", "28/09/2022", "22:00", "05:00", 53, TRUE),
+("Singapour", "Paris", "12/31/2022", "01/01/2022", "12:00", "22:00", 53, TRUE),
+("Paris", "Tunis", "10/06/2022","10/06/2022", "15:30", "17:15", 53, TRUE),
+("Londres", "Paris", "05/05/2022", "05/05/2022", "09:00", "10:30", 53, TRUE),
+("New York", "Los Angeles", "01/11/2022", "01/11/2022", "12:00", "22:45", 53, TRUE),
+("Paris", "Rio", "10/08/2022", "11/08/2022", "22:00", "07:45", 53, TRUE),
+("Bankok", "Paris", "24/02/2022", "25/02/2022", "05:50", "10:00", 53, TRUE),
+("Paris", "Sydney", "17/10/2022", "18/10/2022", "14:45", "23:30", 53, TRUE),
+("Paris", "Dublin", "04/04/2022", "04/04/2022", "11:30", "13:00", 53, TRUE),
+("Rome", "Paris", "30/07/2022", "30/07/2022", "14:45", "16:15", 53, TRUE);
 
 
 -- Remplir table Employe
