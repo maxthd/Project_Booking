@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Page_client_admin extends JFrame {
     private JList List_clients;
@@ -18,6 +19,7 @@ public class Page_client_admin extends JFrame {
 
     public Page_client_admin () throws SQLException, ClassNotFoundException
     {
+        ArrayList<Integer> tab_id = new ArrayList();
         Listes l = new Listes();
         setContentPane(Menu_recherche_client);
         setTitle(" Page recherche client");
@@ -28,15 +30,17 @@ public class Page_client_admin extends JFrame {
         {
             String o= "id: "+ Integer.toString(l.getClients().get(i).getId_client())+" prénom : " + l.getClients().get(i).getPrenom() +
                     " nom : " + l.getClients().get(i).getNom();
+            tab_id.add(l.getClients().get(i).getId_client());
             DLM.addElement(o);
         }
         List_clients.setModel(DLM);
         Button_recherche.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int index=List_clients.getSelectedIndex();
                 for(int i=0;i<l.getClients().size();i++)
                 {
-                    if (l.getClients().get(i).getId_client()==Integer.parseInt(Tf_id_clients.getText()))
+                    if (l.getClients().get(i).getId_client()==tab_id.get(index))
                     {
                         dispose();
                         try {

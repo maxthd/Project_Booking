@@ -23,6 +23,8 @@ public class Page_client_vol_allé extends JFrame {
 
     public Page_client_vol_allé (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+
+        ArrayList<Integer> tab_id = new ArrayList();
         Listes l = new Listes();
         Choix_vol choix_vol=new Choix_vol(départ, arrivée);
 
@@ -43,6 +45,7 @@ public class Page_client_vol_allé extends JFrame {
                         " départ " + vols.get(i).getDate_depart() + " " +
                         vols.get(i).getHeure_depart() + " arrivée " + vols.get(i).getDate_arrive()+ " " +
                         vols.get(i).getHeure_arrive();
+                tab_id.add(l.getVols().get(i).getId_vol());
                 DLM.addElement(o);
         }
         List_vols.setModel(DLM);
@@ -62,10 +65,11 @@ public class Page_client_vol_allé extends JFrame {
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int index=List_vols.getSelectedIndex();
                 for(int i=0;i<l.getVols().size();i++) {
-                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol.getText())) {
+                    if (l.getVols().get(i).getId_vol()==tab_id.get(index)) {
                         try {
-                            Achat_billet achat = new Achat_billet(Integer.parseInt(Tf_id_vol.getText()));
+                            Achat_billet achat = new Achat_billet(tab_id.get(index));
                             achat.Acheter_billet(Combobox_classe.getSelectedIndex() + 1, id_client);
                             dispose();
                             Page_client page_client = new Page_client(id_client);

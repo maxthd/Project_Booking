@@ -26,6 +26,8 @@ public class Page_client_vol_retour extends JFrame{
 
     public Page_client_vol_retour (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+        ArrayList<Integer> tab_id1 = new ArrayList();
+        ArrayList<Integer> tab_id2 = new ArrayList();
         Listes l = new Listes();
         Listes lis = new Listes();
         Choix_vol choix_vol1=new Choix_vol(départ, arrivée);
@@ -51,6 +53,7 @@ public class Page_client_vol_retour extends JFrame{
                     " départ " + vols_aller.get(i).getDate_depart() + " " +
                     vols_aller.get(i).getHeure_depart() + " arrivée " + vols_aller.get(i).getDate_arrive()+ " " +
                     vols_aller.get(i).getHeure_arrive();
+            tab_id1.add(l.getVols().get(i).getId_vol());
             DLM.addElement(o);
         }
         List_vols_allé.setModel(DLM);
@@ -61,6 +64,7 @@ public class Page_client_vol_retour extends JFrame{
                     " départ " + vols_retour.get(i).getDate_depart() + " " +
                     vols_retour.get(i).getHeure_depart() + " arrivée " + vols_retour.get(i).getDate_arrive()+ " " +
                     vols_retour.get(i).getHeure_arrive();
+            tab_id2.add(l.getVols().get(i).getId_vol());
             DLM2.addElement(o);
         }
         List_vols_retour.setModel(DLM2);
@@ -80,14 +84,16 @@ public class Page_client_vol_retour extends JFrame{
         Button_valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int index1=List_vols_allé.getSelectedIndex();
+                int index2=List_vols_retour.getSelectedIndex();
                 for(int i=0;i<l.getVols().size();i++) {
-                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol_allé.getText())) {
+                    if (l.getVols().get(i).getId_vol()==tab_id1.get(index1)) {
                         for(int j=0;j<l.getVols().size();j++) {
-                            if (lis.getVols().get(j).getId_vol() == Integer.parseInt(Tf_vol_retour.getText())) {
+                            if (l.getVols().get(j).getId_vol()==tab_id2.get(index2)) {
                                 try {
-                                    Achat_billet achat_allé = new Achat_billet(Integer.parseInt(Tf_id_vol_allé.getText()));
+                                    Achat_billet achat_allé = new Achat_billet(tab_id1.get(index1));
                                     achat_allé.Acheter_billet(Combobox_classe_allé.getSelectedIndex() + 1, id_client);
-                                    Achat_billet achat_retour = new Achat_billet(Integer.parseInt(Tf_vol_retour.getText()));
+                                    Achat_billet achat_retour = new Achat_billet(tab_id2.get(index2));
                                     achat_retour.Acheter_billet(Combobox_classe_retour.getSelectedIndex() + 1, id_client);
                                     dispose();
                                     Page_client page_client = new Page_client(id_client);

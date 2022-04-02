@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class Page_vol_admin extends JFrame  {
     private JList List_vols_id;
-    private JLabel Label_id_vol;
     private JTextField Tf_id_vol;
     private JButton Button_modifier;
     private JButton Button_modifier_vol;
@@ -24,8 +23,8 @@ public class Page_vol_admin extends JFrame  {
 
 
     public Page_vol_admin () throws SQLException, ClassNotFoundException {
-        Listes l=new Listes();
         ArrayList<Integer> tab_id = new ArrayList();
+        Listes l=new Listes();
         setContentPane(Menu_vol_admin);
         setTitle("Page d'acceuil");
         setSize(800,600);
@@ -77,11 +76,13 @@ public class Page_vol_admin extends JFrame  {
         Button_modifier_billets.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int i=0;i<l.getVols().size();i++) {
-                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol.getText())) {
+                int index=List_vols_id.getSelectedIndex();
+                for(int i=0;i<l.getVols().size();i++)
+                {
+                    if (l.getVols().get(i).getId_vol()==tab_id.get(index)) {
                         dispose();
                         try {
-                            Page_administrateur_modifier_billets p = new Page_administrateur_modifier_billets(Integer.parseInt(Tf_id_vol.getText()));
+                            Page_administrateur_modifier_billets p = new Page_administrateur_modifier_billets(tab_id.get(index));
                         } catch (SQLException ex) {
                             ex.printStackTrace();
                         } catch (ClassNotFoundException ex) {
@@ -108,8 +109,10 @@ public class Page_vol_admin extends JFrame  {
         Button_stat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int i=0;i<l.getVols().size();i++) {
-                    if (l.getVols().get(i).getId_vol() == Integer.parseInt(Tf_id_vol.getText())) {
+                int index=List_vols_id.getSelectedIndex();
+                for(int i=0;i<l.getVols().size();i++)
+                {
+                    if (l.getVols().get(i).getId_vol()==tab_id.get(index)){
                         dispose();
                         try {
                             Page_statistique stat = new Page_statistique(l.getVols().get(i).getId_vol());
