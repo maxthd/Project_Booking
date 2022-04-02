@@ -26,7 +26,7 @@ public class Page_modifier_vol extends JFrame
     private JTextField Tf_vol_dispo;
     private JPanel Menu_modification_vol;
 
-    public Page_modifier_vol (int id_du_vol) throws SQLException, ClassNotFoundException
+    public Page_modifier_vol(int id_du_vol) throws SQLException, ClassNotFoundException
     {
         Listes l  = new Listes();
         Modifier_vol modif= new Modifier_vol();

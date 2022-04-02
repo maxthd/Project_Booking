@@ -69,6 +69,18 @@ public class Page_vol_admin extends JFrame  {
                 super.componentResized(e);
             }
         });
+        Button_modifier_billets.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Page_administrateur_modifier_billets p= new Page_administrateur_modifier_billets(Integer.parseInt(Tf_id_vol.getText()));
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
 }

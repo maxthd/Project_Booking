@@ -78,5 +78,17 @@ public class Page_client extends JFrame {
                 }
             }
         });
+        Button_paramètre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Page_modifier_client p = new Page_modifier_client(id_client);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 }
