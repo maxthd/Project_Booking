@@ -27,4 +27,45 @@ public class Modifier_billet {
                 "WHERE type_billet=3 AND fk_vol=?", cout_premium, reduction_premium, temp_id_vol);
 
     }
+
+    public double get_cout_eco() throws SQLException {
+        double cout_eco=maconnexion.fill_double_param("SELECT cout FROM Billet " +
+                "WHERE type_billet=1 AND fk_vol=?",temp_id_vol );
+        return cout_eco;
+    }
+
+    public double get_reduc_eco() throws SQLException {
+        double reduc_eco=maconnexion.fill_double_param("SELECT reduction FROM Billet " +
+                "WHERE type_billet=1 AND fk_vol=?",temp_id_vol );
+        return reduc_eco;
+    }
+
+
+    public double get_cout_affaire() throws SQLException {
+        double cout_affaire=maconnexion.fill_double_param("SELECT cout FROM Billet " +
+                "WHERE type_billet=2 AND fk_vol=?",temp_id_vol );
+        return cout_affaire;
+    }
+
+    public double get_reduc_affaire() throws SQLException {
+        double reduc_affaire=maconnexion.fill_double_param("SELECT reduction FROM Billet " +
+                "WHERE type_billet=2 AND fk_vol=?",temp_id_vol );
+        return reduc_affaire;
+    }
+
+
+    public double get_cout_premium() throws SQLException {
+        double cout_premium=maconnexion.fill_double_param("SELECT cout FROM Billet " +
+                "WHERE type_billet=3 AND fk_vol=?",temp_id_vol );
+        return cout_premium;
+    }
+
+    public double get_reduc_premium() throws SQLException {
+        double reduc_premium=maconnexion.fill_double_param("SELECT reduction FROM Billet " +
+                "WHERE type_billet=3 AND fk_vol=?",temp_id_vol );
+        return reduc_premium;
+    }
+
+
+
 }
