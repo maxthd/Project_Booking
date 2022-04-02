@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Page_vol_admin extends JFrame  {
     private JList List_vols_id;
@@ -24,6 +25,7 @@ public class Page_vol_admin extends JFrame  {
 
     public Page_vol_admin () throws SQLException, ClassNotFoundException {
         Listes l=new Listes();
+        ArrayList<Integer> tab_id = new ArrayList();
         setContentPane(Menu_vol_admin);
         setTitle("Page d'acceuil");
         setSize(800,600);
@@ -34,6 +36,7 @@ public class Page_vol_admin extends JFrame  {
             String o="Vol "+Integer.toString(l.getVols().get(i).getId_vol())+" "+l.getVols().get(i).getVille_depart()+ " "+
                     l.getVols().get(i).getVille_arrive()+" départ "+l.getVols().get(i).getDate_depart()+" "+l.getVols().get(i).getHeure_depart()
                     +" arrivée "+ l.getVols().get(i).getDate_arrive()+" "+l.getVols().get(i).getHeure_arrive();
+            tab_id.add(l.getVols().get(i).getId_vol());
             DLM.addElement(o);
         }
         List_vols_id.setModel(DLM);
@@ -48,9 +51,10 @@ public class Page_vol_admin extends JFrame  {
         Button_modifier_vol.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int index=List_vols_id.getSelectedIndex();
                 for(int i=0;i<l.getVols().size();i++)
                 {
-                    if (l.getVols().get(i).getId_vol()==Integer.parseInt(Tf_id_vol.getText()))
+                    if (l.getVols().get(i).getId_vol()==tab_id.get(index))
                     {
                         dispose();
                         try {
