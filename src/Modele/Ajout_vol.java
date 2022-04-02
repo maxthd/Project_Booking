@@ -1,8 +1,10 @@
 package Modele;
 
 import jdbc2020.Connexion;
+import jdbc2020.Vol;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Ajout_vol {
 
@@ -23,6 +25,15 @@ public class Ajout_vol {
                         "heure_depart , heure_arrive , vol_dispo) VALUES " +
                         "( ?, ?, ?, ?, ?, ?, TRUE);", ville_depart, ville_arrive,
                 date_depart, date_arrive, heure_depart, heure_arrive);
+    }
+
+    public int get_id_lastvol() throws SQLException {
+        ArrayList<Integer> list_id;
+        list_id=maconnexion.fill_array("SELECT id_vol FROM Vol");
+        int id=0;
+        id=list_id.get(list_id.size()-1);
+
+        return id;
     }
 
 }
