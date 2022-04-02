@@ -37,7 +37,7 @@ public class Page_administrateur_ajouter_vol extends JFrame {
                     ex.printStackTrace();
                 }
                 dispose();
-                Page_administrateur p = new Page_administrateur();
+                //Page_administrateur_ajouter_billets ajout = new Page_administrateur_ajouter_billets();
             }
         });
         Button_quitter.addActionListener(new ActionListener() {

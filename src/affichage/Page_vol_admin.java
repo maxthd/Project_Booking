@@ -81,6 +81,20 @@ public class Page_vol_admin extends JFrame  {
                 }
             }
         });
+        Button_modifier.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                try {
+                    Page_administrateur_ajouter_vol p = new Page_administrateur_ajouter_vol();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
     }
 
 }
