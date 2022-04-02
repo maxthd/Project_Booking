@@ -19,7 +19,6 @@ public class Page_client_admin extends JFrame {
     public Page_client_admin () throws SQLException, ClassNotFoundException
     {
         Listes l = new Listes();
-        Modifier_client modif_client = new Modifier_client();
         setContentPane(Menu_recherche_client);
         setTitle(" Page recherche client");
         setSize(800, 600);
