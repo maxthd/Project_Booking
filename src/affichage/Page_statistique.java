@@ -1,6 +1,7 @@
 package affichage;
 
-
+import java.awt.*;
+import java.awt.event.*;
 import Modele.Statistique;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -11,7 +12,11 @@ import org.jfree.data.general.DefaultPieDataset;
 import javax.swing.*;
 import java.sql.SQLException;
 
-public class Page_statistique extends JFrame {
+public class Page_statistique extends JFrame implements ActionListener{
+
+
+
+    JButton b=new JButton("Quitter");
 
 
     /***
@@ -39,9 +44,24 @@ public class Page_statistique extends JFrame {
         PiePlot piePlot=(PiePlot) chart.getPlot();
 
         ChartFrame frame=new ChartFrame("Page statistique de vol", chart);
+        b.setBounds(705,670,95,30);
+        b.setLayout(null);
+        frame.add(b);
         frame.setVisible(true);
-        frame.setSize(600, 600);
+        frame.setSize(800, 600);
 
+        b.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                frame.dispose();
+                Page_administrateur p = new Page_administrateur();
+            }
+        });
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 }

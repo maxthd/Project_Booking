@@ -1,4 +1,5 @@
 package affichage;
+import Modele.Modifier_vol;
 import jdbc2020.*;
 
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class Page_vol_admin extends JFrame  {
     private JScrollPane Scrollpane_liste_vols;
     private JButton Button_modifier_billets;
     private JButton Button_stat;
+    private JButton Button_delete;
     DefaultListModel DLM =new DefaultListModel();
 
 
@@ -30,6 +32,7 @@ public class Page_vol_admin extends JFrame  {
     public Page_vol_admin () throws SQLException, ClassNotFoundException {
         ArrayList<Integer> tab_id = new ArrayList();
         Listes l=new Listes();
+        Modifier_vol modif = new Modifier_vol();
         setContentPane(Menu_vol_admin);
         setTitle("Page d'acceuil");
         setSize(800,600);
@@ -130,6 +133,24 @@ public class Page_vol_admin extends JFrame  {
                 }
             }
         });
+        Button_delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int index = List_vols_id.getSelectedIndex();
+                for (int i = 0; i < l.getVols().size(); i++) {
+                    if (l.getVols().get(i).getId_vol() == tab_id.get(index)) {
+                        try {
+                            modif.Delete_Vol(tab_id.get(index));
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
+                        dispose();
+                        Page_administrateur p = new Page_administrateur();
+                    }
+                }
+            }
+        });
     }
+
 
 }

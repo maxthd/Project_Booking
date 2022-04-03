@@ -19,6 +19,7 @@ public class Page_client_paramètres extends JFrame {
     private JButton Button_Quitter;
     private JButton Button_valider;
     private JPanel Menu_parametre_client;
+    private JButton Button_supprimer;
     Listes l;
 
     /***
@@ -79,6 +80,18 @@ public class Page_client_paramètres extends JFrame {
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
+            }
+        });
+        Button_supprimer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    modif.Delete_client(id_du_client);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                dispose();
+                Page_acceuil p = new Page_acceuil();
             }
         });
     }

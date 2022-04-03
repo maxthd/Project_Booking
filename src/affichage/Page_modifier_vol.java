@@ -33,19 +33,16 @@ public class Page_modifier_vol extends JFrame
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public Page_modifier_vol(int id_du_vol) throws SQLException, ClassNotFoundException
-    {
-        Listes l  = new Listes();
-        Modifier_vol modif= new Modifier_vol();
+    public Page_modifier_vol(int id_du_vol) throws SQLException, ClassNotFoundException {
+        Listes l = new Listes();
+        Modifier_vol modif = new Modifier_vol();
         setContentPane(Menu_modification_vol);
         setTitle("modification de vol");
-        setSize(800,600);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-        for (int i=0;i<l.getVols().size();i++)
-        {
-            if (l.getVols().get(i).getId_vol()==id_du_vol)
-            {
+        for (int i = 0; i < l.getVols().size(); i++) {
+            if (l.getVols().get(i).getId_vol() == id_du_vol) {
                 Label_ville_d.setText(l.getVols().get(i).getVille_depart());
                 Label_date_d.setText(l.getVols().get(i).getDate_depart());
                 Label_horaire_d.setText(l.getVols().get(i).getHeure_depart());
@@ -70,8 +67,7 @@ public class Page_modifier_vol extends JFrame
         });
         Button_valider.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 try {
                     modif.Update_Vol(id_du_vol, Tf_ville_d.getText(),
                             Tf_ville_a.getText(), Tf_date_d.getText(), Tf_date_a.getText(), Tf_horaire_d.getText(), Tf_horraire_a.getText(),
@@ -88,18 +84,6 @@ public class Page_modifier_vol extends JFrame
                 } catch (ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
-            }
-        });
-        Button_delete.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    modif.Delete_Vol(id_du_vol);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-                dispose();
-                Page_administrateur p = new Page_administrateur();
             }
         });
     }

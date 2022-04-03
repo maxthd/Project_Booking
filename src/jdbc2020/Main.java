@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
-        Page_acceuil ac = new Page_acceuil();
+        Page_acceuil p = new Page_acceuil();
 
         /* LE CODE A APPELER POUR ENVOYER DES MAILS!! FAUT AJOUTER LA LIBRAIRIE mail.Jar
         SendEmail.send("projetbooking55@gmail.com","Projetbooking55.",

@@ -12,7 +12,6 @@ public class Page_acceuil extends JFrame
     private JButton InscriptionButton;
     private JButton QuitterButton;
     private JPanel menu;
-    private JLabel action;
     private JLabel titre;
 
 
