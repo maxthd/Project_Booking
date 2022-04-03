@@ -12,7 +12,7 @@
     <children>
       <component id="8ccad" class="javax.swing.JLabel" binding="Label_page_client">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <foreground color="-1"/>
@@ -55,14 +55,6 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="a6af3" class="javax.swing.JButton" binding="Button_Valider">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Valider"/>
-        </properties>
-      </component>
       <component id="dcb3a" class="javax.swing.JButton" binding="Button_quitter">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -70,14 +62,6 @@
         <properties>
           <foreground color="-4604998"/>
           <text value="Quitter"/>
-        </properties>
-      </component>
-      <component id="2f045" class="javax.swing.JButton" binding="Button_historique">
-        <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Historique"/>
         </properties>
       </component>
       <component id="9de6f" class="javax.swing.JComboBox" binding="Combobox_allé_retour">
@@ -94,6 +78,32 @@
         </constraints>
         <properties>
           <text value="Paramètres de compte"/>
+        </properties>
+      </component>
+      <component id="a6af3" class="javax.swing.JButton" binding="Button_Valider">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Valider"/>
+        </properties>
+      </component>
+      <component id="2f045" class="javax.swing.JButton" binding="Button_historique">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Historique"/>
+        </properties>
+      </component>
+      <component id="40284" class="javax.swing.JLabel" binding="Label_photo">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16216133"/>
+          <enabled value="true"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

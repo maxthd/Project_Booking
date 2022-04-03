@@ -7,7 +7,7 @@
 //https://stackoverflow.com/questions/27053276/date-and-time-picker-in-java
 package Controleur;
 import Vue.*;
-
+import Modele.*;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
@@ -30,14 +30,14 @@ public class Main {
 
         /*CECI EST A APPELE POUR INSERER LES VALEURS DE IMAGES DANS TABLEAU
         JE PR2CISE QU IL FAUT QUE LE CHEMIN CORRESPONDENT A L EMPLACEMENT DE VOTRE IMAGE*/
-/*
-        Connexion maconnexion=new Connexion("booking", "root", "");
+
+        /*Connexion maconnexion=new Connexion("booking", "root", "");
         maconnexion.execute_insertimage("INSERT INTO Image(picture) VALUES(?)",
-                "C:/Users/Abdelaziz/OneDrive/Bureau/chat.png");
+                "F:/cours/cours d info/Java/Photos projet Java/Client.png");*/
 
         //CECI EST POUR AFFICHER L IMAGE
-        new ShowMyImage();
-        */
+        //new ShowMyImage();
+
 
 
 
