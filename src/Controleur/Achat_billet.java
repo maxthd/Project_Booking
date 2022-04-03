@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Achat_billet {
     private Connexion maconnexion;
-    private ArrayList<Billet> billets=new ArrayList<>();
+    private ArrayList<Billet> billets = new ArrayList<>();
     private int temp_id_vol;
 
     /***
@@ -19,15 +19,14 @@ public class Achat_billet {
      * @throws ClassNotFoundException
      */
     public Achat_billet(int id_vol) throws SQLException, ClassNotFoundException {
-        maconnexion=new Connexion("booking", "root", "");
+        maconnexion = new Connexion("booking", "root", "");
 
-        temp_id_vol=id_vol;
+        temp_id_vol = id_vol;
         ArrayList<Integer> list_id;
 
-        list_id=maconnexion.fill_array_param("SELECT id_billet FROM Billet WHERE fk_vol= ?", id_vol);
-        for (int i=0; i<list_id.size(); i++)
-        {
-            if (billet_dispo(list_id.get(i))==true) {
+        list_id = maconnexion.fill_array_param("SELECT id_billet FROM Billet WHERE fk_vol= ?", id_vol);
+        for (int i = 0; i < list_id.size(); i++) {
+            if (billet_dispo(list_id.get(i)) == true) {
                 Billet billet = new Billet(list_id.get(i), maconnexion);
                 billets.add(billet);
             }
@@ -44,10 +43,10 @@ public class Achat_billet {
      */
     public void Acheter_billet(int type_billet, int id_client) throws SQLException {
 
-        int id_billet=maconnexion.fill_int_param_double("SELECT id_billet FROM Billet WHERE " +
+        int id_billet = maconnexion.fill_int_param_double("SELECT id_billet FROM Billet WHERE " +
                 "type_billet=? AND fk_vol=?", type_billet, temp_id_vol);
 
-        if (Valid_idbillet(id_billet)==true) {
+        if (Valid_idbillet(id_billet) == true) {
             //VERIFIEE SI LE CLIENT EST MEMBRE. SI OUI, APPLIQUEZ LA REDUCTION ET VOIR SI IL A ASSEZ POUR ACHETER LE BILLET.
             double reduction, solde, cout, prix_final;
 
@@ -59,9 +58,9 @@ public class Achat_billet {
             solde = client.getSolde();
             cout = billet.getCout();
 
-            prix_final=cout- reduction;
-            if (prix_final<=0)
-                prix_final=0;
+            prix_final = cout - reduction;
+            if (prix_final <= 0)
+                prix_final = 0;
 
             double new_solde = solde - prix_final;
 
@@ -90,18 +89,17 @@ public class Achat_billet {
                 String message = message(billet);
 
                 /**POUR L INSTANT LE USERNAME N EST PAS UN VRAI GMAIL DONC CA MARCHERA PAS TANT QU ON A PAS MAJ LA BDD
-                SendEmail.send("projetbooking55@gmail.com", "Projetbooking55.",
-                        client.getUsername(), "Confirmation billet", message);*/
+                 SendEmail.send("projetbooking55@gmail.com", "Projetbooking55.",
+                 client.getUsername(), "Confirmation billet", message);*/
 
                 //METTRE LE VOL EN INDISPONIBLE SI C'ETAIT LE DERNIER BILLET
-                if (Vol_encoredispo()==false)
+                if (Vol_encoredispo() == false)
                     maconnexion.executeupdate_param("UPDATE Vol SET vol_dispo=0 WHERE id_vol=?", temp_id_vol);
 
 
             } else
                 System.out.println("Solde insuffisant");
-        }
-        else
+        } else
             System.out.println("id_vol et id_billet ne sont pas concordant");
     }
 
@@ -114,11 +112,11 @@ public class Achat_billet {
      */
     public boolean billet_dispo(int id_billet) throws SQLException {
         int temp;
-        temp=maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet = ?", id_billet);
+        temp = maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet = ?", id_billet);
 
-        if  (temp==0)
+        if (temp == 0)
             return false;
-        if (temp==1)
+        if (temp == 1)
             return true;
 
         return false;
@@ -134,13 +132,13 @@ public class Achat_billet {
      */
     public double reduction(int id_billet, int id_client) throws SQLException {
         int client_membre;
-        double reduction=0;
-        client_membre=maconnexion.fill_int_param("SELECT membre FROM Client WHERE id_client=?", id_client);
-        if (client_membre==0)
+        double reduction = 0;
+        client_membre = maconnexion.fill_int_param("SELECT membre FROM Client WHERE id_client=?", id_client);
+        if (client_membre == 0)
             reduction = 0;
 
-        if (client_membre==1)
-            reduction=maconnexion.fill_double_param("SELECT reduction FROM Billet WHERE id_billet=?", id_billet);
+        if (client_membre == 1)
+            reduction = maconnexion.fill_double_param("SELECT reduction FROM Billet WHERE id_billet=?", id_billet);
 
         return reduction;
     }
@@ -151,17 +149,17 @@ public class Achat_billet {
      * @param billet
      * @return
      */
-    public String message(Billet billet){
-        String message="";
+    public String message(Billet billet) {
+        String message = "";
 
-        if (billet.getType_billet()==1)
-            message="Ce mail confirme votre billet en classe ECONOMIQUE";
+        if (billet.getType_billet() == 1)
+            message = "Ce mail confirme votre billet en classe ECONOMIQUE";
 
-        if (billet.getType_billet()==2)
-            message="Ce mail confirme votre billet en classe AFFAIRE";
+        if (billet.getType_billet() == 2)
+            message = "Ce mail confirme votre billet en classe AFFAIRE";
 
-        if (billet.getType_billet()==3)
-            message="Ce mail confirme votre billet en classe PREMIUM";
+        if (billet.getType_billet() == 3)
+            message = "Ce mail confirme votre billet en classe PREMIUM";
 
         return message;
     }
@@ -176,10 +174,10 @@ public class Achat_billet {
         ArrayList<Integer> list_id;
         int temp;
 
-        list_id=maconnexion.fill_array_param("SELECT id_billet FROM Billet WHERE fk_vol= ?", temp_id_vol);
-        for (int i=0; i<list_id.size(); i++){
-            temp=maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet=?", list_id.get(i));
-            if (temp==1)
+        list_id = maconnexion.fill_array_param("SELECT id_billet FROM Billet WHERE fk_vol= ?", temp_id_vol);
+        for (int i = 0; i < list_id.size(); i++) {
+            temp = maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet=?", list_id.get(i));
+            if (temp == 1)
                 return true;
         }
         return false;
@@ -193,19 +191,53 @@ public class Achat_billet {
      * @throws SQLException
      */
     public boolean Valid_idbillet(int id_billet) throws SQLException {
-        int fk_vol= maconnexion.fill_int_param("SELECT fk_vol FROM Billet " +
-                "WHERE id_billet=?", id_billet );
-        int billet_dispo=maconnexion.fill_int_param("SELECT billet_dispo FROM Billet " +
-                "WHERE id_billet=?", id_billet );
+        int fk_vol = maconnexion.fill_int_param("SELECT fk_vol FROM Billet " +
+                "WHERE id_billet=?", id_billet);
+        int billet_dispo = maconnexion.fill_int_param("SELECT billet_dispo FROM Billet " +
+                "WHERE id_billet=?", id_billet);
 
-        if (fk_vol== temp_id_vol && billet_dispo==1)
+        if (fk_vol == temp_id_vol && billet_dispo == 1)
             return true;
 
         return false;
     }
 
+    public double getsolde_client(int id_client) throws SQLException {
+        double solde;
+        solde = maconnexion.fill_double_param("SELECT solde FROM Client WHERE id_client=?", id_client);
+        return solde;
+    }
 
-    /**GETTERS ET SETTERS*/
+    public double getcout_original(int type_billet) throws SQLException {
+        int id_billet;
+        double cout = 0;
+
+        id_billet = maconnexion.fill_int_param_double("SELECT id_billet FROM Billet WHERE " +
+                "type_billet=? AND fk_vol=?", type_billet, temp_id_vol);
+
+        if (Valid_idbillet(id_billet) == true) //Ce if est censé etre inutile
+            cout = maconnexion.fill_double_param("SELECT cout FROM Billet WHERE id_billet=?", id_billet);
+        return cout;
+    }
+
+
+    public double getreduction(int type_billet, int id_client) throws SQLException {
+        int id_billet;
+        double reduction = 0;
+
+        id_billet = maconnexion.fill_int_param_double("SELECT id_billet FROM Billet WHERE " +
+                "type_billet=? AND fk_vol=?", type_billet, temp_id_vol);
+
+        if (Valid_idbillet(id_billet) == true) //Ce if est censé etre inutile
+            reduction = reduction(id_billet, id_client);
+
+        return reduction;
+    }
+
+
+    /**
+     * GETTERS ET SETTERS
+     */
     public ArrayList<Billet> getBillets() {
         return billets;
     }
