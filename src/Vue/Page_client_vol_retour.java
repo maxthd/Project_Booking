@@ -21,6 +21,14 @@ public class Page_client_vol_retour extends JFrame{
     private JPanel Menu_vol_retour;
     private JList List_vols_retour;
     private JComboBox Combobox_classe_retour;
+    private JLabel Label_solde;
+    private JLabel Label_initial_allé;
+    private JLabel Label_reduc_allé;
+    private JLabel Label_final_allé;
+    private JLabel Label_initial_retout;
+    private JLabel Label_reduc_retour;
+    private JLabel Label_final_retour;
+    private JButton Button_prix;
     DefaultListModel DLM =new DefaultListModel();
     DefaultListModel DLM2 =new DefaultListModel();
 
@@ -34,11 +42,14 @@ public class Page_client_vol_retour extends JFrame{
      */
     public Page_client_vol_retour (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+        Achat_billet achat_billet_get_client = new Achat_billet(0);
         List_vols_allé.setFont(new Font("Arial",Font.BOLD,14));
         List_vols_retour.setFont(new Font("Arial",Font.BOLD,14));
         ArrayList<Integer> tab_id1 = new ArrayList();
         ArrayList<Integer> tab_id2 = new ArrayList();
         Listes l = new Listes();
+
+        Label_solde.setText(String.valueOf(achat_billet_get_client.getsolde_client(id_client)));
         Choix_vol choix_vol1=new Choix_vol(départ, arrivée);
         Choix_vol choix_vol2=new Choix_vol(arrivée, départ);
 
@@ -112,6 +123,46 @@ public class Page_client_vol_retour extends JFrame{
                                 }
                             }
                         }
+                    }
+                }
+
+            }
+        });
+        Button_prix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int index1=List_vols_allé.getSelectedIndex();
+                int index2=List_vols_retour.getSelectedIndex();
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == tab_id1.get(index1)) {
+                        try {
+                            Achat_billet achat = new Achat_billet(tab_id1.get(index1));
+                            double prix_fin =  (achat.getcout_original(Combobox_classe_allé.getSelectedIndex() + 1)-achat.getreduction(Combobox_classe_allé.getSelectedIndex() + 1,id_client));
+                            Label_final_allé.setText(Double.toString(prix_fin));
+                            Label_initial_allé.setText(String.valueOf(achat.getcout_original(Combobox_classe_allé.getSelectedIndex() + 1)));
+                            Label_reduc_allé.setText(String.valueOf(achat.getreduction(Combobox_classe_allé.getSelectedIndex() + 1,id_client)));
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        } catch (ClassNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    }
+                }
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == tab_id2.get(index2)) {
+                        try {
+                            Achat_billet achat = new Achat_billet(tab_id2.get(index2));
+                            double prix_fin =  (achat.getcout_original(Combobox_classe_retour.getSelectedIndex() + 1)-achat.getreduction(Combobox_classe_retour.getSelectedIndex() + 1,id_client));
+                            Label_final_retour.setText(Double.toString(prix_fin));
+                            Label_initial_retout.setText(String.valueOf(achat.getcout_original(Combobox_classe_retour.getSelectedIndex() + 1)));
+                            Label_reduc_retour.setText(String.valueOf(achat.getreduction(Combobox_classe_retour.getSelectedIndex() + 1,id_client)));
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        } catch (ClassNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
+
                     }
                 }
 
