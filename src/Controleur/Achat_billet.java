@@ -65,6 +65,7 @@ public class Achat_billet {
             double new_solde = solde - prix_final;
 
             if (new_solde >= 0) {
+
                 //  Si oui, RETIRER L ARGENT DU SOLDE DU CLIENT
                 maconnexion.executeupdate_client("UPDATE Client SET nom=?, prenom=?, username=?," +
                                 "password=?, age=?, solde=?, membre=? " +

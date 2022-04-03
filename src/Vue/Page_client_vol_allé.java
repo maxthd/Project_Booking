@@ -25,6 +25,8 @@ public class Page_client_vol_allé extends JFrame {
     private JLabel Label_reduction;
     private JLabel Label_prix_final;
     private JButton voirPrixButton;
+    private boolean valid=false;
+
     DefaultListModel DLM =new DefaultListModel();
 
 
@@ -87,9 +89,17 @@ public class Page_client_vol_allé extends JFrame {
                     if (l.getVols().get(i).getId_vol()==tab_id.get(index)) {
                         try {
                             Achat_billet achat = new Achat_billet(tab_id.get(index));
+
+                            if (achat.getsolde_client(id_client)>=
+                                    (achat.getcout_original(Combobox_classe.getSelectedIndex() + 1)
+                            - achat.getreduction(Combobox_classe.getSelectedIndex() + 1,
+                                            id_client)))
+                                valid=true;
                             achat.Acheter_billet(Combobox_classe.getSelectedIndex() + 1, id_client);
-                            dispose();
-                            Page_client page_client = new Page_client(id_client);
+                            if (valid==true) {
+                                dispose();
+                                Page_client page_client = new Page_client(id_client);
+                            }
                         } catch (SQLException ex) {
                             ex.printStackTrace();
                         } catch (ClassNotFoundException ex) {
@@ -98,6 +108,9 @@ public class Page_client_vol_allé extends JFrame {
                     }
                 }
 
+                if (valid==false)
+                    JOptionPane.showMessageDialog(new JFrame(), "Veuillez choisir votre vol " +
+                            "en prenant en compte votre solde.");
             }
         });
         voirPrixButton.addActionListener(new ActionListener() {

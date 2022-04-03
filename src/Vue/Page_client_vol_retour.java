@@ -29,6 +29,7 @@ public class Page_client_vol_retour extends JFrame{
     private JLabel Label_reduc_retour;
     private JLabel Label_final_retour;
     private JButton Button_prix;
+    private boolean valid=false;
     DefaultListModel DLM =new DefaultListModel();
     DefaultListModel DLM2 =new DefaultListModel();
 
@@ -111,11 +112,22 @@ public class Page_client_vol_retour extends JFrame{
                             if (l.getVols().get(j).getId_vol()==tab_id2.get(index2)) {
                                 try {
                                     Achat_billet achat_allé = new Achat_billet(tab_id1.get(index1));
-                                    achat_allé.Acheter_billet(Combobox_classe_allé.getSelectedIndex() + 1, id_client);
                                     Achat_billet achat_retour = new Achat_billet(tab_id2.get(index2));
-                                    achat_retour.Acheter_billet(Combobox_classe_retour.getSelectedIndex() + 1, id_client);
-                                    dispose();
-                                    Page_client page_client = new Page_client(id_client);
+
+                                    if (achat_allé.getsolde_client(id_client)>=
+                                            (achat_allé.getcout_original(Combobox_classe_allé.getSelectedIndex() + 1)
+                                                    + achat_retour.getcout_original(Combobox_classe_retour.getSelectedIndex() + 1)
+                                                    - (achat_allé.getreduction(Combobox_classe_allé.getSelectedIndex() + 1, id_client)
+                                                       + achat_retour.getreduction(Combobox_classe_retour.getSelectedIndex() + 1, id_client)
+                                                      ))) {
+                                        valid = true;
+                                        achat_allé.Acheter_billet(Combobox_classe_allé.getSelectedIndex() + 1, id_client);
+                                        achat_retour.Acheter_billet(Combobox_classe_retour.getSelectedIndex() + 1, id_client);
+                                    }
+                                    if (valid==true) {
+                                        dispose();
+                                        Page_client page_client = new Page_client(id_client);
+                                    }
                                 } catch (SQLException ex) {
                                     ex.printStackTrace();
                                 } catch (ClassNotFoundException ex) {
@@ -125,6 +137,10 @@ public class Page_client_vol_retour extends JFrame{
                         }
                     }
                 }
+
+                if (valid==false)
+                    JOptionPane.showMessageDialog(new JFrame(), "Veuillez choisir vos vol " +
+                            "en prenant en compte votre solde.");
 
             }
         });

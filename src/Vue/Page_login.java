@@ -17,6 +17,7 @@ public class Page_login extends JFrame {
     private JPasswordField passwordField_mdp;
     private Listes lis;
     private Login log;
+    private boolean valid=false;
 
     /***
      * Page pour se connecter à son compte
@@ -27,6 +28,7 @@ public class Page_login extends JFrame {
         lis=new Listes();
         log=new Login(lis);
 
+        System.out.println(valid);
         setContentPane(Menu_login);
         setTitle("Page login");
         setSize(800,600);
@@ -41,6 +43,7 @@ public class Page_login extends JFrame {
                     System.out.println("employe trouvé");
                     dispose();
                     Page_administrateur p= new Page_administrateur();
+                    valid=true;
                 }
                 if (log.Est_un_client(Tf_identifiant.getText(),passwordField_mdp.getText()))
                 {
@@ -48,13 +51,15 @@ public class Page_login extends JFrame {
                     dispose();
                     try {
                         Page_client p= new Page_client(log.id_du_client(Tf_identifiant.getText(),passwordField_mdp.getText()));
+                        valid=true;
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     } catch (ClassNotFoundException ex) {
                         ex.printStackTrace();
                     }
                 }
-
+                if (valid==false)
+                JOptionPane.showMessageDialog(new JFrame(), "Erreur de saisi");
             }
         });
         Button_quitter.addActionListener(new ActionListener() {
