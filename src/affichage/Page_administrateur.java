@@ -12,6 +12,9 @@ public class Page_administrateur extends JFrame {
     private JButton Button_modif_vols;
     private JButton Button_modif_clients;
 
+    /***
+     * Afficher le 'menu' des employés
+     */
     public Page_administrateur ()
     {
         setContentPane(Menu_admin);

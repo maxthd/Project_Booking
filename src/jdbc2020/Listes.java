@@ -16,6 +16,11 @@ public class Listes {
     private ArrayList<Relation_client_employe> clients_employes=new ArrayList<>();
     private ArrayList<Image> images=new ArrayList<>();
 
+    /***
+     * Constructeur Listes
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Listes() throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
 
@@ -38,6 +43,10 @@ public class Listes {
     }
 
 
+    /***
+     * Recuperer les vols de la BDD
+     * @throws SQLException
+     */
     public void init_listes_vols() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_vol FROM Vol");
@@ -50,6 +59,11 @@ public class Listes {
 
     }
 
+
+    /***
+     * Recuperer les employes de la BDD
+     * @throws SQLException
+     */
     public void init_listes_employes() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_employe FROM Employe");
@@ -61,6 +75,11 @@ public class Listes {
         }
     }
 
+
+    /***
+     * Recuperer les clients de la BDD
+     * @throws SQLException
+     */
     public void init_listes_clients() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_client FROM Client");
@@ -72,6 +91,10 @@ public class Listes {
         }
     }
 
+    /***
+     * Recuperer les billets de la BDD
+     * @throws SQLException
+     */
     public void init_listes_billets() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_billet FROM Billet");
@@ -83,6 +106,10 @@ public class Listes {
         }
     }
 
+    /***
+     * Recuperer les réservations de la BDD
+     * @throws SQLException
+     */
     public void init_listes_reservation() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_reservation FROM Reservation");
@@ -94,6 +121,10 @@ public class Listes {
         }
     }
 
+    /***
+     * Recuperer les relations_vols_employes de la BDD
+     * @throws SQLException
+     */
     public void init_listes_vols_employes() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_vol_employe FROM Relation_vol_employe");
@@ -105,6 +136,10 @@ public class Listes {
         }
     }
 
+    /***
+     * Recuperer les relations_clients_employes de la BDD
+     * @throws SQLException
+     */
     public void init_listes_clients_employes() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_client_employe FROM Relation_client_employe");
@@ -116,6 +151,10 @@ public class Listes {
         }
     }
 
+    /***
+     * Recuperer les images de la BDD
+     * @throws SQLException
+     */
     public void init_listes_images() throws SQLException {
         ArrayList<Integer> list_id;
         list_id=maconnexion.fill_array("SELECT id_image FROM Image");
@@ -127,6 +166,9 @@ public class Listes {
         }
     }
 
+    /***
+     * Affichage console BDD
+     */
     public void Afficher_listes(){
         for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
@@ -156,29 +198,6 @@ public class Listes {
     }
 
 
-    //
-    public Listes Update_listes(String requete) throws SQLException, ClassNotFoundException {
-
-        maconnexion.executeUpdate(requete);
-        Listes newlist= new Listes();
-        return newlist;
-    }
-
-    public Listes param_update_listes(String requete, int index) throws SQLException, ClassNotFoundException {
-
-        maconnexion.param_executeUpdate(requete, index);
-        Listes newlist= new Listes();
-        return newlist;
-    }
-
-
-
-    public Listes param_two_update_listes(String requete, int index1, int index2) throws SQLException, ClassNotFoundException {
-
-        maconnexion.param_two_executeUpdate(requete, index1, index2);
-        Listes newlist= new Listes();
-        return newlist;
-    }
 
 
 
@@ -188,8 +207,7 @@ public class Listes {
 
 
 
-
-    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    /**LES GETTERS ET LES SETTERS*/
     public ArrayList<Vol> getVols(){
         return vols;
     }

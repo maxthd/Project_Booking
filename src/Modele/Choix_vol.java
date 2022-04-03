@@ -9,6 +9,13 @@ public class Choix_vol {
     private Connexion maconnexion;
 
 
+    /***
+     * Constructeur Choix_vol qui permet de récuperer tout les vols selon les villes choisies
+     * @param ville_depart
+     * @param ville_arrive
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Choix_vol(String ville_depart, String ville_arrive) throws SQLException, ClassNotFoundException {
         vols.clear();
         maconnexion=new Connexion("booking", "root", "");
@@ -46,13 +53,16 @@ public class Choix_vol {
     }
 
 
-
+    /***
+     * Affichage Choix_vols (sur console)
+     */
     public void Affichage_vols(){
         for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
     }
 
 
+    /***Getters*/
     public ArrayList<Vol> get_vols() {
         return vols;
     }

@@ -19,12 +19,15 @@ public class Connexion {
     private PreparedStatement param_stmt;
     private ResultSet rset;
 
-    /**CES ATTRIBUTS SONT USELESS*/
-    private ResultSetMetaData rsetMeta;
-    public ArrayList<String> tables = new ArrayList<>();
-    public ArrayList<String> requetes = new ArrayList<>();
 
-    //Constructeur
+    /***
+     * Constructeur Connexion
+     * @param nameDatabase
+     * @param loginDatabase
+     * @param passwordDatabase
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Connexion(String nameDatabase, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException{
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
@@ -39,6 +42,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Ajouter une image à la BDD
+     * @param requete
+     * @param path
+     * @throws SQLException
+     * @throws FileNotFoundException
+     */
     public void execute_insertimage(String requete, String path) throws SQLException, FileNotFoundException {
         File file = new File(path);
         FileInputStream input = new FileInputStream(file);
@@ -51,6 +61,13 @@ public class Connexion {
 
     }
 
+
+    /***
+     * Retourne une image pour le package Vue
+     * @param requete
+     * @return
+     * @throws SQLException
+     */
     public ImageIcon fill_imageicon(String requete) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -68,6 +85,12 @@ public class Connexion {
     }
 
 
+    /***
+     * Retourne une liste de int selon une requete SQL
+     * @param requete
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Integer> fill_array(String requete) throws SQLException {
 
         // creation d'une ArrayList de String
@@ -77,7 +100,7 @@ public class Connexion {
         rset = stmt.executeQuery(requete);
 
         // récupération du résultat de l'ordre
-        rsetMeta = rset.getMetaData();
+        //rsetMeta = rset.getMetaData();
 
 
         // tant qu'il reste une ligne
@@ -90,6 +113,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Retourne une liste de int selon une requete SQL (avec 1 paramètre type int)
+     * @param requete
+     * @param index
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Integer> fill_array_param(String requete, int index) throws SQLException {
 
         // creation d'une ArrayList de String
@@ -113,6 +143,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Retourne une liste de int selon une requete SQL (avec 1 paramètre type String)
+     * @param requete
+     * @param word
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Integer> fill_array_param_String(String requete,
                                                           String word) throws SQLException {
 
@@ -136,6 +173,15 @@ public class Connexion {
         return liste;
     }
 
+
+    /***
+     * Retourne une liste de int selon une requete SQL (avec 2 paramètre type String)
+     * @param requete
+     * @param word1
+     * @param word2
+     * @return
+     * @throws SQLException
+     */
     public ArrayList<Integer> fill_array_two_param_String(String requete,
                                                           String word1, String word2) throws SQLException {
 
@@ -161,7 +207,13 @@ public class Connexion {
     }
 
 
-    //Retourne un entier unique correspondant à la requete(avec paramètre)
+    /***
+     * Retourne un entier unique selon une requete SQL (avec 1 paramètre type int)
+     * @param requete
+     * @param index
+     * @return
+     * @throws SQLException
+     */
     public int fill_int_param(String requete, int index) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -178,7 +230,14 @@ public class Connexion {
     }
 
 
-    //Retourne un entier unique correspondant à la requete(avec paramètre)
+    /***
+     * Retourne une liste de int selon une requete SQL (avec 2 paramètre type int)
+     * @param requete
+     * @param index1
+     * @param index2
+     * @return
+     * @throws SQLException
+     */
     public int fill_int_param_double(String requete, int index1, int index2) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -196,8 +255,13 @@ public class Connexion {
     }
 
 
-
-
+    /***
+     * Retourne un Blob selon une requete SQL (avec 1 paramètre type Int)
+     * @param requete
+     * @param index
+     * @return
+     * @throws SQLException
+     */
     public Blob fill_blob_param(String requete, int index) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -213,6 +277,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Retourne un int unique selon une requete SQL (avec 1 paramètre type String)
+     * @param requete
+     * @param word
+     * @return
+     * @throws SQLException
+     */
     public int fill_int_param_String(String requete, String word) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
         param_stmt.setString(1, word);
@@ -228,11 +299,13 @@ public class Connexion {
     }
 
 
-
-
-
-
-    //Retourne un String unique correspondant à la requete(avec paramètre)
+    /***
+     * Retourne une String unique selon une requete SQL (avec 1 paramètre type int)
+     * @param requete
+     * @param index
+     * @return
+     * @throws SQLException
+     */
     public String fill_string_param(String requete, int index) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -249,7 +322,13 @@ public class Connexion {
     }
 
 
-    //Retourne un double unique correspondant à la requete(avec paramètre)
+    /***
+     * Retourne un double unique selon une requete SQL (avec 1 paramètre type int)
+     * @param requete
+     * @param index
+     * @return
+     * @throws SQLException
+     */
     public double fill_double_param(String requete, int index) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -266,12 +345,22 @@ public class Connexion {
     }
 
 
+    /***
+     * Mettre à jour la BDD selon une requete SQL
+     * @param requeteMaj
+     * @throws SQLException
+     */
     public void executeUpdate(String requeteMaj) throws SQLException {
         stmt.executeUpdate(requeteMaj);
     }
 
 
-
+    /***
+     * Mettre à jour la BDD selon une requete SQL (avec 1 paramètre type int)
+     * @param requete
+     * @param index
+     * @throws SQLException
+     */
     public void param_executeUpdate(String requete, int index) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
         param_stmt.setInt(1, index);
@@ -281,6 +370,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Mettre à jour la BDD selon une requete SQL (avec 2 paramètres type int)
+     * @param requete
+     * @param index1
+     * @param index2
+     * @throws SQLException
+     */
     public void param_two_executeUpdate(String requete, int index1, int index2) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
         param_stmt.setInt(1, index1);
@@ -291,7 +387,17 @@ public class Connexion {
     }
 
 
-
+    /***
+     * Ajouter un vol dans la BDD grace à une requete SQL
+     * @param requete
+     * @param ville_depart
+     * @param ville_arrive
+     * @param date_depart
+     * @param date_arrive
+     * @param heure_depart
+     * @param heure_arrive
+     * @throws SQLException
+     */
     public void executeinsert_vol(String requete, String ville_depart, String ville_arrive,
                                   String date_depart, String date_arrive,
                                   String heure_depart, String heure_arrive) throws SQLException {
@@ -309,6 +415,15 @@ public class Connexion {
     }
 
 
+    /***
+     * Ajouter un billet dans la BDD grace à une requete SQL
+     * @param requete
+     * @param fk_vol
+     * @param cout
+     * @param reduction
+     * @param nombre_billet
+     * @throws SQLException
+     */
     public void executeinsert_billet(String requete, int fk_vol, double cout,
                                      double reduction, int nombre_billet) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
@@ -322,6 +437,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Ajouter une réservation dans la BDD grace à une requete SQL
+     * @param requete
+     * @param fk_vol
+     * @param fk_client
+     * @throws SQLException
+     */
     public void executeinsert_reservation (String requete, int fk_vol, int fk_client) throws SQLException {
 
         param_stmt =conn.prepareStatement(requete);
@@ -331,6 +453,20 @@ public class Connexion {
         param_stmt.executeUpdate();
     }
 
+
+    /***
+     * Mettre à jour Vol selon une requete SQL et son id
+     * @param requete
+     * @param ville_depart
+     * @param ville_arrive
+     * @param date_depart
+     * @param date_arrive
+     * @param heure_depart
+     * @param heure_arrive
+     * @param vol_dispo
+     * @param id_vol
+     * @throws SQLException
+     */
     public void executeupdate_vol(String requete, String ville_depart, String ville_arrive,
                                   String date_depart, String date_arrive,
                                   String heure_depart, String heure_arrive, int vol_dispo, int id_vol) throws SQLException {
@@ -350,7 +486,19 @@ public class Connexion {
     }
 
 
-
+    /***
+     * Mettre à jour Client selon une requete SQL et son id
+     * @param requete
+     * @param nom
+     * @param prenom
+     * @param username
+     * @param password
+     * @param age
+     * @param solde
+     * @param membre
+     * @param id_client
+     * @throws SQLException
+     */
     public void executeupdate_client(String requete, String nom, String prenom,
                               String username,
                               String password,
@@ -370,6 +518,13 @@ public class Connexion {
     }
 
 
+    /***
+     * Mettre à jour Billet selon une requete SQL et son id
+     * @param requete
+     * @param var
+     * @param id_billet
+     * @throws SQLException
+     */
     public void executeupdate_billet(String requete,
                                      int var,int id_billet) throws SQLException {
 
@@ -381,6 +536,14 @@ public class Connexion {
     }
 
 
+    /***
+     * Mettre à jour le cout et la reduction Billet selon une requete SQL et son id
+     * @param requete
+     * @param cout
+     * @param reduction
+     * @param fk_vol
+     * @throws SQLException
+     */
     public void executeupdate_coutreduc_billet(String requete,
                                      double cout,double reduction, int fk_vol) throws SQLException {
 
@@ -393,9 +556,12 @@ public class Connexion {
     }
 
 
-
-
-
+    /***
+     * Mettre à jour une table selon une requete SQL et son id
+     * @param requete
+     * @param index
+     * @throws SQLException
+     */
     public void executeupdate_param(String requete, int index) throws SQLException {
         param_stmt =conn.prepareStatement(requete);
         param_stmt.setInt(1, index);
@@ -404,7 +570,18 @@ public class Connexion {
     }
 
 
-
+    /***
+     * Ajouter un Client à la table grace à une requete SQL
+     * @param requete
+     * @param nom
+     * @param prenom
+     * @param username
+     * @param password
+     * @param age
+     * @param solde
+     * @param membre
+     * @throws SQLException
+     */
     public void executeinsert_client(String requete,  String nom, String prenom,
                                      String username, String password,
                                      int age, double solde, int membre) throws SQLException {
@@ -423,112 +600,15 @@ public class Connexion {
     }
 
 
-
+    /***
+     * Ferme La connexion
+     * @throws SQLException
+     */
     public void clear_connexion() throws SQLException {
        conn.close();
        stmt.close();
        param_stmt.close();
        rset.close();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /** LES METHODES EN DESSOUS SONT USELESSS*/
-    //Retourne un entier unique correspondant à la requete (sans paramètre)
-    public int fill_int(String requete) throws SQLException {
-
-        // récupération de l'ordre de la requete
-        rset = stmt.executeQuery(requete);
-
-        return rset.getInt(1);
-
-    }
-
-    public void ajouterTable(String table) {
-        tables.add(table);
-    }
-
-    public ArrayList remplirChampsRequete(String requete) throws SQLException {
-        // récupération de l'ordre de la requete
-        rset = stmt.executeQuery(requete);
-
-        // récupération du résultat de l'ordre
-        rsetMeta = rset.getMetaData();
-
-        // calcul du nombre de colonnes du resultat
-        int nbColonne = rsetMeta.getColumnCount();
-
-        // creation d'une ArrayList de String
-        ArrayList<String> liste;
-        liste = new ArrayList<>();
-
-        // tant qu'il reste une ligne
-        while (rset.next()) {
-            String champs;
-            champs = rset.getString(1); // ajouter premier champ
-
-            // Concatener les champs de la ligne separes par ,
-            for (int i = 1; i < nbColonne; i++) {
-                champs = champs + "," + rset.getString(i + 1);
-            }
-
-            // ajouter un "\n" à la ligne des champs
-            champs = champs + "\n";
-
-            // ajouter les champs de la ligne dans l'ArrayList
-            liste.add(champs);
-        }
-
-        // Retourner l'ArrayList
-        return liste;
-    }
-
-    //Ajout d'une ligne dans Requete (3ème colonne)
-    public void ajouterRequete(String requete) {
-
-        requetes.add(requete);
-    }
-
-
-    public ArrayList remplirChampsTable(String table) throws SQLException {
-
-        // récupération de l'ordre de la requete
-        rset = stmt.executeQuery("SELECT * FROM " + table);
-
-        // récupération du résultat de l'ordre
-        rsetMeta = rset.getMetaData();
-
-        // calcul du nombre de colonnes du resultat
-        int nbColonne = rsetMeta.getColumnCount();
-
-        // creation d'une ArrayList de String
-        ArrayList<String> liste;
-        liste = new ArrayList<>();
-        String champs = "";
-        // Ajouter tous les champs du resultat dans l'ArrayList
-        for (int i = 0; i < nbColonne; i++) {
-            champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
-        }
-
-        // ajouter un "\n" à la ligne des champs
-        champs = champs + "\n";
-
-        // ajouter les champs de la ligne dans l'ArrayList
-        liste.add(champs);
-
-        // Retourner l'ArrayList
-        return liste;
     }
 
 }

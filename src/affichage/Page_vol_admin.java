@@ -22,6 +22,11 @@ public class Page_vol_admin extends JFrame  {
     DefaultListModel DLM =new DefaultListModel();
 
 
+    /***
+     * Afficher la page pour récuperer la liste des vols (accessible seulement par les employés)
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_vol_admin () throws SQLException, ClassNotFoundException {
         ArrayList<Integer> tab_id = new ArrayList();
         Listes l=new Listes();

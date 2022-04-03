@@ -30,6 +30,12 @@ public class Page_modifier_client extends JFrame {
     private JButton Button_supprimer_client;
     Listes l;
 
+    /***
+     * Affiche la page pour modifier les paramètres du client
+     * @param id_du_client
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_modifier_client (int id_du_client) throws SQLException, ClassNotFoundException
     {
         l = new Listes();

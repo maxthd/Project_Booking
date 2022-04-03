@@ -14,6 +14,12 @@ import java.sql.SQLException;
 public class Page_statistique extends JFrame {
 
 
+    /***
+     * Afficher la page pour les statistiques
+     * @param id_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_statistique(int id_vol) throws SQLException, ClassNotFoundException {
         DefaultPieDataset pieDataset=new DefaultPieDataset();
 

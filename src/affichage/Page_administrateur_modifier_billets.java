@@ -20,6 +20,13 @@ public class Page_administrateur_modifier_billets extends JFrame {
     private JButton Button_quitter;
     private JButton Button_valider;
 
+    /***
+     * Afficher la page pour modifier des billets (accessible seulement par un employé)
+     * @param id_du_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+
     public Page_administrateur_modifier_billets(int id_du_vol) throws SQLException, ClassNotFoundException {
         Listes l = new Listes();
         Modifier_billet modif = new Modifier_billet(id_du_vol);

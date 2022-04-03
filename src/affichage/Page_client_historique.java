@@ -15,6 +15,12 @@ public class Page_client_historique extends JFrame {
     private JPanel Menu_historique;
     DefaultListModel DLM =new DefaultListModel();
 
+    /***
+     * Afficher la page avec l'historique du client
+     * @param id_client
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_client_historique(int id_client) throws SQLException, ClassNotFoundException
     {
         Historique_client historique_client = new Historique_client(id_client);

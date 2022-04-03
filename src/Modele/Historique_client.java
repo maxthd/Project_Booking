@@ -9,6 +9,12 @@ public class Historique_client {
     private Connexion maconnexion;
 
 
+    /***
+     * Recupère l'historique du client
+     * @param id_client
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Historique_client(int id_client) throws SQLException, ClassNotFoundException {
         vols.clear();
         maconnexion=new Connexion("booking", "root", "");
@@ -24,12 +30,15 @@ public class Historique_client {
     }
 
 
-
+    /***
+     * Affichage historique console
+     */
     public void Affichage_historique(){
         for (int i=0; i<vols.size(); i++)
             vols.get(i).Afficher_Vol();
     }
 
+    /***Getters*/
     public ArrayList<Vol> get_historique() {
         return vols;
     }

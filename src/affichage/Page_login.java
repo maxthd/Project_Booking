@@ -19,6 +19,11 @@ public class Page_login extends JFrame {
     private Listes lis;
     private Login log;
 
+    /***
+     * Page pour se connecter à son compte
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_login () throws SQLException, ClassNotFoundException {
         lis=new Listes();
         log=new Login(lis);

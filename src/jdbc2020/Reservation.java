@@ -7,6 +7,13 @@ public class Reservation {
     private int fk_vol;
     private int fk_client;
 
+
+    /***
+     * Constructeur Reservation
+     * @param index
+     * @param maconnexion
+     * @throws SQLException
+     */
     public Reservation(int index, Connexion maconnexion) throws SQLException {
         id_reservation=index;
         fk_vol= maconnexion.fill_int_param("SELECT fk_vol FROM Reservation WHERE id_reservation = ?", id_reservation);
@@ -16,6 +23,9 @@ public class Reservation {
     }
 
 
+    /***
+     * Afficher les attributs de Reservation (sur la console)
+     */
     public void Afficher_Reservation(){
         System.out.println("id_reservation: "+id_reservation + "\t\tfk_vol: "+fk_vol +"\t\tfk_client: "+fk_client);
         System.out.println("---------------------------------------------------------------------------");
@@ -27,7 +37,7 @@ public class Reservation {
 
 
 
-    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    /***LES GETTERS ET LES SETTERS*/
     public int getId_reservation() {
         return id_reservation;
     }

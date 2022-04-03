@@ -12,6 +12,12 @@ public class Achat_billet {
     private ArrayList<Billet> billets=new ArrayList<>();
     private int temp_id_vol;
 
+    /***
+     * Constructeur Achat Billet
+     * @param id_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Achat_billet(int id_vol) throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
 
@@ -29,8 +35,13 @@ public class Achat_billet {
     }
 
 
-
-    //IL FAUT BLINDER LA SAISIE DES ID POUR QU'ILS NE PUISSENT SAISIR QUE CE QUI EST AFFICHE
+    /***
+     * Cette méthode fait les vérifications nécessaires
+     * puis permet au client d'acheter le billet
+     * @param type_billet
+     * @param id_client
+     * @throws SQLException
+     */
     public void Acheter_billet(int type_billet, int id_client) throws SQLException {
 
         int id_billet=maconnexion.fill_int_param_double("SELECT id_billet FROM Billet WHERE " +
@@ -38,7 +49,7 @@ public class Achat_billet {
 
         if (Valid_idbillet(id_billet)==true) {
             //VERIFIEE SI LE CLIENT EST MEMBRE. SI OUI, APPLIQUEZ LA REDUCTION ET VOIR SI IL A ASSEZ POUR ACHETER LE BILLET.
-            double reduction, solde, cout;
+            double reduction, solde, cout, prix_final;
 
             reduction = reduction(id_billet, id_client);
             Client client = new Client(id_client, maconnexion);
@@ -48,7 +59,11 @@ public class Achat_billet {
             solde = client.getSolde();
             cout = billet.getCout();
 
-            double new_solde = (solde - (cout - reduction));
+            prix_final=cout- reduction;
+            if (prix_final<=0)
+                prix_final=0;
+
+            double new_solde = solde - prix_final;
 
             if (new_solde >= 0) {
                 //  Si oui, RETIRER L ARGENT DU SOLDE DU CLIENT
@@ -91,9 +106,12 @@ public class Achat_billet {
     }
 
 
-
-
-
+    /***
+     * Boolean pour savoir si le billet est encore disponible
+     * @param id_billet
+     * @return
+     * @throws SQLException
+     */
     public boolean billet_dispo(int id_billet) throws SQLException {
         int temp;
         temp=maconnexion.fill_int_param("SELECT billet_dispo FROM Billet WHERE id_billet = ?", id_billet);
@@ -106,6 +124,14 @@ public class Achat_billet {
         return false;
     }
 
+
+    /***
+     * Retourne la reduction selon le role du client (membre ou non)
+     * @param id_billet
+     * @param id_client
+     * @return
+     * @throws SQLException
+     */
     public double reduction(int id_billet, int id_client) throws SQLException {
         int client_membre;
         double reduction=0;
@@ -120,6 +146,11 @@ public class Achat_billet {
     }
 
 
+    /***
+     * Change le message afficher selon la classe du billet
+     * @param billet
+     * @return
+     */
     public String message(Billet billet){
         String message="";
 
@@ -135,6 +166,12 @@ public class Achat_billet {
         return message;
     }
 
+
+    /***
+     * Verifie que le vol est encore dispo
+     * @return
+     * @throws SQLException
+     */
     public boolean Vol_encoredispo() throws SQLException {
         ArrayList<Integer> list_id;
         int temp;
@@ -149,9 +186,12 @@ public class Achat_billet {
     }
 
 
-
-
-
+    /***
+     * Retourne vrai si l'id_billet existe et est valide
+     * @param id_billet
+     * @return
+     * @throws SQLException
+     */
     public boolean Valid_idbillet(int id_billet) throws SQLException {
         int fk_vol= maconnexion.fill_int_param("SELECT fk_vol FROM Billet " +
                 "WHERE id_billet=?", id_billet );

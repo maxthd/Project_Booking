@@ -8,10 +8,19 @@ public class Statistique {
     private Connexion maconnexion;
     private int temp_id_vol;
 
+    /***
+     * Constructeur Statistique
+     * @param id_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Statistique(int id_vol) throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
         temp_id_vol=id_vol;
     }
+
+
+    /**Getters du nombre de billet de chaque type*/
 
     public int getnombre_billet_eco_restant () throws SQLException {
         int nombre_eco=0;

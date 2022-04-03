@@ -16,14 +16,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="e3d19" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Selection du vol aller:"/>
-        </properties>
-      </component>
       <component id="3822c" class="javax.swing.JComboBox" binding="Combobox_classe">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>

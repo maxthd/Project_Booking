@@ -15,6 +15,12 @@ public class Vol {
     private int vol_dispo;
 
 
+    /***
+     * Constructeur Vol
+     * @param index
+     * @param maconnexion
+     * @throws SQLException
+     */
     public Vol(int index, Connexion maconnexion) throws SQLException {
 
         id_vol = index;
@@ -31,6 +37,9 @@ public class Vol {
 
     }
 
+    /***
+     * Afficher les attributs de Vol (sur la console)
+     */
     public void Afficher_Vol() {
         System.out.println("Numéro_vol: " + id_vol+
                 "\t\tville_départ: " + ville_depart+ "\t\tville arrivé: " + ville_arrive);
@@ -55,7 +64,7 @@ public class Vol {
 
 
 
-    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    /***LES GETTERS ET LES SETTERS*/
     public int getId_vol() {
         return id_vol;
     }

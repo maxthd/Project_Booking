@@ -10,6 +10,12 @@ public class Employe {
     private String username;
     private String password;
 
+    /***
+     * Constructeur employé
+     * @param index
+     * @param maconnexion
+     * @throws SQLException
+     */
     public Employe(int index, Connexion maconnexion) throws SQLException {
         id_employe=index;
         nom=maconnexion.fill_string_param("SELECT nom FROM Employe WHERE id_employe = ?", id_employe);
@@ -20,6 +26,10 @@ public class Employe {
         //Afficher_Employe();
     }
 
+
+    /***
+     * Afficher les attributs de Employe (sur la console)
+     */
     public void Afficher_Employe(){
 
         System.out.println("Numéro_employé: "+id_employe + "\t\tNom: "+nom + "\t\tPrenom: "+prenom +
@@ -39,7 +49,7 @@ public class Employe {
 
 
 
-    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    /***LES GETTERS ET LES SETTERS*/
     public int getId_employe() {
         return id_employe;
     }

@@ -25,6 +25,11 @@ public class Page_inscription extends JFrame {
     private JButton Button_retour;
     private Inscription inscription;
 
+    /***
+     * La page pour s'inscrire en tant que client
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_inscription () throws SQLException, ClassNotFoundException {
         inscription = new Inscription();
         setContentPane(Menu_inscription);

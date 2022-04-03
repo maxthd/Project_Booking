@@ -8,12 +8,32 @@ public class Ajout_billet {
     private Connexion maconnexion;
     private int temp_id_vol;
 
+    /***
+     * Constructeur Ajout_billet
+     * @param id_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Ajout_billet(int id_vol) throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
         temp_id_vol=id_vol;
 
     }
 
+
+    /***
+     * Ajoute le billet à la BDD et met à jour le nombre de place du vol
+     * @param nombre_economique
+     * @param nombre_affaire
+     * @param nombre_premium
+     * @param cout_economique
+     * @param cout_affaire
+     * @param cout_premium
+     * @param reduction_economique
+     * @param reduction_affaire
+     * @param reduction_premium
+     * @throws SQLException
+     */
     public void Ajouter_billets(int nombre_economique, int nombre_affaire, int nombre_premium,
                                 double cout_economique, double cout_affaire, double cout_premium,
                                 double reduction_economique, double reduction_affaire,

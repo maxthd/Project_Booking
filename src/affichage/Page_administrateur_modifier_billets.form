@@ -13,7 +13,7 @@
           <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Modification de billets"/>
+          <text value="Modification des billets"/>
         </properties>
       </component>
       <component id="d9436" class="javax.swing.JLabel">
@@ -29,7 +29,7 @@
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Réduction billet royal"/>
+          <text value="Réduction billet premium"/>
         </properties>
       </component>
       <component id="d473c" class="javax.swing.JLabel">
@@ -37,7 +37,7 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Réduction billet afaire"/>
+          <text value="Réduction billet affaire"/>
         </properties>
       </component>
       <component id="dd73a" class="javax.swing.JLabel">
@@ -45,7 +45,7 @@
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Cout billet royal"/>
+          <text value="Cout billet premium"/>
         </properties>
       </component>
       <component id="52963" class="javax.swing.JLabel">

@@ -13,6 +13,12 @@ public class Client {
     private int membre;
     private int fk_image;
 
+    /***
+     * Constructeur Classe Client
+     * @param index
+     * @param maconnexion
+     * @throws SQLException
+     */
     public Client(int index, Connexion maconnexion) throws SQLException {
         id_client=index;
         nom= maconnexion.fill_string_param("SELECT nom FROM Client WHERE id_client= ?", id_client);
@@ -28,6 +34,9 @@ public class Client {
 
     }
 
+    /***
+     * Afficher les attributs de Client (sur la console)
+     */
     public void Afficher_Client(){
 
         System.out.println("Numéro_client: "+id_client+ "\t\tNom: "+nom + "\t\tPrenom: "+prenom
@@ -53,7 +62,7 @@ public class Client {
 
 
 
-    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    /***LES GETTERS ET LES SETTERS*/
     public int getId_client() {
         return id_client;
     }

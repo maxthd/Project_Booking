@@ -19,11 +19,18 @@ public class Page_client_vol_retour extends JFrame{
     private JButton Button_quitter;
     private JPanel Menu_vol_retour;
     private JList List_vols_retour;
-    private JTextField Tf_vol_retour;
     private JComboBox Combobox_classe_retour;
     DefaultListModel DLM =new DefaultListModel();
     DefaultListModel DLM2 =new DefaultListModel();
 
+    /***
+     * Affiche les vols pour un aller-retour entre une ville A et une ville B
+     * @param id_client
+     * @param départ
+     * @param arrivée
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_client_vol_retour (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
         ArrayList<Integer> tab_id1 = new ArrayList();
@@ -36,7 +43,7 @@ public class Page_client_vol_retour extends JFrame{
         ArrayList<Vol> vols_aller=choix_vol1.get_vols();
         ArrayList<Vol> vols_retour=choix_vol2.get_vols();
         setContentPane(Menu_vol_retour);
-        setTitle("Page selection des vols allé-retours");
+        setTitle("Page selection des vols allers-retours");
         setSize(1200,800);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

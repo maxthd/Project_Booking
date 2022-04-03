@@ -19,6 +19,12 @@ public class Page_client extends JFrame {
     private JComboBox Combobox_allé_retour;
 
 
+    /***
+     * Afficher le 'menu' du client
+     * @param id_client
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_client (int id_client)  throws SQLException, ClassNotFoundException
     {
 
@@ -27,8 +33,8 @@ public class Page_client extends JFrame {
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-        Combobox_allé_retour.addItem("Allé");
-        Combobox_allé_retour.addItem("Allé-retour");
+        Combobox_allé_retour.addItem("Aller");
+        Combobox_allé_retour.addItem("Aller-retour");
         Button_quitter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,7 +47,7 @@ public class Page_client extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (Combobox_allé_retour.getSelectedIndex()==0)
                 {
-                    System.out.println("vol allé");
+                    System.out.println("vol aller");
                     dispose();
                     try {
                         Page_client_vol_allé pca = new Page_client_vol_allé(id_client,Tf_lieux_d.getText(),Tf_lieux_a.getText());
@@ -53,7 +59,7 @@ public class Page_client extends JFrame {
                 }
                 if (Combobox_allé_retour.getSelectedIndex()==1)
                 {
-                    System.out.println("vol allé");
+                    System.out.println("vol aller");
                     dispose();
                     try {
                         Page_client_vol_retour pcar = new Page_client_vol_retour(id_client,Tf_lieux_d.getText(),Tf_lieux_a.getText());

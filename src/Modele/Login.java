@@ -10,12 +10,22 @@ public class Login {
     private ArrayList<Employe> employes;
 
 
+    /***
+     * Constructeur Login
+     * @param l
+     */
     public Login (Listes l) {
         clients=l.getClients();
         employes=l.getEmployes();
 
     }
 
+    /***
+     * Verifie que le username et le mdp sont celui d'un client
+     * @param username
+     * @param mdp
+     * @return
+     */
     public boolean Est_un_client (String username, String mdp)
     {
         for (int i=0; i<clients.size();i++)
@@ -29,6 +39,10 @@ public class Login {
         System.out.println(username);
         return false;
     }
+
+    /***
+     * Recupère l'id du client
+     */
     public int id_du_client (String username, String mdp)
     {
         for (int i=0; i<clients.size();i++)
@@ -42,6 +56,14 @@ public class Login {
         System.out.println(username);
         return 0;
     }
+
+
+    /***
+     * Verifie que le username et le mdp sont celui d'un employe
+     * @param username
+     * @param mdp
+     * @return
+     */
     public boolean Est_un_Employe (String username, String mdp)
     {
         for (int i=0; i<employes.size();i++)

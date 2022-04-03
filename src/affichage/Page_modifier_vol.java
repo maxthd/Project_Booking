@@ -27,6 +27,12 @@ public class Page_modifier_vol extends JFrame
     private JPanel Menu_modification_vol;
     private JButton Button_delete;
 
+    /***
+     * Afficher la page pour modifier un vol (accessible seulement par les employés)
+     * @param id_du_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_modifier_vol(int id_du_vol) throws SQLException, ClassNotFoundException
     {
         Listes l  = new Listes();

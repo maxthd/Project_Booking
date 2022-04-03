@@ -21,6 +21,12 @@ public class Page_client_paramètres extends JFrame {
     private JPanel Menu_parametre_client;
     Listes l;
 
+    /***
+     * Affiche la page des paramètres du clients
+     * @param id_du_client
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_client_paramètres (int id_du_client) throws SQLException, ClassNotFoundException
     {
         l = new Listes();

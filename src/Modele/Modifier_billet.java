@@ -8,11 +8,28 @@ public class Modifier_billet {
     private Connexion maconnexion;
     private int temp_id_vol;
 
+    /***
+     * Constructeur Modifier_billet
+     * @param id_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Modifier_billet(int id_vol) throws SQLException, ClassNotFoundException {
         maconnexion=new Connexion("booking", "root", "");
         temp_id_vol=id_vol;
     }
 
+
+    /***
+     * Cette méthode met à jour le billet
+     * @param cout_economique
+     * @param reduction_economique
+     * @param cout_affaire
+     * @param reduction_affaire
+     * @param cout_premium
+     * @param reduction_premium
+     * @throws SQLException
+     */
     public void Update_billet(double cout_economique, double reduction_economique,
                          double cout_affaire, double reduction_affaire,
                          double cout_premium, double reduction_premium) throws SQLException {
@@ -28,6 +45,10 @@ public class Modifier_billet {
 
     }
 
+
+
+
+    /**Getters pour récuperer les couts et réductions de chaque classe de billets*/
     public double get_cout_eco() throws SQLException {
         double cout_eco=maconnexion.fill_double_param("SELECT cout FROM Billet " +
                 "WHERE type_billet=1 AND fk_vol=?",temp_id_vol );

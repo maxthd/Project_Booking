@@ -11,12 +11,16 @@ import java.util.ArrayList;
 
 public class Page_client_admin extends JFrame {
     private JList List_clients;
-    private JTextField Tf_id_clients;
     private JButton Button_recherche;
     private JButton Button_quitter;
     private JPanel Menu_recherche_client;
     DefaultListModel DLM =new DefaultListModel();
 
+    /***
+     * Afficher la page pour observer la liste des clients (accessible seulement par un employé)
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_client_admin () throws SQLException, ClassNotFoundException
     {
         ArrayList<Integer> tab_id = new ArrayList();

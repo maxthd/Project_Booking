@@ -15,12 +15,14 @@ public class Page_acceuil extends JFrame
     private JLabel action;
     private JLabel titre;
 
-    private int i=0;
 
+    /***
+     * Afficher la page d'accueil
+     */
     public Page_acceuil()
     {
         setContentPane(menu);
-        setTitle("Page d'acceuil");
+        setTitle("Page d'accueil");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

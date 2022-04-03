@@ -6,7 +6,17 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+
 public class SendEmail {
+
+    /***
+     * Permet l'envoie d'un email
+     * @param from
+     * @param pwd
+     * @param to
+     * @param sub
+     * @param msg
+     */
     public static void send(String from,String pwd,String to,String sub,String msg){
         //Propriétés
         Properties p = new Properties();

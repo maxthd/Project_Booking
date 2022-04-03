@@ -19,6 +19,11 @@ public class Page_administrateur_ajouter_vol extends JFrame {
     private JButton Button_valider;
 
 
+    /***
+     * Afficher la page pour ajouter des vols (accessible seulement par les employés)
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_administrateur_ajouter_vol () throws SQLException, ClassNotFoundException
     {
         Ajout_vol ajout = new Ajout_vol();

@@ -22,6 +22,13 @@ public class Page_administrateur_ajouter_billets extends JFrame {
     private JTextField Tf_nb_affaire;
     private JPanel Menu_ajouter_billet;
 
+
+    /***
+     * Afficher la page pour ajouter des billets (accessible seulement par les employés)
+     * @param id_du_vol
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_administrateur_ajouter_billets (int id_du_vol) throws SQLException, ClassNotFoundException {
         Listes l = new Listes();
         Ajout_billet ajout = new Ajout_billet(id_du_vol);

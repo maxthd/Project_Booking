@@ -21,6 +21,15 @@ public class Page_client_vol_allé extends JFrame {
     private JPanel Menu_client_vol_allé;
     DefaultListModel DLM =new DefaultListModel();
 
+
+    /***
+     * Affiche les vols pour un aller simple d'une ville A à une ville B
+     * @param id_client
+     * @param départ
+     * @param arrivée
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Page_client_vol_allé (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
 

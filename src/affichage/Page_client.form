@@ -22,7 +22,7 @@
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Lieux de départ"/>
+          <text value="Lieu de départ"/>
         </properties>
       </component>
       <component id="daea6" class="javax.swing.JTextField" binding="Tf_lieux_d">
@@ -39,7 +39,7 @@
         </constraints>
         <properties>
           <horizontalAlignment value="11"/>
-          <text value="Lieux d'arrivée"/>
+          <text value="Lieu d'arrivée"/>
           <verticalAlignment value="0"/>
         </properties>
       </component>
@@ -82,7 +82,9 @@
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <model/>
+        </properties>
       </component>
       <component id="cf62f" class="javax.swing.JButton" binding="Button_paramètre">
         <constraints>

@@ -7,6 +7,12 @@ public class Image {
     private int id_image;
     private Blob picture;
 
+    /***
+     * Constructeur Image
+     * @param index
+     * @param maconnexion
+     * @throws SQLException
+     */
     public Image(int index, Connexion maconnexion) throws SQLException {
         id_image=index;
         picture=maconnexion.fill_blob_param("SELECT picture FROM Image WHERE id_image=?", id_image);
@@ -14,6 +20,9 @@ public class Image {
         //Afficher_Image();
     }
 
+
+    /***Afficher les attributs de Image (sur la console)
+     */
     public void Afficher_Image(){
         System.out.println("id_image :"+id_image+"\t\tpicture:" + picture);
     }
@@ -25,7 +34,7 @@ public class Image {
 
 
 
-    /**GETTERS ET SETTERS*/
+    /***GETTERS ET SETTERS*/
     public int getId_image() {
         return id_image;
     }

@@ -11,6 +11,13 @@ public class Billet {
     private int nombre_billet;
     private int billet_dispo;
 
+
+    /***
+     * Constructeur Classe Billet
+     * @param index
+     * @param maconnexion
+     * @throws SQLException
+     */
     public Billet(int index, Connexion maconnexion) throws SQLException {
         id_billet=index;
         fk_vol= maconnexion.fill_int_param("SELECT fk_vol FROM Billet WHERE id_billet = ?", id_billet);
@@ -24,6 +31,9 @@ public class Billet {
     }
 
 
+    /***
+     * Affichage les attributs de Billet (sur la console)
+     */
     public void Afficher_billet(){
 
         System.out.println("id_billet: "+id_billet + "\t\t fk_vol : "+fk_vol+
@@ -45,7 +55,7 @@ public class Billet {
 
 
 
-    /**EN DESSOUS SE TROUVE LES GETTERS ET LES SETTERS, CODER AU DESSUS !!*/
+    /***LES GETTERS ET LES SETTERS*/
     public int getId_billet() {
         return id_billet;
     }
