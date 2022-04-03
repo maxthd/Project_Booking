@@ -43,13 +43,13 @@ public class Page_modifier_vol extends JFrame
         setVisible(true);
         for (int i = 0; i < l.getVols().size(); i++) {
             if (l.getVols().get(i).getId_vol() == id_du_vol) {
-                Label_ville_d.setText(l.getVols().get(i).getVille_depart());
-                Label_date_d.setText(l.getVols().get(i).getDate_depart());
-                Label_horaire_d.setText(l.getVols().get(i).getHeure_depart());
-                Label_ville_a.setText(l.getVols().get(i).getVille_arrive());
-                Label_date_a.setText(l.getVols().get(i).getDate_arrive());
-                Label_horaire_a.setText(l.getVols().get(i).getHeure_arrive());
-                Label_vol_dispo.setText(Integer.toString(l.getVols().get(i).getVol_dispo()));
+                Tf_ville_d.setText(l.getVols().get(i).getVille_depart());
+                Tf_date_d.setText(l.getVols().get(i).getDate_depart());
+                Tf_horaire_d.setText(l.getVols().get(i).getHeure_depart());
+                Tf_ville_a.setText(l.getVols().get(i).getVille_arrive());
+                Tf_date_a.setText(l.getVols().get(i).getDate_arrive());
+                Tf_horraire_a.setText(l.getVols().get(i).getHeure_arrive());
+                Tf_vol_dispo.setText(Integer.toString(l.getVols().get(i).getVol_dispo()));
             }
         }
         Button_Quitter.addActionListener(new ActionListener() {

@@ -49,13 +49,13 @@ public class Page_modifier_client extends JFrame {
         {
             if (l.getClients().get(i).getId_client()==id_du_client)
             {
-                Label_age.setText(Integer.toString(l.getClients().get(i).getAge()));
-                Label_mdp.setText(l.getClients().get(i).getPassword());
-                Label_membre.setText(Double.toString(l.getClients().get(i).getMembre()));
-                Label_nom.setText(l.getClients().get(i).getNom());
-                Label_prénom.setText(l.getClients().get(i).getPrenom());
-                Label_solde.setText(Double.toString(l.getClients().get(i).getSolde()));
-                Label_username.setText(l.getClients().get(i).getUsername());
+                Tf_age.setText(Integer.toString(l.getClients().get(i).getAge()));
+                Tf_mdp.setText(l.getClients().get(i).getPassword());
+                Tf_membre.setText(Double.toString(l.getClients().get(i).getMembre()));
+                Tf_nom.setText(l.getClients().get(i).getNom());
+                Tf_prénom.setText(l.getClients().get(i).getPrenom());
+                Tf_solde.setText(Double.toString(l.getClients().get(i).getSolde()));
+                Tf_username.setText(l.getClients().get(i).getUsername());
             }
         }
         Button_valider.addActionListener(new ActionListener() {
