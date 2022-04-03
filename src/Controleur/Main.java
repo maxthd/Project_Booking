@@ -18,11 +18,11 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
-        /*
-        Connexion maconnexion=new Connexion("booking", "root", "");
+
+        /*Connexion maconnexion=new Connexion("booking", "root", "");
         maconnexion.execute_insertimage("INSERT INTO Image(picture) VALUES(?)",
-                //"F:/cours/cours d info/Java/Photos projet Java/Client.png");
-                "C:/Users/Abdelaziz/OneDrive/Bureau/client.png");*/
+                "F:/cours/cours d info/Java/Photos projet Java/Client.png");
+                //"C:/Users/Abdelaziz/OneDrive/Bureau/client.png");*/
 
         Page_acceuil p = new Page_acceuil();
 
