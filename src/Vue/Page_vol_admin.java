@@ -3,6 +3,7 @@ import Controleur.Listes;
 import Controleur.Modifier_vol;
 
 import javax.swing.*;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -30,19 +31,22 @@ public class Page_vol_admin extends JFrame  {
      * @throws ClassNotFoundException
      */
     public Page_vol_admin () throws SQLException, ClassNotFoundException {
+
+        List_vols_id.setFont(new Font("Arial",Font.BOLD,14));
         ArrayList<Integer> tab_id = new ArrayList();
         Listes l=new Listes();
         Modifier_vol modif = new Modifier_vol();
         setContentPane(Menu_vol_admin);
-        setTitle("Page d'acceuil");
+        setTitle("Page menu des vols");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i=0;i<l.getVols().size();i++)
         {
-            String o="Vol "+Integer.toString(l.getVols().get(i).getId_vol())+" "+l.getVols().get(i).getVille_depart()+ " "+
-                    l.getVols().get(i).getVille_arrive()+" départ "+l.getVols().get(i).getDate_depart()+" "+l.getVols().get(i).getHeure_depart()
-                    +" arrivée "+ l.getVols().get(i).getDate_arrive()+" "+l.getVols().get(i).getHeure_arrive();
+            String o=l.getVols().get(i).getVille_depart()+ " -> "+ l.getVols().get(i).getVille_arrive()+
+                    "  Départ "+l.getVols().get(i).getDate_depart()+" à "+l.getVols().get(i).getHeure_depart()
+                    +"  Arrivée "+ l.getVols().get(i).getDate_arrive()+" à "+l.getVols().get(i).getHeure_arrive();
+
             tab_id.add(l.getVols().get(i).getId_vol());
             DLM.addElement(o);
         }

@@ -6,6 +6,7 @@ import Controleur.Listes;
 import Modele.Vol;
 
 import javax.swing.*;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -33,10 +34,11 @@ public class Page_client_vol_retour extends JFrame{
      */
     public Page_client_vol_retour (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+        List_vols_allé.setFont(new Font("Arial",Font.BOLD,14));
+        List_vols_retour.setFont(new Font("Arial",Font.BOLD,14));
         ArrayList<Integer> tab_id1 = new ArrayList();
         ArrayList<Integer> tab_id2 = new ArrayList();
         Listes l = new Listes();
-        Listes lis = new Listes();
         Choix_vol choix_vol1=new Choix_vol(départ, arrivée);
         Choix_vol choix_vol2=new Choix_vol(arrivée, départ);
 
@@ -49,16 +51,15 @@ public class Page_client_vol_retour extends JFrame{
         setVisible(true);
         Combobox_classe_allé.addItem("Economique");
         Combobox_classe_allé.addItem("Affaire");
-        Combobox_classe_allé.addItem("Royale");
+        Combobox_classe_allé.addItem("Premium");
         Combobox_classe_retour.addItem("Economique");
         Combobox_classe_retour.addItem("Affaire");
-        Combobox_classe_retour.addItem("Royale");
+        Combobox_classe_retour.addItem("Premium");
         for (int i=0;i<vols_aller.size();i++)
         {
-            String o = "Vol " + Integer.toString(vols_aller.get(i).getId_vol()) + " " +
-                    vols_aller.get(i).getVille_depart() + " " + vols_aller.get(i).getVille_arrive() +
-                    " départ " + vols_aller.get(i).getDate_depart() + " " +
-                    vols_aller.get(i).getHeure_depart() + " arrivée " + vols_aller.get(i).getDate_arrive()+ " " +
+            String o = vols_aller.get(i).getVille_depart() + " -> " + vols_aller.get(i).getVille_arrive() +
+                    "   Départ " + vols_aller.get(i).getDate_depart() + " à " +
+                    vols_aller.get(i).getHeure_depart() + "   Arrivée " + vols_aller.get(i).getDate_arrive()+ " à " +
                     vols_aller.get(i).getHeure_arrive();
             tab_id1.add(l.getVols().get(i).getId_vol());
             DLM.addElement(o);
@@ -66,10 +67,9 @@ public class Page_client_vol_retour extends JFrame{
         List_vols_allé.setModel(DLM);
         for (int i=0;i<vols_retour.size();i++)
         {
-            String o = "Vol " + Integer.toString(vols_retour.get(i).getId_vol()) + " " +
-                    vols_retour.get(i).getVille_depart() + " " + vols_retour.get(i).getVille_arrive() +
-                    " départ " + vols_retour.get(i).getDate_depart() + " " +
-                    vols_retour.get(i).getHeure_depart() + " arrivée " + vols_retour.get(i).getDate_arrive()+ " " +
+            String o = vols_retour.get(i).getVille_depart() + " -> " + vols_retour.get(i).getVille_arrive() +
+                    "   Départ " + vols_retour.get(i).getDate_depart() + " à " +
+                    vols_retour.get(i).getHeure_depart() + "   Arrivée " + vols_retour.get(i).getDate_arrive()+ " à " +
                     vols_retour.get(i).getHeure_arrive();
             tab_id2.add(l.getVols().get(i).getId_vol());
             DLM2.addElement(o);

@@ -3,6 +3,7 @@ package Vue;
 import Controleur.Listes;
 
 import javax.swing.*;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ public class Page_client_admin extends JFrame {
      */
     public Page_client_admin () throws SQLException, ClassNotFoundException
     {
+        List_clients.setFont(new Font("Arial",Font.BOLD,14));
         ArrayList<Integer> tab_id = new ArrayList();
         Listes l = new Listes();
         setContentPane(Menu_recherche_client);
@@ -31,8 +33,7 @@ public class Page_client_admin extends JFrame {
         setVisible(true);
         for (int i=0;i<l.getClients().size();i++)
         {
-            String o= "id: "+ Integer.toString(l.getClients().get(i).getId_client())+" prénom : " + l.getClients().get(i).getPrenom() +
-                    " nom : " + l.getClients().get(i).getNom();
+            String o= l.getClients().get(i).getNom() + " "+ l.getClients().get(i).getPrenom();
             tab_id.add(l.getClients().get(i).getId_client());
             DLM.addElement(o);
         }

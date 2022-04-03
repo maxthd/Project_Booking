@@ -37,7 +37,7 @@ public class Page_modifier_vol extends JFrame
         Listes l = new Listes();
         Modifier_vol modif = new Modifier_vol();
         setContentPane(Menu_modification_vol);
-        setTitle("modification de vol");
+        setTitle("Modification de vol");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

@@ -4,6 +4,7 @@ import Controleur.Achat_billet;
 import Controleur.Choix_vol;
 import Controleur.Listes;
 import Modele.Vol;
+import java.awt.Font;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -37,6 +38,7 @@ public class Page_client_vol_allé extends JFrame {
      */
     public Page_client_vol_allé (int id_client,String départ, String arrivée) throws SQLException, ClassNotFoundException
     {
+        List_vols.setFont(new Font("Arial",Font.BOLD,14));
 
         ArrayList<Integer> tab_id = new ArrayList();
         Listes l = new Listes();
@@ -51,14 +53,13 @@ public class Page_client_vol_allé extends JFrame {
         setVisible(true);
         Combobox_classe.addItem("Economique");
         Combobox_classe.addItem("Affaire");
-        Combobox_classe.addItem("Royale");
+        Combobox_classe.addItem("Premium");
         Label_solde.setText(Double.toString(achat_billet_get_client.getsolde_client(id_client)));
         for (int i=0;i<vols.size();i++)
         {
-                String o = "Vol " + Integer.toString(vols.get(i).getId_vol()) + " " +
-                        vols.get(i).getVille_depart() + " " + vols.get(i).getVille_arrive() +
-                        " départ " + vols.get(i).getDate_depart() + " " +
-                        vols.get(i).getHeure_depart() + " arrivée " + vols.get(i).getDate_arrive()+ " " +
+                String o = vols.get(i).getVille_depart() + " -> " + vols.get(i).getVille_arrive() +
+                        "   Départ " + vols.get(i).getDate_depart() + " à " +
+                        vols.get(i).getHeure_depart() + "   Arrivée " + vols.get(i).getDate_arrive()+ " à " +
                         vols.get(i).getHeure_arrive();
                 tab_id.add(l.getVols().get(i).getId_vol());
                 DLM.addElement(o);

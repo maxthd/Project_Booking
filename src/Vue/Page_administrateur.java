@@ -18,7 +18,7 @@ public class Page_administrateur extends JFrame {
     public Page_administrateur ()
     {
         setContentPane(Menu_admin);
-        setTitle("Page d'acceuil");
+        setTitle("Page Menu administrateur");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

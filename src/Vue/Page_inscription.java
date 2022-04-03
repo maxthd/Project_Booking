@@ -33,7 +33,7 @@ public class Page_inscription extends JFrame {
     public Page_inscription () throws SQLException, ClassNotFoundException {
         inscription = new Inscription();
         setContentPane(Menu_inscription);
-        setTitle("Page d'acceuil");
+        setTitle("Page d'inscription");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

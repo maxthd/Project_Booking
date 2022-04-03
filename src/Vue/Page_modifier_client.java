@@ -41,7 +41,7 @@ public class Page_modifier_client extends JFrame {
         l = new Listes();
         Modifier_client modif = new Modifier_client();
         setContentPane(Menu_modification_du_client);
-        setTitle("modification de client");
+        setTitle("Modification de client");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -51,7 +51,7 @@ public class Page_modifier_client extends JFrame {
             {
                 Tf_age.setText(Integer.toString(l.getClients().get(i).getAge()));
                 Tf_mdp.setText(l.getClients().get(i).getPassword());
-                Tf_membre.setText(Double.toString(l.getClients().get(i).getMembre()));
+                Tf_membre.setText(Integer.toString(l.getClients().get(i).getMembre()));
                 Tf_nom.setText(l.getClients().get(i).getNom());
                 Tf_prénom.setText(l.getClients().get(i).getPrenom());
                 Tf_solde.setText(Double.toString(l.getClients().get(i).getSolde()));

@@ -28,7 +28,7 @@ public class Page_login extends JFrame {
         log=new Login(lis);
 
         setContentPane(Menu_login);
-        setTitle("Page d'accueil");
+        setTitle("Page login");
         setSize(800,600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

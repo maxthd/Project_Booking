@@ -3,6 +3,7 @@ package Vue;
 import Controleur.Historique_client;
 
 import javax.swing.*;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ public class Page_client_historique extends JFrame {
      */
     public Page_client_historique(int id_client) throws SQLException, ClassNotFoundException
     {
+        List_histo.setFont(new Font("Arial",Font.BOLD,14));
         Historique_client historique_client = new Historique_client(id_client);
         ArrayList<Vol> vols=historique_client.get_historique();
 
@@ -33,9 +35,10 @@ public class Page_client_historique extends JFrame {
         setVisible(true);
         for (int i=0; i<vols.size();i++)
         {
-            String o="Vol "+Integer.toString(vols.get(i).getId_vol())+" "+vols.get(i).getVille_depart()+ " "+
-                    vols.get(i).getVille_arrive()+" départ "+vols.get(i).getDate_depart()+" "+vols.get(i).getHeure_depart()
-                    +" arrivée "+ vols.get(i).getDate_arrive()+" "+vols.get(i).getHeure_arrive();
+            String o = vols.get(i).getVille_depart() + " -> " + vols.get(i).getVille_arrive() +
+                    "   Départ " + vols.get(i).getDate_depart() + " à " +
+                    vols.get(i).getHeure_depart() + "   Arrivée " + vols.get(i).getDate_arrive()+ " à " +
+                    vols.get(i).getHeure_arrive();
             DLM.addElement(o);
         }
         List_histo.setModel(DLM);

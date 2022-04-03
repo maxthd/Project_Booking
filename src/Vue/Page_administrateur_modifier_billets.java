@@ -31,7 +31,7 @@ public class Page_administrateur_modifier_billets extends JFrame {
         Listes l = new Listes();
         Modifier_billet modif = new Modifier_billet(id_du_vol);
         setContentPane(Menu_modif_billets);
-        setTitle("modification de billlets");
+        setTitle("Modification de billlets");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
