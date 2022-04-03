@@ -19,6 +19,11 @@ public class Page_client_vol_allé extends JFrame {
     private JButton Button_valider;
     private JButton Button_quitter;
     private JPanel Menu_client_vol_allé;
+    private JLabel Label_solde;
+    private JLabel Label_prix_init;
+    private JLabel Label_reduction;
+    private JLabel Label_prix_final;
+    private JButton voirPrixButton;
     DefaultListModel DLM =new DefaultListModel();
 
 
@@ -36,7 +41,7 @@ public class Page_client_vol_allé extends JFrame {
         ArrayList<Integer> tab_id = new ArrayList();
         Listes l = new Listes();
         Choix_vol choix_vol=new Choix_vol(départ, arrivée);
-
+        Achat_billet achat_billet_get_client = new Achat_billet(0);
         ArrayList<Vol> vols=choix_vol.get_vols();
 
         setContentPane(Menu_client_vol_allé);
@@ -47,6 +52,7 @@ public class Page_client_vol_allé extends JFrame {
         Combobox_classe.addItem("Economique");
         Combobox_classe.addItem("Affaire");
         Combobox_classe.addItem("Royale");
+        Label_solde.setText(Double.toString(achat_billet_get_client.getsolde_client(id_client)));
         for (int i=0;i<vols.size();i++)
         {
                 String o = "Vol " + Integer.toString(vols.get(i).getId_vol()) + " " +
@@ -90,6 +96,29 @@ public class Page_client_vol_allé extends JFrame {
                     }
                 }
             }
+        });
+        voirPrixButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int index=List_vols.getSelectedIndex();
+                for(int i=0;i<l.getVols().size();i++) {
+                    if (l.getVols().get(i).getId_vol() == tab_id.get(index)) {
+                        try {
+                            Achat_billet achat = new Achat_billet(tab_id.get(index));
+                            int prix_fin = (int) (achat.getcout_original(Combobox_classe.getSelectedIndex() + 1)-achat.getreduction(Combobox_classe.getSelectedIndex() + 1,id_client));
+                            Label_prix_final.setText(Integer.toString(prix_fin));
+                            Label_prix_init.setText(String.valueOf(achat.getcout_original(Combobox_classe.getSelectedIndex() + 1)));
+                            Label_reduction.setText(String.valueOf(achat.getreduction(Combobox_classe.getSelectedIndex() + 1,id_client)));
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        } catch (ClassNotFoundException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    }
+                }
+            }
+
         });
     }
 }
