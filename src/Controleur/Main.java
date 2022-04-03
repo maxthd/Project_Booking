@@ -11,35 +11,20 @@ import Modele.*;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-//POUR CHARGER UNE IMAGE
-/**https://stackhowto.com/how-to-insert-and-retrieve-an-image-from-mysql-database-using-java/
- * https://stackoverflow.com/questions/34328601/how-to-insert-images-in-blob-in-mysql-table-using-only-sql-syntax-without-php
- * */
+//On a utilisé 4 librairies: mail.jar, jfreechart.jar, common.jar et mysqlconnector
+//https://stackhowto.com/how-to-insert-and-retrieve-an-image-from-mysql-database-using-java/
+//https://stackoverflow.com/questions/34328601/how-to-insert-images-in-blob-in-mysql-table-using-only-sql-syntax-without-php
+//Code de Monsieur SEGADO JDBC
 public class Main {
     public static void main(String[] s) throws SQLException, ClassNotFoundException, FileNotFoundException {
 
-        Page_acceuil p = new Page_acceuil();
-
-
-
-        /* LE CODE A APPELER POUR ENVOYER DES MAILS!! FAUT AJOUTER LA LIBRAIRIE mail.Jar
-        SendEmail.send("projetbooking55@gmail.com","Projetbooking55.",
-                "galiazzogioiamariasoleeeeeeeeeeeeeeeeeeeeeeee@gmail.com","Bonjour","IJUSTE");
-         */
-
-
-        /*CECI EST A APPELE POUR INSERER LES VALEURS DE IMAGES DANS TABLEAU
-        JE PR2CISE QU IL FAUT QUE LE CHEMIN CORRESPONDENT A L EMPLACEMENT DE VOTRE IMAGE*/
-
-        /*Connexion maconnexion=new Connexion("booking", "root", "");
+        /*
+        Connexion maconnexion=new Connexion("booking", "root", "");
         maconnexion.execute_insertimage("INSERT INTO Image(picture) VALUES(?)",
-                "F:/cours/cours d info/Java/Photos projet Java/Client.png");*/
+                //"F:/cours/cours d info/Java/Photos projet Java/Client.png");
+                "C:/Users/Abdelaziz/OneDrive/Bureau/client.png");*/
 
-        //CECI EST POUR AFFICHER L IMAGE
-        //new ShowMyImage();
-
-
-
+        Page_acceuil p = new Page_acceuil();
 
     }
 

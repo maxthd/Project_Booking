@@ -117,7 +117,7 @@ public class Page_client extends JFrame  {
     public ImageIcon renvoyer_icone ()
     {
         ImageIcon temp = new ImageIcon();
-        Connexion maconnexion = null;
+        Connexion maconnexion =null;
         try {
             maconnexion = new Connexion("booking", "root", "");
             ImageIcon icone = maconnexion.fill_imageicon("SELECT picture FROM Image WHERE id_image = 1");

@@ -38,6 +38,9 @@ public class Inscription {
             maconnexion.executeinsert_client("INSERT INTO Client (nom, prenom, username, password," +
                     " age, solde, membre, fk_image) VALUES" +
                     "(?, ?, ?, ?, ?, ?, ?, 1)", nom, prenom, username, password, age, solde, membre);
+
+            SendEmail.send("projetbooking55@gmail.com","Projetbooking55.",
+                    username,"Message de bienvenue","BIENVENUE CHEZ NOUS !!!");
         }
         else
             System.out.println("Un client avec ce username ou ce mot de passe existe déja. Choisis un autre");

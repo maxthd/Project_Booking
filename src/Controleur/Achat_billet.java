@@ -89,9 +89,8 @@ public class Achat_billet {
                 //ENVOYER UN MAIL POUR CONFIRMER LE BILLET ET SON TYPE
                 String message = message(billet);
 
-                /**POUR L INSTANT LE USERNAME N EST PAS UN VRAI GMAIL DONC CA MARCHERA PAS TANT QU ON A PAS MAJ LA BDD
                  SendEmail.send("projetbooking55@gmail.com", "Projetbooking55.",
-                 client.getUsername(), "Confirmation billet", message);*/
+                 client.getUsername(), "Confirmation billet", message);
 
                 //METTRE LE VOL EN INDISPONIBLE SI C'ETAIT LE DERNIER BILLET
                 if (Vol_encoredispo() == false)
