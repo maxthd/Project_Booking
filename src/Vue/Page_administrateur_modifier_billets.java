@@ -33,6 +33,7 @@ public class Page_administrateur_modifier_billets extends JFrame {
         setContentPane(Menu_modif_billets);
         setTitle("Modification de billlets");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i = 0; i < l.getVols().size(); i++) {
@@ -50,8 +51,8 @@ public class Page_administrateur_modifier_billets extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    modif.Update_billet(Integer.parseInt(Tf_cout_eco.getText()), Integer.parseInt(Tf_reduc_eco.getText()), Integer.parseInt(Tf_cout_affaire.getText()),
-                            Integer.parseInt(Tf_reduc_affaire.getText()), Integer.parseInt(Tf_cout_royal.getText()), Integer.parseInt(Tf_reduc_royal.getText()));
+                    modif.Update_billet(Double.parseDouble(Tf_cout_eco.getText()), Double.parseDouble(Tf_reduc_eco.getText()), Double.parseDouble(Tf_cout_affaire.getText()),
+                            Double.parseDouble(Tf_reduc_affaire.getText()), Double.parseDouble(Tf_cout_royal.getText()), Double.parseDouble(Tf_reduc_royal.getText()));
                     dispose();
                     Page_administrateur p = new Page_administrateur();
                 } catch (SQLException ex) {

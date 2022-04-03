@@ -30,6 +30,7 @@ public class Page_administrateur_ajouter_vol extends JFrame {
         setContentPane(Menu_ajouter_vol);
         setTitle("Page ajout de vol");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 

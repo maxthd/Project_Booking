@@ -20,6 +20,7 @@ public class Page_administrateur extends JFrame {
         setContentPane(Menu_admin);
         setTitle("Page Menu administrateur");
         setSize(800,600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Button_quitter.addActionListener(new ActionListener() {

@@ -30,6 +30,7 @@ public class Page_login extends JFrame {
         setContentPane(Menu_login);
         setTitle("Page login");
         setSize(800,600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Button_valider.addActionListener(new ActionListener() {
@@ -53,6 +54,7 @@ public class Page_login extends JFrame {
                         ex.printStackTrace();
                     }
                 }
+
             }
         });
         Button_quitter.addActionListener(new ActionListener() {

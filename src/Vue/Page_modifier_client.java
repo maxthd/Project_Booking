@@ -43,6 +43,7 @@ public class Page_modifier_client extends JFrame {
         setContentPane(Menu_modification_du_client);
         setTitle("Modification de client");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i=0;i<l.getClients().size();i++)

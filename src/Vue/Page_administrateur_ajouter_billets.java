@@ -34,6 +34,7 @@ public class Page_administrateur_ajouter_billets extends JFrame {
         setContentPane(Menu_ajouter_billet);
         setTitle("Page ajout de billlets");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 

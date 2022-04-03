@@ -46,7 +46,8 @@ public class Page_client_vol_retour extends JFrame{
         ArrayList<Vol> vols_retour=choix_vol2.get_vols();
         setContentPane(Menu_vol_retour);
         setTitle("Page selection des vols allers-retours");
-        setSize(1200,800);
+        setSize(1500,1000);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Combobox_classe_allé.addItem("Economique");
@@ -113,6 +114,7 @@ public class Page_client_vol_retour extends JFrame{
                         }
                     }
                 }
+
             }
         });
     }

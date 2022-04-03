@@ -23,6 +23,7 @@ public class Page_acceuil extends JFrame
         setContentPane(menu);
         setTitle("Page d'accueil");
         setSize(800,600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 

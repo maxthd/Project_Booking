@@ -39,6 +39,7 @@ public class Page_modifier_vol extends JFrame
         setContentPane(Menu_modification_vol);
         setTitle("Modification de vol");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i = 0; i < l.getVols().size(); i++) {

@@ -35,6 +35,7 @@ public class Page_inscription extends JFrame {
         setContentPane(Menu_inscription);
         setTitle("Page d'inscription");
         setSize(800,600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Button_valider.addActionListener(new ActionListener() {

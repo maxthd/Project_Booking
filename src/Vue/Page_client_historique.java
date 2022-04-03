@@ -31,6 +31,7 @@ public class Page_client_historique extends JFrame {
         setContentPane(Menu_historique);
         setTitle("Page historique");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i=0; i<vols.size();i++)

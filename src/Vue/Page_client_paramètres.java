@@ -36,6 +36,7 @@ public class Page_client_paramètres extends JFrame {
         setContentPane(Menu_parametre_client);
         setTitle("Modification de client");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i=0;i<l.getClients().size();i++)

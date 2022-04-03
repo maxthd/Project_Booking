@@ -49,6 +49,7 @@ public class Page_client_vol_allé extends JFrame {
         setContentPane(Menu_client_vol_allé);
         setTitle("Page selection du vol");
         setSize(800,600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Combobox_classe.addItem("Economique");
@@ -96,6 +97,7 @@ public class Page_client_vol_allé extends JFrame {
                         }
                     }
                 }
+
             }
         });
         voirPrixButton.addActionListener(new ActionListener() {

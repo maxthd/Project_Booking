@@ -29,6 +29,7 @@ public class Page_client_admin extends JFrame {
         setContentPane(Menu_recherche_client);
         setTitle(" Page recherche client");
         setSize(800, 600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         for (int i=0;i<l.getClients().size();i++)

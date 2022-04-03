@@ -31,6 +31,7 @@ public class Page_client extends JFrame {
         setContentPane(Menu_client);
         setTitle("Page Client");
         setSize(800,600);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         Combobox_allé_retour.addItem("Aller");
