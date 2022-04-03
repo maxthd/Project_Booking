@@ -106,8 +106,8 @@ public class Page_client_vol_allé extends JFrame {
                     if (l.getVols().get(i).getId_vol() == tab_id.get(index)) {
                         try {
                             Achat_billet achat = new Achat_billet(tab_id.get(index));
-                            int prix_fin = (int) (achat.getcout_original(Combobox_classe.getSelectedIndex() + 1)-achat.getreduction(Combobox_classe.getSelectedIndex() + 1,id_client));
-                            Label_prix_final.setText(Integer.toString(prix_fin));
+                            double prix_fin =  (achat.getcout_original(Combobox_classe.getSelectedIndex() + 1)-achat.getreduction(Combobox_classe.getSelectedIndex() + 1,id_client));
+                            Label_prix_final.setText(Double.toString(prix_fin));
                             Label_prix_init.setText(String.valueOf(achat.getcout_original(Combobox_classe.getSelectedIndex() + 1)));
                             Label_reduction.setText(String.valueOf(achat.getreduction(Combobox_classe.getSelectedIndex() + 1,id_client)));
                         } catch (SQLException ex) {
